@@ -75,7 +75,7 @@ def fetch_news() -> list[dict[str, Any]]:
                 if not title or not link or not dt or dt < CUTOFF or dt > UTC_NOW + timedelta(hours=1):
                     continue
                 summary = clean(e.get("summary", "") or e.get("description", ""), 900)
-                if not AI_TERMS.search(title + " " + summary + " " + source):
+                if not AI_TERMS.search(title + " " + summary):
                     continue
                 key = re.sub(r"\W+", "", title.lower())
                 if key not in found:
