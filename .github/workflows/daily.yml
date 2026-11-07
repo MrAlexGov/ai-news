@@ -1,9 +1,9 @@
-name: Daily AI News Digest
+name: Publish AI News Digest
 
 on:
-  schedule:
-    # 05:00 UTC = 08:00 Moscow time
-    - cron: "0 5 * * *"
+  push:
+    paths:
+      - "data/digest.json"
   workflow_dispatch:
 
 permissions:
@@ -11,9 +11,9 @@ permissions:
   actions: write
 
 jobs:
-  send-digest:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -21,16 +21,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Build and send digest
+      - name: Install publisher dependency
+        run: pip install requests==2.32.5
+      - name: Publish editor-prepared digest
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_CHAT_ID_VARIABLE: ${{ vars.TELEGRAM_CHAT_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-          WINDOW_HOURS: "24"
-          MAX_ITEMS: "10"
+          DIGEST_PATH: data/digest.json
         run: python main.py
