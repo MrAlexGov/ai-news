@@ -13,7 +13,7 @@ import feedparser
 import requests
 
 BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
-CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 WINDOW_HOURS = int(os.getenv("WINDOW_HOURS", "24"))
 MAX_ITEMS = int(os.getenv("MAX_ITEMS", "10"))
 UTC_NOW = datetime.now(timezone.utc)
@@ -138,7 +138,34 @@ def build_digest(items: list[dict[str, Any]]) -> str:
     return "\n".join(blocks)
 
 
+def resolve_chat_id() -> str:
+    """Use the configured chat ID, or discover the most recent private chat via getUpdates."""
+    if CHAT_ID:
+        return CHAT_ID
+    response = SESSION.get(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates",
+        params={"limit": 100, "allowed_updates": ["message"]},
+        timeout=20,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if not payload.get("ok"):
+        raise RuntimeError("Telegram getUpdates failed; check the bot token and try again.")
+    private_chats = []
+    for update in payload.get("result", []):
+        message = update.get("message") or update.get("edited_message") or {}
+        chat = message.get("chat") or {}
+        if chat.get("type") == "private" and chat.get("id") is not None:
+            private_chats.append(chat["id"])
+    if not private_chats:
+        raise RuntimeError("No private chat found. Open the bot in Telegram, press Start, send it a message, then rerun the workflow.")
+    discovered = str(private_chats[-1])
+    print("Automatically discovered the private Telegram chat ID; it will not be printed to logs.")
+    return discovered
+
+
 def send_telegram(text: str) -> None:
+    chat_id = resolve_chat_id()
     # Telegram message limit is 4096 chars. Split only between news blocks.
     chunks: list[str] = []
     current = ""
@@ -154,7 +181,7 @@ def send_telegram(text: str) -> None:
     for chunk in chunks:
         response = SESSION.post(
             f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
-            json={"chat_id": CHAT_ID, "text": chunk, "parse_mode": "HTML", "disable_web_page_preview": True},
+            json={"chat_id": chat_id, "text": chunk, "parse_mode": "HTML", "disable_web_page_preview": True},
             timeout=30,
         )
         response.raise_for_status()
