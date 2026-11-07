@@ -14,7 +14,9 @@ import feedparser
 import requests
 
 BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip() or os.getenv("TELEGRAM_CHAT_ID_VARIABLE", "").strip()
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "").strip()
+GITHUB_REPOSITORY = os.getenv("GITHUB_REPOSITORY", "").strip()
 WINDOW_HOURS = int(os.getenv("WINDOW_HOURS", "24"))
 MAX_ITEMS = int(os.getenv("MAX_ITEMS", "10"))
 UTC_NOW = datetime.now(timezone.utc)
@@ -139,8 +141,38 @@ def build_digest(items: list[dict[str, Any]]) -> str:
     return "\n".join(blocks)
 
 
+def persist_chat_id_as_repository_variable(chat_id: str) -> None:
+    """Persist the discovered chat ID as a GitHub Actions repository variable."""
+    if not GITHUB_TOKEN or not GITHUB_REPOSITORY:
+        print("GITHUB_TOKEN or GITHUB_REPOSITORY unavailable; chat ID was not persisted.")
+        return
+    api = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/actions/variables/TELEGRAM_CHAT_ID"
+    headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    try:
+        current = SESSION.get(api, headers=headers, timeout=20)
+        if current.status_code == 404:
+            response = SESSION.post(
+                f"https://api.github.com/repos/{GITHUB_REPOSITORY}/actions/variables",
+                headers=headers,
+                json={"name": "TELEGRAM_CHAT_ID", "value": chat_id},
+                timeout=20,
+            )
+        else:
+            current.raise_for_status()
+            response = SESSION.patch(api, headers=headers, json={"name": "TELEGRAM_CHAT_ID", "value": chat_id}, timeout=20)
+        response.raise_for_status()
+        print("Telegram chat ID saved to GitHub Actions Variables.")
+    except requests.RequestException as exc:
+        status = getattr(getattr(exc, "response", None), "status_code", "unknown")
+        print(f"Could not persist Telegram chat ID in GitHub Actions Variables (HTTP {status}).")
+
+
 def resolve_chat_id() -> str:
-    """Use the configured chat ID, or discover the most recent private chat via getUpdates."""
+    """Use configured secret/variable, or discover the private chat once via getUpdates."""
     if CHAT_ID:
         return CHAT_ID
     response = SESSION.get(
@@ -161,6 +193,7 @@ def resolve_chat_id() -> str:
     if not private_chats:
         raise RuntimeError("No private chat found. Open the bot in Telegram, press Start, send it a message, then rerun the workflow.")
     discovered = str(private_chats[-1])
+    persist_chat_id_as_repository_variable(discovered)
     print("Automatically discovered the private Telegram chat ID; it will not be printed to logs.")
     return discovered
 
