@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import json
 import os
 import re
 import sys
@@ -144,7 +145,7 @@ def resolve_chat_id() -> str:
         return CHAT_ID
     response = SESSION.get(
         f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates",
-        params={"limit": 100, "allowed_updates": ["message"]},
+        params={"limit": 100, "allowed_updates": json.dumps(["message"])},
         timeout=20,
     )
     response.raise_for_status()
