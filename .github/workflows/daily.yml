@@ -9,7 +9,6 @@ on:
 permissions:
   contents: read
   actions: write
-  actions: write
 
 jobs:
   send-digest:
@@ -29,9 +28,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_CHAT_ID_VARIABLE: ${{ vars.TELEGRAM_CHAT_ID }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
           TELEGRAM_CHAT_ID_VARIABLE: ${{ vars.TELEGRAM_CHAT_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
