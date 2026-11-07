@@ -36,14 +36,14 @@ FEEDS = [
     ("AI News", "https://www.artificialintelligence-news.com/feed/"),
 ]
 
-AI_TERMS = re.compile(r"\\b(ai|artificial intelligence|machine learning|llm|language model|agent|生成|ии|нейросет|deep learning|генеративн|робот|openai|anthropic|gemini|claude|gpt|llama|mistral|nvidia|deepmind)\\b", re.I)
+AI_TERMS = re.compile(r"\b(ai|artificial intelligence|machine learning|llm|language model|agent|生成|ии|нейросет|deep learning|генеративн|робот|openai|anthropic|gemini|claude|gpt|llama|mistral|nvidia|deepmind)\b", re.I)
 
 
 def clean(value: str, limit: int = 600) -> str:
     value = re.sub(r"<[^>]+>", " ", value or "")
     value = html.unescape(value)
-    value = re.sub(r"https?://\\S+", "", value)
-    value = re.sub(r"\\s+", " ", value).strip()
+    value = re.sub(r"https?://\S+", "", value)
+    value = re.sub(r"\s+", " ", value).strip()
     return value[:limit].rstrip()
 
 
@@ -77,7 +77,7 @@ def fetch_news() -> list[dict[str, Any]]:
                 summary = clean(e.get("summary", "") or e.get("description", ""), 900)
                 if not AI_TERMS.search(title + " " + summary + " " + source):
                     continue
-                key = re.sub(r"\\W+", "", title.lower())
+                key = re.sub(r"\W+", "", title.lower())
                 if key not in found:
                     found[key] = {"title": title, "url": link, "source": source, "date": dt, "summary": summary}
         except Exception as exc:
@@ -105,7 +105,7 @@ def hn_reaction(title: str) -> str | None:
                 comment_texts.append(text)
         result = f"Hacker News: {points} баллов, {comments} комментариев. [Обсуждение]({story_url})"
         if comment_texts:
-            result += "\\nПримеры комментариев: " + " / ".join(comment_texts[:2])
+            result += "\nПримеры комментариев: " + " / ".join(comment_texts[:2])
         return result
     except Exception as exc:
         print(f"HN lookup error: {exc}", file=sys.stderr)
@@ -114,9 +114,9 @@ def hn_reaction(title: str) -> str | None:
 
 def build_digest(items: list[dict[str, Any]]) -> str:
     local_day = UTC_NOW.astimezone(timezone(timedelta(hours=3))).strftime("%d.%m.%Y")
-    header = f"🧠 <b>AI NEWS — {local_day}</b>\\nЗа последние {WINDOW_HOURS} часов · международная подборка\\n"
+    header = f"🧠 <b>AI NEWS — {local_day}</b>\nЗа последние {WINDOW_HOURS} часов · международная подборка\n"
     if not items:
-        return header + "\\nЗа выбранные 24 часа не удалось подтвердить новости из подключённых источников. Попробуем в следующем выпуске."
+        return header + "\nЗа выбранные 24 часа не удалось подтвердить новости из подключённых источников. Попробуем в следующем выпуске."
     blocks = [header]
     for i, item in enumerate(items[:MAX_ITEMS], 1):
         summary = item["summary"] or "В RSS-ленте опубликована новая новость; подробности — по ссылке на первоисточник."
@@ -124,26 +124,26 @@ def build_digest(items: list[dict[str, Any]]) -> str:
         reaction = hn_reaction(item["title"])
         published = item["date"].strftime("%d.%m %H:%M UTC")
         block = (
-            f"\\n<b>{i}. {html.escape(item['title'])}</b>\\n"
-            f"<i>{html.escape(item['source'])} · {published}</i>\\n"
-            f"{html.escape(summary)}\\n"
+            f"\n<b>{i}. {html.escape(item['title'])}</b>\n"
+            f"<i>{html.escape(item['source'])} · {published}</i>\n"
+            f"{html.escape(summary)}\n"
             f"🔗 <a href=\"{html.escape(item['url'], quote=True)}\">Первоисточник</a>"
         )
         if reaction:
-            block += "\\n💬 " + html.escape(reaction).replace("&lt;", "<").replace("&gt;", ">")
+            block += "\n💬 " + html.escape(reaction).replace("&lt;", "<").replace("&gt;", ">")
         else:
-            block += "\\n💬 Реакция сообщества: заметного обсуждения в Hacker News не найдено."
+            block += "\n💬 Реакция сообщества: заметного обсуждения в Hacker News не найдено."
         blocks.append(block)
-    blocks.append("\\n<b>Важно:</b> подборка формируется по свежести публикаций из открытых RSS-источников; описания основаны на их аннотациях. Это не полноценный редакционный рейтинг.")
-    return "\\n".join(blocks)
+    blocks.append("\n<b>Важно:</b> подборка формируется по свежести публикаций из открытых RSS-источников; описания основаны на их аннотациях. Это не полноценный редакционный рейтинг.")
+    return "\n".join(blocks)
 
 
 def send_telegram(text: str) -> None:
     # Telegram message limit is 4096 chars. Split only between news blocks.
     chunks: list[str] = []
     current = ""
-    for part in text.split("\\n\\n"):
-        candidate = (current + "\\n\\n" + part).strip()
+    for part in text.split("\n\n"):
+        candidate = (current + "\n\n" + part).strip()
         if len(candidate) > 3900 and current:
             chunks.append(current)
             current = part
