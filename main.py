@@ -102,6 +102,7 @@ def fetch_openrouter_radar() -> str:
             ("Новые и быстрорастущие модели", ("New and trending models",)),
             ("Популярные модели генерации изображений", ("Top Image models", "Top image models")),
             ("Популярные приложения и агенты", ("Top Apps", "App rankings")),
+            ("Бесплатные модели", ("Free AI Models on OpenRouter", "Top Free Models on OpenRouter")),
         ]
         sections = []
         for heading, variants in markers:
@@ -196,9 +197,9 @@ def hn_reaction(title: str) -> str | None:
             text = clean(c.get("text", ""), 240)
             if text:
                 comment_texts.append(text)
-        result = f"Hacker News: {points} баллов, {comments} комментариев. [Обсуждение]({story_url})"
+        result = f"Обсуждение на Hacker News: {points} баллов, {comments} комментариев. [Открыть]({story_url})"
         if comment_texts:
-            result += "\nПримеры комментариев: " + " / ".join(comment_texts[:2])
+            result += "\nПримеры комментариев: " + " / ".join(translate_ru(x, 240) for x in comment_texts[:2])
         return result
     except Exception as exc:
         print(f"HN lookup error: {exc}", file=sys.stderr)
@@ -209,7 +210,9 @@ def build_digest(items: list[dict[str, Any]]) -> str:
     local_day = UTC_NOW.astimezone(timezone(timedelta(hours=3))).strftime("%d.%m.%Y")
     header = f"🧠 <b>AI НОВОСТИ — {local_day}</b>\nЗа последние {WINDOW_HOURS} часов · бесплатные модели, агенты и AI-приложения\n"
     if not items:
-        return header + "\nЗа выбранные 24 часа не удалось подтвердить новости из подключённых источников. Попробуем в следующем выпуске."
+        radar = fetch_openrouter_radar()
+        empty_text = header + "\nЗа выбранные 24 часа не удалось подтвердить новости из RSS-источников."
+        return empty_text + (radar if radar else "\nПроверим снова в следующем выпуске.")
     blocks = [header]
     for i, item in enumerate(items[:MAX_ITEMS], 1):
         summary = item["summary"] or "В RSS-ленте опубликована новая новость; подробности — по ссылке на первоисточник."
