@@ -23,6 +23,7 @@ UTC_NOW = datetime.now(timezone.utc)
 CUTOFF = UTC_NOW - timedelta(hours=WINDOW_HOURS)
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": "AI-News-Digest/1.0 (+https://github.com/MrAlexGov/ai-news)"})
+TRANSLATION_CACHE: dict[str, str] = {}
 
 FEEDS = [
     ("OpenAI", "https://openai.com/news/rss.xml"),
@@ -37,9 +38,98 @@ FEEDS = [
     ("VentureBeat AI", "https://venturebeat.com/category/ai/feed/"),
     ("Ars Technica AI", "https://feeds.arstechnica.com/arstechnica/technology-lab"),
     ("AI News", "https://www.artificialintelligence-news.com/feed/"),
+    ("Nous Research", "https://nousresearch.com/feed/"),
 ]
 
 AI_TERMS = re.compile(r"\b(ai|artificial intelligence|machine learning|llm|language model|agent|生成|ии|нейросет|deep learning|генеративн|робот|openai|anthropic|gemini|claude|gpt|llama|mistral|nvidia|deepmind)\b", re.I)
+
+
+PRIORITY_TERMS = {
+    "free": 9, "free tier": 10, "free access": 10, "free model": 10,
+    "open source": 8, "open-source": 8, "open weights": 8, "free api": 10,
+    "agent": 7, "assistant": 7, "app": 6, "application": 6,
+    "launch": 4, "release": 4, "available": 3, "trending": 5,
+    "hermes": 8, "openclaw": 8, "tool": 4, "browser": 4,
+    "бесплат": 10, "открыт": 8, "агент": 7, "ассистент": 7, "приложен": 6,
+}
+
+
+def translate_ru(value: str, limit: int = 900) -> str:
+    """Translate editorial text to Russian, caching repeated strings."""
+    value = clean(value, limit)
+    if not value or re.search(r"[А-Яа-яЁё]", value):
+        return value
+    if value in TRANSLATION_CACHE:
+        return TRANSLATION_CACHE[value]
+    try:
+        response = SESSION.get(
+            "https://translate.googleapis.com/translate_a/single",
+            params={"client": "gtx", "sl": "auto", "tl": "ru", "dt": "t", "q": value},
+            timeout=15,
+        )
+        response.raise_for_status()
+        translated = "".join(part[0] for part in response.json()[0] if part and part[0])
+        result = translated.strip() or value
+    except Exception as exc:
+        print(f"Translation unavailable: {exc}", file=sys.stderr)
+        result = value
+    TRANSLATION_CACHE[value] = result
+    return result
+
+
+def relevance_score(item: dict[str, Any]) -> int:
+    text = (item.get("title", "") + " " + item.get("summary", "")).lower()
+    score = sum(weight for term, weight in PRIORITY_TERMS.items() if term in text)
+    if re.search(r"\b(model|assistant|agent|app|tool|api|модель|ассистент|агент|приложен)\b", text):
+        score += 3
+    if re.search(r"\b(raises|funding|valuation|lawsuit|partnership|acquisition)\b", text):
+        score -= 3
+    return score
+
+
+def fetch_openrouter_radar() -> str:
+    """Summarize public OpenRouter usage rankings and free-model/app discovery pages."""
+    try:
+        response = SESSION.get("https://openrouter.ai/for-ai", timeout=25)
+        response.raise_for_status()
+        raw = html.unescape(response.text)
+        raw = re.sub(r"<[^>]+>", "\n", raw)
+        raw = re.sub(r"[ \t]+", " ", raw)
+        lines = [re.sub(r"\s+", " ", line).strip() for line in raw.splitlines()]
+        lines = [line for line in lines if line]
+        markers = [
+            ("Популярные модели", ("Top models this month", "Top models by weekly usage")),
+            ("Новые и быстрорастущие модели", ("New and trending models",)),
+            ("Популярные модели генерации изображений", ("Top Image models", "Top image models")),
+            ("Популярные приложения и агенты", ("Top Apps", "App rankings")),
+        ]
+        sections = []
+        for heading, variants in markers:
+            start = next((i for i, line in enumerate(lines) if any(v.lower() in line.lower() for v in variants)), None)
+            if start is None:
+                continue
+            excerpt = []
+            for line in lines[start + 1:start + 10]:
+                line = line[:217] + "..." if len(line) > 220 else line
+                if line not in excerpt:
+                    excerpt.append(line)
+                if len(excerpt) >= 5:
+                    break
+            if excerpt:
+                sections.append("<b>" + heading + "</b>\n" + "\n".join(html.escape(translate_ru(x, 240)) for x in excerpt))
+        if not sections:
+            return ""
+        return (
+            "\n\n📊 <b>РАДАР OPENROUTER</b>\n"
+            + "\n\n".join(sections)
+            + '\n\n<a href="https://openrouter.ai/rankings">Рейтинг моделей</a> · '
+              '<a href="https://openrouter.ai/rankings/image">Рейтинг генерации изображений</a> · '
+              '<a href="https://openrouter.ai/apps">Каталог приложений и агентов</a> · '
+              '<a href="https://openrouter.ai/collections/free-models">Бесплатные модели</a>'
+        )
+    except Exception as exc:
+        print(f"OpenRouter radar unavailable: {exc}", file=sys.stderr)
+        return ""
 
 
 def clean(value: str, limit: int = 600) -> str:
@@ -85,7 +175,7 @@ def fetch_news() -> list[dict[str, Any]]:
                     found[key] = {"title": title, "url": link, "source": source, "date": dt, "summary": summary}
         except Exception as exc:
             print(f"Feed error ({source}): {exc}", file=sys.stderr)
-    return sorted(found.values(), key=lambda x: x["date"], reverse=True)
+    return sorted(found.values(), key=lambda x: (relevance_score(x), x["date"]), reverse=True)
 
 
 def hn_reaction(title: str) -> str | None:
@@ -117,17 +207,18 @@ def hn_reaction(title: str) -> str | None:
 
 def build_digest(items: list[dict[str, Any]]) -> str:
     local_day = UTC_NOW.astimezone(timezone(timedelta(hours=3))).strftime("%d.%m.%Y")
-    header = f"🧠 <b>AI NEWS — {local_day}</b>\nЗа последние {WINDOW_HOURS} часов · международная подборка\n"
+    header = f"🧠 <b>AI НОВОСТИ — {local_day}</b>\nЗа последние {WINDOW_HOURS} часов · бесплатные модели, агенты и AI-приложения\n"
     if not items:
         return header + "\nЗа выбранные 24 часа не удалось подтвердить новости из подключённых источников. Попробуем в следующем выпуске."
     blocks = [header]
     for i, item in enumerate(items[:MAX_ITEMS], 1):
         summary = item["summary"] or "В RSS-ленте опубликована новая новость; подробности — по ссылке на первоисточник."
-        summary = summary[:500]
+        summary = translate_ru(summary[:700], 700)
+        title_ru = translate_ru(item["title"], 220)
         reaction = hn_reaction(item["title"])
         published = item["date"].strftime("%d.%m %H:%M UTC")
         block = (
-            f"\n<b>{i}. {html.escape(item['title'])}</b>\n"
+            f"\n<b>{i}. {html.escape(title_ru)}</b>\n"
             f"<i>{html.escape(item['source'])} · {published}</i>\n"
             f"{html.escape(summary)}\n"
             f"🔗 <a href=\"{html.escape(item['url'], quote=True)}\">Первоисточник</a>"
@@ -137,7 +228,10 @@ def build_digest(items: list[dict[str, Any]]) -> str:
         else:
             block += "\n💬 Реакция сообщества: заметного обсуждения в Hacker News не найдено."
         blocks.append(block)
-    blocks.append("\n<b>Важно:</b> подборка формируется по свежести публикаций из открытых RSS-источников; описания основаны на их аннотациях. Это не полноценный редакционный рейтинг.")
+    radar = fetch_openrouter_radar()
+    if radar:
+        blocks.append(radar)
+    blocks.append("\n<b>Как читать радар:</b> рейтинги OpenRouter показывают фактическое использование на платформе, а не качество моделей и не общее число пользователей.")
     return "\n".join(blocks)
 
 
