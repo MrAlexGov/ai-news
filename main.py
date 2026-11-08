@@ -19,8 +19,8 @@ CHAT_ID = (
     os.getenv("TELEGRAM_CHAT_ID", "").strip()
     or os.getenv("TELEGRAM_CHAT_ID_VARIABLE", "").strip()
 )
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "").strip()
-GITHUB_REPOSITORY = os.getenv("GITHUB_REPOSITORY", "").strip()
+CHAT_ID_FILE = Path(os.getenv("TELEGRAM_CHAT_ID_FILE", ".telegram_chat_id"))
+RESOLVED_CHAT_ID = ""
 DIGEST_PATH = Path(os.getenv("DIGEST_PATH", "data/digest.json"))
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": "AI-News-Telegram-Publisher/2.0"})
@@ -119,65 +119,50 @@ def format_digest(digest: dict[str, Any]) -> str:
     return "\n\n".join(parts)
 
 
-def persist_chat_id_as_repository_variable(chat_id: str) -> None:
-    if not GITHUB_TOKEN or not GITHUB_REPOSITORY:
-        print("GitHub token/repository unavailable; chat ID was not persisted.")
-        return
-    api = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/actions/variables/TELEGRAM_CHAT_ID"
-    headers = {
-        "Authorization": f"Bearer {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-    try:
-        current = SESSION.get(api, headers=headers, timeout=20)
-        if current.status_code == 404:
-            response = SESSION.post(
-                f"https://api.github.com/repos/{GITHUB_REPOSITORY}/actions/variables",
-                headers=headers,
-                json={"name": "TELEGRAM_CHAT_ID", "value": chat_id},
-                timeout=20,
-            )
-        else:
-            current.raise_for_status()
-            response = SESSION.patch(
-                api, headers=headers,
-                json={"name": "TELEGRAM_CHAT_ID", "value": chat_id}, timeout=20
-            )
-        response.raise_for_status()
-        print("Telegram chat ID saved to GitHub Actions Variables.")
-    except requests.RequestException as exc:
-        status = getattr(getattr(exc, "response", None), "status_code", "unknown")
-        print(f"Could not persist Telegram chat ID (HTTP {status}): {exc}", file=sys.stderr)
-
-
 def resolve_chat_id() -> str:
-    if CHAT_ID:
-        return CHAT_ID
-    response = SESSION.get(
-        f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates",
-        params={"limit": 100, "allowed_updates": json.dumps(["message"])},
-        timeout=20,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    if not payload.get("ok"):
-        raise RuntimeError("Telegram getUpdates failed; check the bot token.")
-    private_chats = []
-    for update in payload.get("result", []):
-        message = update.get("message") or update.get("edited_message") or {}
-        chat = message.get("chat") or {}
-        if chat.get("type") == "private" and chat.get("id") is not None:
-            private_chats.append(chat["id"])
-    if not private_chats:
-        raise RuntimeError(
-            "No private chat found. Open the bot in Telegram, press Start, send it a message, then rerun."
-        )
-    discovered = str(private_chats[-1])
-    persist_chat_id_as_repository_variable(discovered)
-    print("Automatically discovered the private Telegram chat ID.")
-    return discovered
+    """Resolve the Telegram destination once and reuse it for the whole run.
 
+    Priority: Actions secret/variable, then a private Actions cache file,
+    then a fresh message received by the bot. The workflow caches the file
+    between runs so getUpdates is not required every day.
+    """
+    global RESOLVED_CHAT_ID
+    if RESOLVED_CHAT_ID:
+        return RESOLVED_CHAT_ID
+
+    chat_id = CHAT_ID
+    if not chat_id and CHAT_ID_FILE.is_file():
+        chat_id = CHAT_ID_FILE.read_text(encoding="utf-8").strip()
+
+    if not chat_id:
+        response = SESSION.get(
+            f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates",
+            params={"limit": 100, "allowed_updates": json.dumps(["message"])},
+            timeout=20,
+        )
+        response.raise_for_status()
+        payload = response.json()
+        if not payload.get("ok"):
+            raise RuntimeError("Telegram getUpdates failed; check the bot token.")
+        private_chats = []
+        for update in payload.get("result", []):
+            message = update.get("message") or update.get("edited_message") or {}
+            chat = message.get("chat") or {}
+            if chat.get("type") == "private" and chat.get("id") is not None:
+                private_chats.append(chat["id"])
+        if not private_chats:
+            raise RuntimeError(
+                "Telegram chat ID is not configured and no new private message was found. "
+                "Send /start or any message to the bot once; this workflow will cache the chat ID "
+                "for future runs."
+            )
+        chat_id = str(private_chats[-1])
+
+    RESOLVED_CHAT_ID = str(chat_id)
+    CHAT_ID_FILE.parent.mkdir(parents=True, exist_ok=True)
+    CHAT_ID_FILE.write_text(RESOLVED_CHAT_ID, encoding="utf-8")
+    print("Telegram destination resolved and cached for future workflow runs.")
+    return RESOLVED_CHAT_ID
 
 def split_message(message: str, limit: int = 3900) -> list[str]:
     chunks: list[str] = []
