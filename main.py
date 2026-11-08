@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -209,50 +210,100 @@ def send_telegram(message: str) -> None:
             raise RuntimeError(f"Telegram API error: {payload}")
 
 
-def send_audio_file(digest: dict[str, Any]) -> None:
-    audio_path = digest.get("audio_file")
-    if not audio_path:
-        print("No audio_file specified; publishing text only.")
-        return
-    path = Path(str(audio_path))
-    if not path.is_file():
-        raise FileNotFoundError(f"Audio file specified in digest not found: {path}")
-    chat_id = resolve_chat_id()
-    caption = esc(digest.get("audio_caption", "🎧 Аудиоверсия AI-дайджеста"))
-    with path.open("rb") as audio:
-        response = SESSION.post(
-            f"https://api.telegram.org/bot{BOT_TOKEN}/sendAudio",
-            data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
-            files={"audio": (path.name, audio, "audio/mpeg")},
-            timeout=120,
-        )
+def get_media_path(
+    digest: dict[str, Any],
+    file_key: str,
+    url_key: str,
+    suffix: str,
+    max_bytes: int,
+) -> tuple[Path | None, bool]:
+    local_value = digest.get(file_key)
+    if local_value:
+        path = Path(str(local_value))
+        if not path.is_file():
+            raise FileNotFoundError(f"{file_key} specified in digest but not found: {path}")
+        return path, False
+
+    media_url = digest.get(url_key)
+    if not media_url:
+        return None, False
+    if not isinstance(media_url, str) or not media_url.startswith("https://"):
+        raise ValueError(f"{url_key} must be an HTTPS URL.")
+
+    response = SESSION.get(media_url, stream=True, timeout=(20, 120))
     response.raise_for_status()
-    payload = response.json()
-    if not payload.get("ok"):
-        raise RuntimeError(f"Telegram audio API error: {payload}")
+    temp = tempfile.NamedTemporaryFile(prefix="digest-", suffix=suffix, delete=False)
+    total = 0
+    try:
+        for chunk in response.iter_content(chunk_size=1024 * 256):
+            if not chunk:
+                continue
+            total += len(chunk)
+            if total > max_bytes:
+                raise ValueError(f"{url_key} exceeds the {max_bytes}-byte size limit.")
+            temp.write(chunk)
+        temp.close()
+        if total == 0:
+            raise ValueError(f"{url_key} returned an empty file.")
+        return Path(temp.name), True
+    except Exception:
+        temp.close()
+        Path(temp.name).unlink(missing_ok=True)
+        raise
+    finally:
+        response.close()
+
+
+def send_audio_file(digest: dict[str, Any]) -> None:
+    path, temporary = get_media_path(
+        digest, "audio_file", "audio_url", ".mp3", 50 * 1024 * 1024
+    )
+    if path is None:
+        print("No audio_file/audio_url specified; publishing without audio.")
+        return
+    try:
+        chat_id = resolve_chat_id()
+        caption = esc(digest.get("audio_caption", "🎧 Аудиоверсия AI-дайджеста"))
+        with path.open("rb") as audio:
+            response = SESSION.post(
+                f"https://api.telegram.org/bot{BOT_TOKEN}/sendAudio",
+                data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
+                files={"audio": (path.name, audio, "audio/mpeg")},
+                timeout=120,
+            )
+        response.raise_for_status()
+        payload = response.json()
+        if not payload.get("ok"):
+            raise RuntimeError(f"Telegram audio API error: {payload}")
+    finally:
+        if temporary:
+            path.unlink(missing_ok=True)
 
 
 def send_editorial_image(digest: dict[str, Any]) -> None:
-    image_path = digest.get("image_file")
-    if not image_path:
-        print("No image_file specified; publishing without illustration.")
+    path, temporary = get_media_path(
+        digest, "image_file", "image_url", ".png", 10 * 1024 * 1024
+    )
+    if path is None:
+        print("No image_file/image_url specified; publishing without illustration.")
         return
-    path = Path(str(image_path))
-    if not path.is_file():
-        raise FileNotFoundError(f"Image file specified in digest not found: {path}")
-    chat_id = resolve_chat_id()
-    caption = esc(digest.get("image_caption", "🎨 Карикатура дня"))
-    with path.open("rb") as photo:
-        response = SESSION.post(
-            f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto",
-            data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
-            files={"photo": (path.name, photo, "image/png")},
-            timeout=120,
-        )
-    response.raise_for_status()
-    payload = response.json()
-    if not payload.get("ok"):
-        raise RuntimeError(f"Telegram image API error: {payload}")
+    try:
+        chat_id = resolve_chat_id()
+        caption = esc(digest.get("image_caption", "🎨 Карикатура дня"))
+        with path.open("rb") as photo:
+            response = SESSION.post(
+                f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto",
+                data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
+                files={"photo": (path.name, photo, "image/png")},
+                timeout=120,
+            )
+        response.raise_for_status()
+        payload = response.json()
+        if not payload.get("ok"):
+            raise RuntimeError(f"Telegram image API error: {payload}")
+    finally:
+        if temporary:
+            path.unlink(missing_ok=True)
 
 
 def main() -> None:
