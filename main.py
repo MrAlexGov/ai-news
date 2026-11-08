@@ -232,9 +232,33 @@ def send_audio_file(digest: dict[str, Any]) -> None:
         raise RuntimeError(f"Telegram audio API error: {payload}")
 
 
+def send_editorial_image(digest: dict[str, Any]) -> None:
+    image_path = digest.get("image_file")
+    if not image_path:
+        print("No image_file specified; publishing without illustration.")
+        return
+    path = Path(str(image_path))
+    if not path.is_file():
+        raise FileNotFoundError(f"Image file specified in digest not found: {path}")
+    chat_id = resolve_chat_id()
+    caption = esc(digest.get("image_caption", "🎨 Карикатура дня"))
+    with path.open("rb") as photo:
+        response = SESSION.post(
+            f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto",
+            data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
+            files={"photo": (path.name, photo, "image/png")},
+            timeout=120,
+        )
+    response.raise_for_status()
+    payload = response.json()
+    if not payload.get("ok"):
+        raise RuntimeError(f"Telegram image API error: {payload}")
+
+
 def main() -> None:
     digest = load_digest()
     message = format_digest(digest)
     send_telegram(message)
+    send_editorial_image(digest)
     send_audio_file(digest)
     print(f"Published {len(digest['news'])} editor-selected stories to Telegram.")
