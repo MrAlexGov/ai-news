@@ -42,11 +42,15 @@ def load_digest() -> dict[str, Any]:
 
 def format_digest(digest: dict[str, Any]) -> str:
     date = esc(digest.get("date", ""))
-    window = esc(digest.get("window", "Последние 24 часа"))
-    parts = [
-        f"🧠 <b>AI НОВОСТИ — {date}</b>",
-        f"<i>{window}</i>",
-    ]
+    parts = [f"🧠 <b>AI НОВОСТИ — {date}</b>"]
+
+    takeaways = digest.get("takeaways") or digest.get("conclusions")
+    if isinstance(takeaways, list) and takeaways:
+        parts.append("<b>Главное за день</b>\\n" + "\\n".join("• " + esc(x) for x in takeaways))
+    elif isinstance(takeaways, str) and takeaways.strip():
+        parts.append("<b>Главное за день</b>\\n" + esc(takeaways))
+
+    parts.append("<b>Топ событий за сутки</b>")
 
     for index, item in enumerate(digest["news"], 1):
         if not isinstance(item, dict):
@@ -107,12 +111,6 @@ def format_digest(digest: dict[str, Any]) -> str:
                 url = esc(link["url"])
                 ranking_block.append(f'🔗 <a href="{url}">{label}</a>')
         parts.append("\n".join(ranking_block))
-
-    takeaways = digest.get("takeaways") or digest.get("conclusions")
-    if isinstance(takeaways, list) and takeaways:
-        parts.append("<b>Главное за день</b>\n" + "\n".join("• " + esc(x) for x in takeaways))
-    elif isinstance(takeaways, str) and takeaways.strip():
-        parts.append("<b>Главное за день</b>\n" + esc(takeaways))
 
     return "\n\n".join(parts)
 
@@ -211,12 +209,32 @@ def send_telegram(message: str) -> None:
             raise RuntimeError(f"Telegram API error: {payload}")
 
 
+def send_audio_file(digest: dict[str, Any]) -> None:
+    audio_path = digest.get("audio_file")
+    if not audio_path:
+        print("No audio_file specified; publishing text only.")
+        return
+    path = Path(str(audio_path))
+    if not path.is_file():
+        raise FileNotFoundError(f"Audio file specified in digest not found: {path}")
+    chat_id = resolve_chat_id()
+    caption = esc(digest.get("audio_caption", "🎧 Аудиоверсия AI-дайджеста"))
+    with path.open("rb") as audio:
+        response = SESSION.post(
+            f"https://api.telegram.org/bot{BOT_TOKEN}/sendAudio",
+            data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
+            files={"audio": (path.name, audio, "audio/mpeg")},
+            timeout=120,
+        )
+    response.raise_for_status()
+    payload = response.json()
+    if not payload.get("ok"):
+        raise RuntimeError(f"Telegram audio API error: {payload}")
+
+
 def main() -> None:
     digest = load_digest()
     message = format_digest(digest)
     send_telegram(message)
+    send_audio_file(digest)
     print(f"Published {len(digest['news'])} editor-selected stories to Telegram.")
-
-
-if __name__ == "__main__":
-    main()
