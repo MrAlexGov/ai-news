@@ -332,7 +332,7 @@ def send_editorial_image(digest: dict[str, Any]) -> None:
     )
 
     if path is None:
-        print("No image_file/image_url/image_svg specified; publishing without illustration.")
+        print("No image_file/image_url specified; publishing without illustration.")
         return
     try:
         chat_id = resolve_chat_id()
