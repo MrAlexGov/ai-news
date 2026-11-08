@@ -349,7 +349,7 @@ def send_editorial_image(digest: dict[str, Any]) -> None:
             image_bytes = base64.b64decode(encoded, validate=True)
             if not image_bytes or len(image_bytes) > 10 * 1024 * 1024:
                 raise ValueError("decoded PNG is empty or exceeds 10 MB")
-            if not image_bytes.startswith(b"\\x89PNG\\r\\n\\x1a\\n"):
+            if not image_bytes.startswith(bytes([137, 80, 78, 71, 13, 10, 26, 10])):
                 raise ValueError("decoded image is not a PNG file")
             temp = tempfile.NamedTemporaryFile(prefix="digest-", suffix=".png", delete=False)
             temp.write(image_bytes)
