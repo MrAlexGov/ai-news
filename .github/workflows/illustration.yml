@@ -1,0 +1,30 @@
+name: Publish AI News Illustration
+
+on:
+  push:
+    paths:
+      - "data/digest.png"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install publisher dependency
+        run: pip install requests==2.32.5
+      - name: Send illustration to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID_VARIABLE: ${{ vars.TELEGRAM_CHAT_ID }}
+        run: python send_image.py
