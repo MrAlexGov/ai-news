@@ -330,27 +330,6 @@ def send_editorial_image(digest: dict[str, Any]) -> None:
     path, temporary = get_media_path(
         digest, "image_file", "image_url", ".png", 10 * 1024 * 1024
     )
-    if path is None and digest.get("image_svg"):
-        svg = digest["image_svg"]
-        if not isinstance(svg, str) or len(svg) > 2 * 1024 * 1024 or "<svg" not in svg.lower():
-            print("Invalid or oversized image_svg; publishing without illustration.", file=sys.stderr)
-            return
-        temp = tempfile.NamedTemporaryFile(prefix="digest-", suffix=".png", delete=False)
-        temp.close()
-        path = Path(temp.name)
-        temporary = True
-        try:
-            import cairosvg
-            cairosvg.svg2png(
-                bytestring=svg.encode("utf-8"),
-                write_to=str(path),
-                output_width=1600,
-                output_height=900,
-            )
-        except Exception as exc:
-            path.unlink(missing_ok=True)
-            print(f"SVG rendering failed; publishing without illustration: {exc}", file=sys.stderr)
-            return
 
     if path is None:
         print("No image_file/image_url/image_svg specified; publishing without illustration.")
