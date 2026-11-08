@@ -106,7 +106,7 @@ def format_digest(digest: dict[str, Any]) -> str:
                 label = esc(link.get("label", "Рейтинг"))
                 url = esc(link["url"])
                 ranking_block.append(f'🔗 <a href="{url}">{label}</a>')
-        parts.append("\\n".join(ranking_block))
+        parts.append("\n".join(ranking_block))
 
     takeaways = digest.get("takeaways") or digest.get("conclusions")
     if isinstance(takeaways, list) and takeaways:
