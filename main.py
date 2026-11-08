@@ -57,6 +57,14 @@ def format_digest(digest: dict[str, Any]) -> str:
         if body:
             block.append(body)
 
+        monetization = item.get("monetization_comment")
+        if monetization:
+            block.append("💼 " + esc(monetization))
+
+        access = item.get("access")
+        if access:
+            block.append("ℹ️ " + esc(access))
+
         free_access = item.get("free_access")
         if free_access:
             block.append("🆓 " + esc(free_access))
@@ -81,6 +89,24 @@ def format_digest(digest: dict[str, Any]) -> str:
             block.append(f'🔗 <a href="{esc(item["url"])}">{label}</a>')
 
         parts.append("\n".join(block))
+
+    openrouter = digest.get("openrouter")
+    if isinstance(openrouter, dict):
+        ranking_block = ["📊 <b>OpenRouter — заметные изменения</b>"]
+        period = openrouter.get("period")
+        if period:
+            ranking_block.append("<i>" + esc(period) + "</i>")
+        for change in openrouter.get("changes", []):
+            ranking_block.append("• " + esc(change))
+        methodology = openrouter.get("methodology")
+        if methodology:
+            ranking_block.append("Методология: " + esc(methodology))
+        for link in openrouter.get("links", []):
+            if isinstance(link, dict) and link.get("url"):
+                label = esc(link.get("label", "Рейтинг"))
+                url = esc(link["url"])
+                ranking_block.append(f'🔗 <a href="{url}">{label}</a>')
+        parts.append("\\n".join(ranking_block))
 
     takeaways = digest.get("takeaways") or digest.get("conclusions")
     if isinstance(takeaways, list) and takeaways:
