@@ -24,8 +24,8 @@ jobs:
       - name: Install system media dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg libcairo2
-      - name: Install publisher and free local media dependencies
+          sudo apt-get install -y ffmpeg
+      - name: Install publisher and free local audio dependencies
         run: pip install -r requirements.txt
       - name: Download free Russian Piper voice
         run: python -m piper.download_voices ru_RU-denis-medium --data-dir .piper-voices
