@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Restore cached Telegram destination
+        uses: actions/cache/restore@v4
+        with:
+          path: .telegram_chat_id
+          key: telegram-chat-id-v1
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -39,4 +44,11 @@ jobs:
           DIGEST_PATH: data/digest.json
           PIPER_VOICE: ru_RU-denis-medium
           PIPER_DATA_DIR: .piper-voices
+          TELEGRAM_CHAT_ID_FILE: .telegram_chat_id
         run: python main.py
+      - name: Save cached Telegram destination
+        if: always() && hashFiles('.telegram_chat_id') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .telegram_chat_id
+          key: telegram-chat-id-v1
