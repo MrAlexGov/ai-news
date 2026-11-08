@@ -262,3 +262,7 @@ def main() -> None:
     send_editorial_image(digest)
     send_audio_file(digest)
     print(f"Published {len(digest['news'])} editor-selected stories to Telegram.")
+
+
+if __name__ == "__main__":
+    main()
