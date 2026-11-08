@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import base64
+import binascii
 import html
 import json
 import os
@@ -331,8 +333,35 @@ def send_editorial_image(digest: dict[str, Any]) -> None:
         digest, "image_file", "image_url", ".png", 10 * 1024 * 1024
     )
 
+    # The editor may embed the generated PNG directly in digest.json as base64.
+    # This avoids needing a separate binary upload step to GitHub.
+    if path is None and digest.get("image_base64"):
+        encoded = digest["image_base64"]
+        if not isinstance(encoded, str):
+            print("image_base64 must be a string; publishing without illustration.", file=sys.stderr)
+            return
+        if encoded.startswith("data:"):
+            encoded = encoded.split(",", 1)[-1]
+        if len(encoded) > 14 * 1024 * 1024:
+            print("image_base64 is oversized; publishing without illustration.", file=sys.stderr)
+            return
+        try:
+            image_bytes = base64.b64decode(encoded, validate=True)
+            if not image_bytes or len(image_bytes) > 10 * 1024 * 1024:
+                raise ValueError("decoded PNG is empty or exceeds 10 MB")
+            if not image_bytes.startswith(b"\\x89PNG\\r\\n\\x1a\\n"):
+                raise ValueError("decoded image is not a PNG file")
+            temp = tempfile.NamedTemporaryFile(prefix="digest-", suffix=".png", delete=False)
+            temp.write(image_bytes)
+            temp.close()
+            path = Path(temp.name)
+            temporary = True
+        except (binascii.Error, ValueError, OSError) as exc:
+            print(f"Invalid image_base64; publishing without illustration: {exc}", file=sys.stderr)
+            return
+
     if path is None:
-        print("No image_file/image_url specified; publishing without illustration.")
+        print("No image_file/image_url/image_base64 specified; publishing without illustration.")
         return
     try:
         chat_id = resolve_chat_id()
@@ -351,7 +380,6 @@ def send_editorial_image(digest: dict[str, Any]) -> None:
     finally:
         if temporary:
             path.unlink(missing_ok=True)
-
 
 def main() -> None:
     digest = load_digest()
