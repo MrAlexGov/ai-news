@@ -46,9 +46,9 @@ def format_digest(digest: dict[str, Any]) -> str:
 
     takeaways = digest.get("takeaways") or digest.get("conclusions")
     if isinstance(takeaways, list) and takeaways:
-        parts.append("<b>Главное за день</b>\\n" + "\n".join("• " + esc(x) for x in takeaways))
+        parts.append("<b>Главное за день</b>\n" + "\n".join("• " + esc(x) for x in takeaways))
     elif isinstance(takeaways, str) and takeaways.strip():
-        parts.append("<b>Главное за день</b>\\n" + esc(takeaways))
+        parts.append("<b>Главное за день</b>\n" + esc(takeaways))
 
     parts.append("<b>Топ событий за сутки</b>")
 
