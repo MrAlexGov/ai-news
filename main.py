@@ -4,6 +4,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -254,12 +255,57 @@ def get_media_path(
         response.close()
 
 
-def send_audio_file(digest: dict[str, Any]) -> None:
-    path, temporary = get_media_path(
-        digest, "audio_file", "audio_url", ".mp3", 50 * 1024 * 1024
-    )
+def generate_audio_file(digest: dict[str, Any]) -> Path | None:
+    script = digest.get("audio_script")
+    if not isinstance(script, str) or not script.strip():
+        return None
+    if len(script) > 5000:
+        print("audio_script exceeds 5000 characters; publishing without audio.", file=sys.stderr)
+        return None
+
+    wav_file = tempfile.NamedTemporaryFile(prefix="digest-", suffix=".wav", delete=False)
+    mp3_file = tempfile.NamedTemporaryFile(prefix="digest-", suffix=".mp3", delete=False)
+    wav_path, mp3_path = Path(wav_file.name), Path(mp3_file.name)
+    wav_file.close()
+    mp3_file.close()
+
+    voice = os.getenv("PIPER_VOICE", "ru_RU-denis-medium")
+    data_dir = os.getenv("PIPER_DATA_DIR", ".piper-voices")
+    try:
+        subprocess.run(
+            [
+                sys.executable, "-m", "piper", "-m", voice,
+                "--data-dir", data_dir, "-f", str(wav_path), "--", script.strip()
+            ],
+            check=True, capture_output=True, text=True, timeout=600,
+        )
+        subprocess.run(
+            [
+                "ffmpeg", "-y", "-loglevel", "error", "-i", str(wav_path),
+                "-codec:a", "libmp3lame", "-b:a", "128k", str(mp3_path)
+            ],
+            check=True, capture_output=True, text=True, timeout=120,
+        )
+        if not mp3_path.is_file() or mp3_path.stat().st_size == 0:
+            raise RuntimeError("Piper/FFmpeg produced an empty MP3.")
+        return mp3_path
+    except Exception as exc:
+        print(f"Local Piper TTS failed; publishing without audio: {exc}", file=sys.stderr)
+        mp3_path.unlink(missing_ok=True)
+        return None
+    finally:
+        wav_path.unlink(missing_ok=True)
+
+
+def send_audio_file(digest: dict[str, Any], generated_path: Path | None = None) -> None:
+    if generated_path is not None:
+        path, temporary = generated_path, True
+    else:
+        path, temporary = get_media_path(
+            digest, "audio_file", "audio_url", ".mp3", 50 * 1024 * 1024
+        )
     if path is None:
-        print("No audio_file/audio_url specified; publishing without audio.")
+        print("No audio_script/audio_file/audio_url; publishing without audio.")
         return
     try:
         chat_id = resolve_chat_id()
@@ -284,8 +330,30 @@ def send_editorial_image(digest: dict[str, Any]) -> None:
     path, temporary = get_media_path(
         digest, "image_file", "image_url", ".png", 10 * 1024 * 1024
     )
+    if path is None and digest.get("image_svg"):
+        svg = digest["image_svg"]
+        if not isinstance(svg, str) or len(svg) > 2 * 1024 * 1024 or "<svg" not in svg.lower():
+            print("Invalid or oversized image_svg; publishing without illustration.", file=sys.stderr)
+            return
+        temp = tempfile.NamedTemporaryFile(prefix="digest-", suffix=".png", delete=False)
+        temp.close()
+        path = Path(temp.name)
+        temporary = True
+        try:
+            import cairosvg
+            cairosvg.svg2png(
+                bytestring=svg.encode("utf-8"),
+                write_to=str(path),
+                output_width=1600,
+                output_height=900,
+            )
+        except Exception as exc:
+            path.unlink(missing_ok=True)
+            print(f"SVG rendering failed; publishing without illustration: {exc}", file=sys.stderr)
+            return
+
     if path is None:
-        print("No image_file/image_url specified; publishing without illustration.")
+        print("No image_file/image_url/image_svg specified; publishing without illustration.")
         return
     try:
         chat_id = resolve_chat_id()
@@ -311,7 +379,8 @@ def main() -> None:
     message = format_digest(digest)
     send_telegram(message)
     send_editorial_image(digest)
-    send_audio_file(digest)
+    generated_audio = generate_audio_file(digest)
+    send_audio_file(digest, generated_path=generated_audio)
     print(f"Published {len(digest['news'])} editor-selected stories to Telegram.")
 
 
