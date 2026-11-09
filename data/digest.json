@@ -1,101 +1,124 @@
 {
   "date": "2026-11-09",
-  "window": "2026-11-08 08:39 — 2026-11-09 08:39 (МСК; последние 24 часа)",
+  "window": "2026-11-08 08:48:14 — 2026-11-09 08:48:14 (МСК; последние 24 часа)",
   "news": [
     {
-      "title": "CrewAI 1.15.38: агенты научились разбирать таблицы по URL",
-      "text": "В релизе CrewAI 1.15.38 от 8 ноября добавлено чтение URL таблиц из входных данных агента с применением инструментов к каждой строке, а также улучшена трассировка eval-запусков: spans получают target и отдельный ID оценки. Для интегратора это готовая основа для автоматизации табличных процессов и более прозрачного тестирования агентных цепочек.",
-      "monetization_comment": "Как заработать интегратору: предложить отделам продаж, закупок или финансов обработку Google Sheets/Excel-экспортов агентом — например, проверку строк, обогащение данными из CRM и подготовку задач на согласование. Быстрый пилот: одна таблица, один бизнес-процесс, контроль человеком перед записью результата; отдельно настроить eval-тесты на типовых строках, чтобы видеть регрессии.",
-      "access": "CrewAI распространяется под MIT License. Сам фреймворк открыт, но вызовы внешних моделей и подключённых сервисов могут тарифицироваться отдельно; релиз не обещает бесплатный API моделей.",
+      "title": "LiteLLM: общий дедлайн теперь ограничивает весь запрос с retries",
+      "text": "В main-ветку LiteLLM влит PR #50496: поле `total_timeout` в body или заголовок `x-litellm-total-timeout` задаёт единый бюджет на подготовку запроса, retries и backoff, moderation и post-call hooks; при превышении прокси возвращает HTTP 408 и отменяет upstream. Это решает проблему, когда timeout отдельного вызова не ограничивает суммарное ожидание после нескольких повторов, но новая опция относится к non-streaming запросам — streaming и background requests исключены.",
+      "monetization_comment": "Как заработать интегратору: предложить аудит SLA AI-шлюза компаниям с агентами и несколькими model providers — настроить общий latency budget, retries/fallbacks и обработку 408. Быстрый пилот: один критичный endpoint, искусственные 503 и зависший upstream, затем сравнение p95/p99 и доли запросов, уложившихся в SLA клиента; это редакторская гипотеза, а не гарантия спроса.",
+      "access": "PR влит в main 8 ноября 2026 в 11:43:51 МСК, но на момент среза опубликованного релиза после merge нет: stable v1.108.3 и prerelease v1.110.0-dev.2 вышли раньше. Для теста потребуется сборка из main или pin на commit; streaming и background requests не покрываются.",
       "links": [
         {
-          "label": "Релиз CrewAI 1.15.38",
-          "url": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.38"
+          "label": "LiteLLM PR #50496",
+          "url": "https://github.com/BerriAI/litellm/pull/50496"
         },
         {
-          "label": "Репозиторий CrewAI",
-          "url": "https://github.com/crewAIInc/crewAI"
+          "label": "Последний prerelease LiteLLM на момент проверки",
+          "url": "https://github.com/BerriAI/litellm/releases/tag/v1.110.0-dev.2"
+        },
+        {
+          "label": "LiteLLM changelog",
+          "url": "https://docs.litellm.ai/release_notes"
         }
       ],
       "sources": [
-        "GitHub Releases API: published_at 2026-11-08T19:39:30Z; release 1.15.38",
-        "Официальные release notes: spreadsheet URLs, per-row tools, eval usage spans, headless --no-open",
-        "GitHub repository LICENSE: MIT"
+        "GitHub PR #50496: merged_at 2026-11-08T08:43:51Z; body/header total_timeout; HTTP 408; cancellation of upstream",
+        "GitHub Releases API: latest stable v1.108.3 published 2026-11-07T22:29:58Z; latest prerelease v1.110.0-dev.2 published 2026-11-08T02:25:47Z, both before PR merge"
       ],
-      "category": "Агентные фреймворки и автоматизация таблиц",
+      "category": "Надёжность AI-шлюзов и SLA",
       "release_date": "2026-11-08",
-      "published_at": "2026-11-08T19:39:30Z",
+      "event_at": "2026-11-08T08:43:51Z",
+      "merged_at": "2026-11-08T08:43:51Z",
+      "published_at": null,
       "timestamp_verified": true,
       "popularity": null,
-      "discussion": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.38"
+      "discussion": "https://github.com/BerriAI/litellm/pull/50496"
     },
     {
-      "title": "llama.cpp b12207: Zamba2 ускорили на GPU примерно на 35%",
-      "text": "В предварительной сборке llama.cpp b12207 появился CUDA fast path для состояния d_state=64: на Zamba2-7B-Instruct он поднял измеренную скорость с 11 до 15,1 токена/с, поскольку соответствующая операция перестала целиком уходить на CPU. В PR указаны 28/28 успешных проверок, но около 28% связанных операций всё ещё выполняются на CPU — это точечный результат для конкретной модели и конфигурации, а не универсальное ускорение всех LLM.",
-      "monetization_comment": "Как заработать интегратору: продавать аудит производительности локального inference компаниям, которые держат модели на собственных GPU. Быстрый пилот — снять baseline на реальном оборудовании клиента, обновить llama.cpp, повторить одинаковый benchmark и выдать отчёт по токенам/с, загрузке GPU и оставшимся CPU fallback; отдельно проверить, есть ли у клиента Zamba2 или совместимая архитектура.",
-      "access": "b12207 — предварительная сборка; доступны готовые бинарники для ряда платформ и CUDA. llama.cpp распространяется под MIT License.",
+      "title": "LiteLLM ускорил маршрутизацию на конфигурациях с 1000 deployments",
+      "text": "PR #50641, влитый 9 ноября в 04:59:56 МСК, убирает лишние чтения deployment-объектов и кэширует проверки возможностей Anthropic; в benchmark проекта CPU на выбор модели при 1000 deployments снизился с 17,5 до 5,9 мс, а Rust `/v1/messages` — с 28,4 до 14,6 мс. Это CPU-бенчмарк с mock upstream и конкретной конфигурацией, поэтому его нельзя напрямую трактовать как такое же ускорение полного production-запроса.",
+      "monetization_comment": "Как заработать интегратору: продавать аудит производительности LiteLLM gateway компаниям с большим каталогом моделей и провайдеров. Быстрый пилот — воспроизвести конфигурацию клиента и репрезентативную нагрузку, измерить CPU на маршрутизацию, p95 и throughput до и после оптимизаций; коммерческая ценность — в измеренном результате на инфраструктуре заказчика.",
+      "access": "Изменение влито в main 9 ноября 2026 в 04:59:56 МСК; опубликованного релиза после merge на момент проверки нет. Бенчмарк PR сравнивает CPU на выборочных сценариях с in-process mock upstream; для проверки нужен main/pinned commit и собственный workload.",
       "links": [
         {
-          "label": "Релиз llama.cpp b12207",
-          "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12207"
+          "label": "LiteLLM PR #50641 с benchmark и тестами",
+          "url": "https://github.com/BerriAI/litellm/pull/50641"
         },
         {
-          "label": "PR #31818 с тестами и benchmark",
-          "url": "https://github.com/ggml-org/llama.cpp/pull/31818"
+          "label": "LiteLLM releases",
+          "url": "https://github.com/BerriAI/litellm/releases"
         }
       ],
       "sources": [
-        "GitHub Releases API: published_at 2026-11-08T14:20:48Z; prerelease=true",
-        "GitHub PR #31818: измерение 11 → 15.1 tok/s на Zamba2-7B-Instruct, 28/28 тестов; оставшийся CPU fallback около 28%",
-        "GitHub repository metadata: MIT License"
+        "GitHub PR #50641: merged_at 2026-11-09T01:59:56Z",
+        "PR benchmark: 1,000 deployments — selection CPU 17.5 → 5.9 ms; Rust /v1/messages 28.4 → 14.6 ms",
+        "PR test notes: 3,458 tests passed locally across listed suites; one collection error in a separate test due to missing prometheus_client"
       ],
-      "category": "Локальный inference и GPU-оптимизация",
-      "release_date": "2026-11-08",
-      "published_at": "2026-11-08T14:20:48Z",
-      "timestamp_verified": true,
-      "popularity": null,
-      "discussion": "https://github.com/ggml-org/llama.cpp/pull/31818"
-    },
-    {
-      "title": "vLLM объединил изменения для запуска Kimi K3.1 на TP8",
-      "text": "9 ноября в vLLM был влит PR #66037 — крупная часть поддержки Kimi K3.1, добавляющая упакованный гибридный KV cache и изменения sparse MLA attention для обслуживания модели на tensor parallelism 8. Проверка в PR выполнена на двух узлах с 8× B300 и dummy-модели: запуск и генерация проверены, но авторы прямо отмечают, что реальный checkpoint и точность модели этим тестом не валидировались.",
-      "monetization_comment": "Как заработать интегратору: предложить компаниям с GPU-кластерами инженерный пилот по развёртыванию open-weight моделей с длинным контекстом — подобрать конфигурацию vLLM, проверить KV-cache, память, задержку и пропускную способность. Начинать стоит с теста совместимости на стенде, а затем отдельно подтвердить работу на реальных весах и бизнес-нагрузке; это специализированная услуга для клиентов с подходящей GPU-инфраструктурой.",
-      "access": "Изменения доступны в открытом репозитории vLLM. Для полноценного запуска нужны совместимая GPU-инфраструктура, актуальные зависимости sparse-attention backend и доступ к весам Kimi K3.1; PR не подтверждает точность на реальном checkpoint.",
-      "links": [
-        {
-          "label": "Влитый PR vLLM #66037",
-          "url": "https://github.com/vllm-project/vllm/pull/66037"
-        },
-        {
-          "label": "Технический разбор vLLM по Kimi K3.1 Pro",
-          "url": "https://vllm.ai/blog/2026-11-04-kimi-k31-pro"
-        },
-        {
-          "label": "Поддержка модели Kimi K3.1 в vLLM (часть 1)",
-          "url": "https://github.com/vllm-project/vllm/pull/66030"
-        }
-      ],
-      "sources": [
-        "GitHub PR #66037: merged_at 2026-11-09T04:31:25Z; 36 commits, 34 changed files",
-        "PR validation: two-node TP8 on 2 × 4 B300 with Kimi-K3.1-8L-dummy; real checkpoint not available for validation",
-        "vLLM blog, 2026-11-04: архитектура и заявленные показатели Kimi K3.1 Pro; использован как технический контекст, не как новость текущего окна"
-      ],
-      "category": "Инференс open-weight моделей и GPU-кластеры",
+      "category": "Инфраструктура, маршрутизация моделей и производительность",
       "release_date": "2026-11-09",
-      "published_at": "2026-11-09T04:31:25Z",
+      "event_at": "2026-11-09T01:59:56Z",
+      "merged_at": "2026-11-09T01:59:56Z",
+      "published_at": null,
       "timestamp_verified": true,
       "popularity": null,
-      "discussion": "https://github.com/vllm-project/vllm/pull/66037"
+      "discussion": "https://github.com/BerriAI/litellm/pull/50641"
+    },
+    {
+      "title": "OpenAI Agents SDK: исправлено продолжение агента после human approval",
+      "text": "В main-ветку OpenAI Agents SDK влит PR #5628: при возобновлении Chat Completions run из checkpoint после подтверждения tool call SDK теперь корректно восстанавливает обычный assistant text, который раньше приводил к `UserError` до следующего обращения к модели. Это повышает надёжность human-in-the-loop процессов, где агент должен продолжить выполнение после согласования человеком, а не терять состояние на этапе resume.",
+      "monetization_comment": "Как заработать интегратору: собрать для CRM, закупок или финансового отдела агентный процесс с обязательным подтверждением человеком перед изменением данных или отправкой сообщения. Быстрый пилот — один tool с approval checkpoint, корректное возобновление после решения, журнал действий и защита от повторного выполнения; это редакторская гипотеза.",
+      "access": "PR влит в main 9 ноября 2026 в 08:04:13 МСК. Последний опубликованный prerelease v0.24.0-alpha.7 вышел 8 ноября до merge, поэтому наличие исправления в опубликованном пакете пока не подтверждено; для теста нужен main или следующий alpha-релиз.",
+      "links": [
+        {
+          "label": "OpenAI Agents SDK PR #5628",
+          "url": "https://github.com/openai/openai-agents-python/pull/5628"
+        },
+        {
+          "label": "Последний prerelease v0.24.0-alpha.7",
+          "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7"
+        }
+      ],
+      "sources": [
+        "GitHub PR #5628: merged_at 2026-11-09T05:04:13Z; fix for resuming Chat Completions after approval checkpoint",
+        "GitHub Releases API: v0.24.0-alpha.7 published 2026-11-08T07:05:11Z, before PR merge"
+      ],
+      "category": "Агентные процессы и human-in-the-loop",
+      "release_date": "2026-11-09",
+      "event_at": "2026-11-09T05:04:13Z",
+      "merged_at": "2026-11-09T05:04:13Z",
+      "published_at": null,
+      "timestamp_verified": true,
+      "popularity": null,
+      "discussion": "https://github.com/openai/openai-agents-python/pull/5628"
     }
   ],
+  "openrouter": {
+    "period": "Срезы OpenRouter с данными по 8 ноября 2026 включительно; сравнение с сохранённым срезом по 7 ноября.",
+    "changes": [
+      "Текстовые модели: Hy4 вырос с 10.1T до 12.8T токенов между двумя сохранёнными daily snapshots (+2.7T; +26.7%); Crouton Alpha впервые вошёл в текущий top-10 с 4.27T токенов, вытеснив Hy4 preview.",
+      "Изображения: Seedream 5.0 Flash вырос с 588K до 651K requests (+63K; +10.7%) и поднялся с 7-го на 6-е место, обойдя Muse Image (602K requests)."
+    ],
+    "methodology": "Сравниваются два последовательных дневных снимка OpenRouter: данные по 7 Nov и по 8 Nov. В text ranking метрика — токены prompt+completion в скользящем 7-дневном окне; в image ranking — requests. Указанные +26.7% и +10.7% рассчитаны между сохранёнными снимками, а не взяты из платформенного week-over-week столбца. Эти метрики показывают трафик через OpenRouter, но не уникальных пользователей, выручку, качество или точность моделей.",
+    "links": [
+      {
+        "label": "OpenRouter text rankings",
+        "url": "https://openrouter.ai/rankings"
+      },
+      {
+        "label": "OpenRouter image rankings",
+        "url": "https://openrouter.ai/rankings/image"
+      }
+    ]
+  },
   "takeaways": [
-    "Самый быстрый прикладной MVP сегодня — агент для обработки табличных данных: CrewAI уже добавляет нужные строительные блоки, но результат стоит выпускать через человеческое подтверждение и eval-тесты.",
-    "Оптимизация локального inference становится отдельной продаваемой услугой: измеряй результат на железе клиента, не переноси benchmark одной модели на весь парк.",
-    "Kimi K3.1 + vLLM — возможность для GPU-интеграторов, но сначала техническая проверка на реальных весах: PR подтвердил запуск dummy-модели, а не production-ready качество."
+    "Главная коммерческая идея дня — аудит надёжности AI-шлюза: общий бюджет времени на запрос, управляемые retries и проверяемое соблюдение SLA.",
+    "Оптимизация LiteLLM особенно интересна крупным каталогам моделей; цифры benchmark нельзя продавать как гарантированное ускорение — нужно измерять конфигурацию клиента.",
+    "Human approval и корректный resume — обязательная часть серьёзных агентных процессов; начинай с одного CRM-действия и проверяй сохранение состояния и защиту от повторного выполнения."
   ],
-  "editorial_note": "Проверено окно 2026-11-08 08:39 — 2026-11-09 08:39 МСК. Повторы прошлого выпуска (llama.cpp b12199 и Qwen Code Desktop 0.27.0) исключены; новый пункт по llama.cpp относится к отдельному изменению CUDA fast path и релизу b12207. CrewAI 1.15.39 от 9 ноября содержит только документационное обновление про apps_not_connected и отдельной новости не заслуживает. OpenRouter пропущен: сохранённый прошлый snapshot охватывает usage through Nov 7, но доступная canonical text rankings страница при прямом открытии показывает устаревший срез through Nov 3, а image rankings не отдают сопоставимый датированный набор; поисковые копии дают расходящиеся значения. Поэтому сравнение не считается надёжным и изменение не заявляется. Telegram-каналы использованы только как вспомогательный слой обнаружения; в пределах текущего окна не удалось подтвердить из доступных индексированных превью дополнительный релиз с надёжной датировкой.",
+  "editorial_note": "Проверено окно 2026-11-08 08:48:14 — 2026-11-09 08:48:14 МСК. Повторы предыдущего выпуска исключены: CrewAI 1.15.38, llama.cpp b12207 и vLLM/Kimi K3.1 TP8 не повторяются. Отобраны три новых merged PR с практическим влиянием на SLA, производительность model gateway и human-in-the-loop resume; для всех отдельно проверены merge timestamps и последние опубликованные release tags, и изменения честно помечены как main-branch до следующего релиза. OpenRouter включён, потому что доступны сопоставимые official snapshots through Nov 7 и Nov 8: заметен рост Hy4 и переход Seedream 5.0 Flash на шестое место. Просмотрены официальные репозитории и changelog основных агентных/инференсных проектов; более мелкие CI, docs и dependency commits не включены.",
   "ranking_baseline": {
-    "usage_through": "2026-11-07",
+    "usage_through": "2026-11-08",
+    "snapshot_captured_at": "2026-11-09T08:48:14+03:00",
     "text_weekly_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
@@ -104,160 +127,264 @@
       ],
       [
         "DeepSeek V4.1 Flash",
-        "17.7T",
-        "+21%"
+        "17.6T",
+        "+18%"
       ],
       [
         "GLM 5.3 Flash",
-        "13.5T",
-        "-14%"
+        "13.2T",
+        "-12%"
       ],
       [
         "Hy4",
-        "10.1T",
+        "12.8T",
         "new"
       ],
       [
         "GPT-6 Luna",
-        "7.26T",
-        "-29%"
+        "7.21T",
+        "-25%"
       ],
       [
         "Step 5 Preview",
-        "6.99T",
-        "+11%"
+        "7.2T",
+        "+15%"
       ],
       [
         "Claude Opus 5.5",
-        "6.74T",
-        "-2%"
+        "6.77T",
+        "+1%"
       ],
       [
         "MiniMax M3.1 Flash",
-        "5.37T",
-        "-5%"
-      ],
-      [
-        "Hy4 preview",
-        "4.2T",
-        "-55%"
+        "5.01T",
+        "-20%"
       ],
       [
         "Kimi K3.1 Pro",
-        "4.12T",
-        "+109%"
+        "4.37T",
+        "+91%"
+      ],
+      [
+        "Crouton Alpha",
+        "4.27T",
+        "new"
       ]
     ],
     "text_daily_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "6.99T",
-        "-11%"
+        "6.01T",
+        "-14%"
       ],
       [
         "Hy4",
-        "3.01T",
-        "-1%"
+        "2.74T",
+        "-9%"
       ],
       [
         "DeepSeek V4.1 Flash",
-        "2.12T",
-        "-17%"
+        "2.06T",
+        "-3%"
       ],
       [
         "GLM 5.3 Flash",
-        "1.28T",
-        "-25%"
+        "1.13T",
+        "-12%"
       ],
       [
         "Step 5 Preview",
-        "962B",
-        "-14%"
-      ],
-      [
-        "GPT-6 Luna",
-        "849B",
-        "-26%"
-      ],
-      [
-        "Kimi K3.1 Pro",
-        "824B",
-        "+56%"
-      ],
-      [
-        "Claude Opus 5.5",
-        "767B",
-        "-27%"
+        "959B",
+        "0%"
       ],
       [
         "Crouton Alpha",
-        "711B",
-        "-32%"
+        "936B",
+        "+32%"
+      ],
+      [
+        "Kimi K3.1 Pro",
+        "826B",
+        "0%"
+      ],
+      [
+        "GPT-6 Luna",
+        "750B",
+        "-12%"
+      ],
+      [
+        "Claude Opus 5.5",
+        "688B",
+        "-10%"
       ],
       [
         "MiniMax M3.1 Flash",
-        "589B",
-        "-14%"
+        "538B",
+        "-9%"
       ]
     ],
     "image_weekly_top10": [
       [
         "Nano Banana 2",
-        "2.72M",
-        "+40%"
+        "2.72M requests",
+        "+29%"
       ],
       [
         "GPT Image 2.5 Sunburst",
-        "1.32M",
+        "1.31M requests",
         "+2%"
       ],
       [
         "Nano Banana 2.1",
-        "957K",
-        "+41%"
+        "985K requests",
+        "+32%"
       ],
       [
         "GPT Image 2.5 Flare",
-        "827K",
-        "+1%"
-      ],
-      [
-        "Nano Banana 2 Lite",
-        "714K",
+        "854K requests",
         "+3%"
       ],
       [
-        "Muse Image",
-        "600K",
-        "-33%"
+        "Nano Banana 2 Lite",
+        "715K requests",
+        "+4%"
       ],
       [
         "Seedream 5.0 Flash",
-        "588K",
-        "+191%"
+        "651K requests",
+        "+207%"
+      ],
+      [
+        "Muse Image",
+        "602K requests",
+        "-33%"
       ],
       [
         "GPT Image 2",
-        "536K",
-        "-6%"
+        "535K requests",
+        "-2%"
       ],
       [
         "Nano Banana",
-        "430K",
+        "425K requests",
         "-8%"
       ],
       [
         "Nano Banana Pro",
-        "382K",
-        "-11%"
+        "384K requests",
+        "-9%"
+      ]
+    ],
+    "text_author_share_weekly": [
+      [
+        "DeepSeek",
+        "31.8%",
+        "+6%"
+      ],
+      [
+        "OpenAI",
+        "19.3%",
+        "+2%"
+      ],
+      [
+        "Google",
+        "13.6%",
+        "-5%"
+      ],
+      [
+        "Z.ai",
+        "7.4%",
+        "-38%"
+      ],
+      [
+        "Anthropic",
+        "5.8%",
+        "+1%"
+      ],
+      [
+        "Qwen",
+        "5.7%",
+        "+2%"
+      ],
+      [
+        "Stealth",
+        "2.5%",
+        null
+      ],
+      [
+        "Mistral",
+        "2.3%",
+        "+5%"
+      ],
+      [
+        "Tencent",
+        "2.3%",
+        "+21%"
+      ],
+      [
+        "All other authors",
+        "9.2%",
+        "+11%"
+      ]
+    ],
+    "image_author_share_weekly": [
+      [
+        "Google",
+        "48.7%",
+        "+15%"
+      ],
+      [
+        "OpenAI",
+        "28.9%",
+        "+15%"
+      ],
+      [
+        "Bytedance Seed",
+        "7.1%",
+        "+109%"
+      ],
+      [
+        "Meta",
+        "5.2%",
+        "-33%"
+      ],
+      [
+        "Black Forest Labs",
+        "4.3%",
+        "+38%"
+      ],
+      [
+        "Recraft",
+        "2.0%",
+        "-9%"
+      ],
+      [
+        "SpaceXAI",
+        "1.0%",
+        "-35%"
+      ],
+      [
+        "Tencent",
+        "0.9%",
+        null
+      ],
+      [
+        "Qwen",
+        "0.7%",
+        "-18%"
+      ],
+      [
+        "All other authors",
+        "1.2%",
+        "-28%"
       ]
     ],
     "sources": [
       "https://openrouter.ai/rankings",
       "https://openrouter.ai/rankings/image"
     ],
-    "note": "Срез Nov 7 сохранён для следующего сравнения; в текущем выпуске блок OpenRouter не публикуется из-за несопоставимых текущих данных."
+    "note": "OpenRouter text top-10 и daily top-10 ранжируются по токенам; image top-10 — по requests. Данные через 2026-11-08. Сохраняется для сравнения со следующим выпуском."
   },
-  "audio_script": "AI-дайджест на девятое ноября. CrewAI 1.15.38 добавил чтение ссылок на таблицы с обработкой каждой строки инструментами агента, а также улучшил трассировку eval-запусков. Это можно превратить в пилот автоматизации отдела продаж, закупок или финансов: агент обрабатывает строки, а человек подтверждает изменения. В llama.cpp b12207 добавили CUDA fast path для Zamba2: в тесте скорость выросла с одиннадцати до пятнадцати целых одной десятой токена в секунду, примерно на тридцать пять процентов. Но около двадцати восьми процентов операций всё ещё уходят на CPU, поэтому результат нужно проверять на оборудовании клиента. Наконец, vLLM объединил изменения для обслуживания Kimi K3.1 на восьми GPU. Проверка проводилась на dummy-модели, поэтому перед коммерческим внедрением нужна отдельная проверка реальных весов и качества.",
+  "audio_script": "AI-дайджест на девятое ноября. В LiteLLM добавили общий лимит времени на весь non-streaming запрос. Теперь total_timeout учитывает не только один вызов модели, но и подготовку, повторы, задержки между повторами и дополнительные проверки; если бюджет исчерпан, прокси возвращает 408 и отменяет запрос к провайдеру. Это пока изменение в main, а не подтверждённый стабильный релиз. Второе изменение LiteLLM касается больших каталогов моделей: в benchmark на тысяче deployments CPU на выбор модели снизился с семнадцати целых пяти до пяти целых девяти миллисекунд. Это не означает такое же ускорение полного запроса, поэтому нужно мерить на инфраструктуре клиента. В OpenAI Agents SDK исправили восстановление обычного текста ассистента после human approval checkpoint, чтобы агент мог продолжить работу после согласования инструмента. Для интегратора это повод тестировать не только сам tool call, но и сохранение состояния, подтверждение человеком и безопасное возобновление. В OpenRouter Hy4 вырос с десяти целых одной десятой до двенадцати целых восьми триллиона токенов в двух дневных снимках, а Crouton Alpha вошёл в top ten. В image ranking Seedream 5.0 Flash поднялся с седьмого на шестое место, увеличив число запросов с пятисот восьмидесяти восьми до шестисот пятидесяти одной тысячи. Это метрики трафика через OpenRouter, а не уникальных пользователей или качества моделей.",
   "audio_caption": "🎧 Аудиоверсия AI-дайджеста"
 }
