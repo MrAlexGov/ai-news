@@ -46,7 +46,10 @@ def load_digest() -> dict[str, Any]:
 
 def format_digest(digest: dict[str, Any]) -> str:
     date = esc(digest.get("date", ""))
+    window = esc(digest.get("window", ""))
     parts = [f"🧠 <b>AI НОВОСТИ — {date}</b>"]
+    if window:
+        parts.append("<i>" + window + "</i>")
 
     takeaways = digest.get("takeaways") or digest.get("conclusions")
     if isinstance(takeaways, list) and takeaways:
