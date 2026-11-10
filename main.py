@@ -51,12 +51,6 @@ def format_digest(digest: dict[str, Any]) -> str:
     if window:
         parts.append("<i>" + window + "</i>")
 
-    takeaways = digest.get("takeaways") or digest.get("conclusions")
-    if isinstance(takeaways, list) and takeaways:
-        parts.append("<b>Главное за день</b>\n" + "\n".join("• " + esc(x) for x in takeaways))
-    elif isinstance(takeaways, str) and takeaways.strip():
-        parts.append("<b>Главное за день</b>\n" + esc(takeaways))
-
     parts.append("<b>Топ событий за сутки</b>")
 
     for index, item in enumerate(digest["news"], 1):
@@ -118,6 +112,12 @@ def format_digest(digest: dict[str, Any]) -> str:
                 url = esc(link["url"])
                 ranking_block.append(f'🔗 <a href="{url}">{label}</a>')
         parts.append("\n".join(ranking_block))
+
+    takeaways = digest.get("takeaways") or digest.get("conclusions")
+    if isinstance(takeaways, list) and takeaways:
+        parts.append("<b>Главное за день</b>\n" + "\n".join("• " + esc(x) for x in takeaways))
+    elif isinstance(takeaways, str) and takeaways.strip():
+        parts.append("<b>Главное за день</b>\n" + esc(takeaways))
 
     return "\n\n".join(parts)
 
