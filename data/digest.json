@@ -1,244 +1,224 @@
 {
-  "date": "2026-11-10",
-  "window": "2026-11-09 08:54:54 — 2026-11-10 08:54:54 (МСК; последние 24 часа)",
+  "date": "2026-11-11",
+  "window": "2026-11-10 08:42:38 — 2026-11-11 08:42:38 (МСК; последние 24 часа)",
   "news": [
     {
-      "title": "Claude Fable 5.2: сильнее для сложной инженерной работы и дешевле предыдущей версии",
-      "text": "Anthropic выпустила Claude Fable 5.2 и Mythos 5.2: Fable доступна через Claude Platform, AWS, Google Cloud и Azure, а Mythos — только организациям, прошедшим проверку для cybersecurity или life sciences. По данным Anthropic, генерация стала до 30% быстрее Fable 5.1, базовая цена — $8 за 1 млн входных и $40 за 1 млн выходных токенов; Fast mode стоит $16/$80.",
-      "monetization_comment": "Как заработать интегратору: предложить техническим командам пилот на сложной миграции, рефакторинге или длительном code audit — Fable как Advisor/Orchestrator, более дешёвые модели как исполнители повторяющихся подзадач. Измерять стоимость закрытой задачи, долю принятых PR и время человеческого ревью.",
-      "access": "API model ID: claude-fable-5-2. Бесплатная API-квота не заявлена; Fable имеет safeguards для cyber/biology, Mythos доступен только верифицированным организациям.",
+      "title": "OpenAI Business Hub: бизнес-профили и агенты становятся отдельным каналом в ChatGPT",
+      "text": "OpenAI запустила beta Businesses in ChatGPT: компании могут подтвердить профиль, обновлять сведения и загружать product feeds с ценами и наличием, а Business Hub показывает агрегированные упоминания, переходы на сайт и темы обнаружения бизнеса. Business Agents позволяют подходящим компаниям отвечать на вопросы о товарах и услугах прямо в ChatGPT, но пока доступны только eligible e-commerce и online-service businesses в США.",
+      "monetization_comment": "Как заработать интегратору: предложить магазинам и сервисным компаниям «ChatGPT presence setup» — верификация профиля, нормализация каталога/Shopify feed, проверка цен и наличия, FAQ и мониторинг упоминаний/кликов. Быстрый пилот — одна категория или 20–50 SKU; для бизнеса вне США пока продавать подготовку профиля и каталога, а не внедрение Business Agent. Это гипотеза услуги, не гарантия трафика.",
+      "access": "Businesses in ChatGPT находится в beta. Профиль могут заявить eligible businesses в странах, где доступен ChatGPT; Business Agents пока ограничены подходящими e-commerce и online-service businesses в США. В анонсе не заявлен публичный API управления профилем; указаны self-service product feeds и интеграция Shopify. Политика не разрешает агенту самостоятельно отправлять бронирования/покупки или выполнять действия без разрешённого механизма и явного согласия пользователя.",
       "links": [
         {
-          "label": "Официальный анонс Anthropic",
-          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+          "label": "Официальный анонс OpenAI",
+          "url": "https://openai.com/index/introducing-businesses-chatgpt/"
         },
         {
-          "label": "Публикация MacRumors с отметкой времени",
-          "url": "https://www.macrumors.com/2026/11/09/anthropic-launches-claude-fable-5-2/"
+          "label": "Business Agents Policy",
+          "url": "https://openai.com/policies/business-agents-policy/"
+        },
+        {
+          "label": "Reuters: запуск Business Hub и Business Agents",
+          "url": "https://www.reuters.com/technology/openai-lets-businesses-claim-chatgpt-profiles-adds-ai-agents-us-e-commerce-firms-2026-11-10/"
         }
       ],
       "sources": [
-        "Anthropic: официальная публикация от 2026-11-09; цена, скорость, доступность и роли Advisor/Orchestrator.",
-        "MacRumors: 2026-11-09 11:38 AM PST (2026-11-09 19:38 UTC), независимая временная отметка публикации."
+        "OpenAI: официальный анонс от 2026-11-10; профили, product feeds, агрегированные insights и география Business Agents.",
+        "Reuters: публикация 2026-11-10 в 13:03 EDT (18:03 UTC), независимая временная отметка.",
+        "OpenAI Business Agents Policy: ограничения на действия агента, представление бизнеса и работу с пользовательскими данными."
+      ],
+      "category": "AI-коммерция и discovery",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T18:03:00Z",
+      "timestamp_verified": true,
+      "timestamp_note": "Официальная страница OpenAI указывает только дату; время 13:03 EDT подтверждено публикацией Reuters.",
+      "popularity": null,
+      "discussion": "https://www.reuters.com/technology/openai-lets-businesses-claim-chatgpt-profiles-adds-ai-agents-us-e-commerce-firms-2026-11-10/"
+    },
+    {
+      "title": "Gemini 4 Carbon открылся платному API; в Antigravity появился preview /swarm",
+      "text": "Google открыла Gemini 4 Carbon платным разработчикам и предприятиям через Gemini API: модель рассчитана на длинные многошаговые задачи, сложный код, debugging и работу с плотными документами, тогда как Argon компания рекомендует для большинства обычных задач. В Antigravity отдельно preview `/swarm` превращает один запрос в координируемую команду агентов с изолированными рабочими пространствами и проверяющими.",
+      "monetization_comment": "Как заработать интегратору: предложить «frontier agent sprint» для сложной миграции, анализа многопакетного проекта или сборки отчёта из разнородных документов. Быстрый пилот — один сложный процесс: Carbon планирует и проверяет, более дешёвые модели выполняют повторяемые шаги; считать стоимость полного принятого результата, а не цену токена.",
+      "access": "Gemini API доступен на платном тарифе, бесплатный API tier не заявлен. Стартовая цена — $2 за 1 млн input и $10 за 1 млн output tokens до 30 ноября 2026 года; с 1 декабря — $4/$20. Carbon расходует больше токенов, чем Argon. `/swarm` — preview в Google Antigravity, а не отдельный универсальный API; доступ к Antigravity/consumer rollout зависит от Google AI Ultra и enterprise-доступа.",
+      "links": [
+        {
+          "label": "Официальный анонс Google",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+        },
+        {
+          "label": "Gemini API pricing",
+          "url": "https://aistudio.google.com/pricing"
+        },
+        {
+          "label": "Neural Brew: дата, доступ и проверка условий",
+          "url": "https://neuralbrew.ai/en/articles/2026/11/gemini-4-carbon-available-api-ultra-pricing/"
+        }
+      ],
+      "sources": [
+        "Google: официальный анонс 2026-11-10; paid API, роль Argon/Carbon, /swarm и вводная цена.",
+        "Google AI Studio pricing: стоимость после 30 ноября.",
+        "Neural Brew: 2026-11-10 18:10 CET (17:10 UTC), независимая временная отметка и сверка тарифа."
       ],
       "category": "Модели и агентная разработка",
-      "release_date": "2026-11-09",
-      "published_at": "2026-11-09T19:38:00Z",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T17:10:00Z",
       "timestamp_verified": true,
-      "timestamp_note": "Официальная страница Anthropic указывает дату без времени; время в окне подтверждается независимой публикацией MacRumors.",
+      "timestamp_note": "Официальная страница Google указывает дату без времени; отметка 18:10 CET взята из независимой публикации Neural Brew.",
+      "popularity": "В OpenRouter New & Trending Gemini 4 Carbon появился с 43.3B токенов в текущем скользящем семидневном окне; метка new означает отсутствие предыдущего недельного окна, а не оценку качества.",
+      "discussion": "https://neuralbrew.ai/en/articles/2026/11/gemini-4-carbon-available-api-ultra-pricing/"
+    },
+    {
+      "title": "Anthropic превращает Claude в рабочее пространство: Sheets, Whiteboards, Data и interactive connectors",
+      "text": "Anthropic запустила Claude Whiteboards и Sheets в beta, перевела Claude Dashboards в GA под названием Claude Data и расширила interactive connectors: приложения вроде Adobe, Atlassian, Box и Notion могут открываться внутри Claude рядом с диалогом. Claude Data добавляет certified queries, live sharing, caching и tracked changes, а Sheets генерирует таблицы с формулами и совместным редактированием.",
+      "monetization_comment": "Как заработать интегратору: внедрять Claude workspace для sales, finance или operations — подключить CRM/warehouse, определить утверждённые метрики, собрать dashboard и интерактивный сценарий для команды. Быстрый пилот — один отдел и 5–10 сертифицированных метрик; отдельно проверить права доступа и корректность результатов.",
+      "access": "Все функции доступны на платных планах, но Sheets и Whiteboards пока beta, Claude Data — GA; сертифицированные запросы и live sharing остаются beta. На Team функции включены по умолчанию; на Enterprise Sheets/Whiteboards выключены, а Claude Data должен включиться по умолчанию 19 ноября. Sheets пока не поддерживает live data из подключённых приложений, pivot tables и некоторые расширенные функции Excel; лимит — 100 000 ячеек. Claude Data требует data connector. Claude Meetings в официальном анонсе помечен как coming soon, поэтому не считаем его выпущенным.",
+      "links": [
+        {
+          "label": "Официальный анонс Claude Sheets, Whiteboards и Data",
+          "url": "https://claude.com/resources/articles/sheets-whiteboards-data"
+        },
+        {
+          "label": "Документация interactive connectors",
+          "url": "https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude"
+        },
+        {
+          "label": "Документация Claude Sheets и ограничения beta",
+          "url": "https://support.claude.com/en/articles/18324300-get-started-with-claude-sheets"
+        },
+        {
+          "label": "TechCrunch: время публикации и контекст запуска",
+          "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+        }
+      ],
+      "sources": [
+        "Anthropic: официальная продуктовая публикация от 2026-11-10; статусы beta/GA, admin defaults и возможности Claude Data.",
+        "Anthropic Help Center: список интерактивных коннекторов, доступность и sandbox/security details.",
+        "TechCrunch: 2026-11-10 17:30 UTC, независимая временная отметка."
+      ],
+      "category": "Бизнес-автоматизация и рабочие инструменты",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T17:30:00Z",
+      "timestamp_verified": true,
+      "timestamp_note": "Официальные страницы Anthropic показывают дату без времени; 17:30 UTC подтверждено независимой публикацией TechCrunch.",
       "popularity": null,
-      "discussion": "https://www.macrumors.com/2026/11/09/anthropic-launches-claude-fable-5-2/"
+      "discussion": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
     },
     {
-      "title": "Meta Muse Ember: недорогая мультимодальная модель для повторяющихся задач агентов",
-      "text": "Meta выпустила Muse Ember для tool calls, routing, extraction, coding subtasks и разбора длинных документов; модель принимает текст, изображения, аудио и видео. Она поддерживает Responses API и OpenAI-совместимый клиент, имеет контекст 1 млн токенов и стоит $0.10/$0.50 за 1 млн входных/выходных токенов при контексте до 200K.",
-      "monetization_comment": "Как заработать интегратору: вынести массовые операции из дорогой frontier-модели в worker на Muse Ember — разбор счетов, договоров, скриншотов, аудиозаметок и тикетов, оставив сложное планирование старшей модели. Пилот — одна очередь документов с замером точности извлечения, доли исправлений человеком и стоимости принятой записи.",
-      "access": "Model ID: muse-ember-1.0; доступ через Meta Model API и Muse Code. Для запросов с контекстом свыше 200K действует более высокий тариф: $0.30/$1.50 за 1 млн входных/выходных токенов; бесплатный API-тариф не заявлен.",
+      "title": "Adobe открывает Creative Cloud для агентных workflow и готовит локальный MCP",
+      "text": "На Adobe MAX компания расширила Creative Agent и Firefly AI Assistant по Creative Cloud, добавила Firefly Graph для повторяемых творческих workflow и представила Firefly Builder для прототипирования сайтов и приложений. Preview локальных MCP-интеграций позволит внешним агентам менять нативные проекты Photoshop, Illustrator, Premiere и After Effects, сохраняя редактируемые слои и последовательности.",
+      "monetization_comment": "Как заработать интегратору: собрать для маркетинговой команды pipeline «бриф → варианты креатива → адаптации под каналы → согласование», с бренд-настройками и версионностью. Быстрый пилот — одна продуктовая кампания и три формата; пока локальный MCP не доступен клиенту, использовать уже доступные beta Firefly workflows и не обещать production-автоматизацию через MCP.",
+      "access": "Creative Agent/Firefly Assistant и Firefly Graph представлены в beta; Firefly Builder — private beta. Local MCP integrations пока preview; TechCrunch сообщает о private beta в начале 2027 года. Это не общедоступный MCP API на сегодня; доступ к beta зависит от аккаунта и продукта Adobe.",
       "links": [
         {
-          "label": "Официальный анонс Meta",
-          "url": "https://research.meta.ai/blog/muse-ember"
+          "label": "Официальный анонс Adobe MAX",
+          "url": "https://news.adobe.com/news/2026/11/adobe-powers-new-era-of-creativity"
         },
         {
-          "label": "Документация Meta Model API",
-          "url": "https://dev.meta.ai/docs/muse-ember"
+          "label": "Adobe: agentic workflows в Creative Cloud",
+          "url": "https://news.adobe.com/news/2026/11/adobe-transforms-creative-cloud-tools"
         },
         {
-          "label": "TechCrunch — время публикации и контекст применения",
-          "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/"
+          "label": "TechCrunch: локальный MCP и доступность",
+          "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/"
         }
       ],
       "sources": [
-        "Meta Research: опубликовано 2026-11-09; мультимодальность, контекст, API и тарифы.",
-        "TechCrunch: 2026-11-09 10:00 AM PST (2026-11-09 18:00 UTC).",
-        "Meta Model API pricing and rate limits: порог 200K и тариф для длинного контекста."
+        "Adobe: официальный пресс-релиз 2026-11-10 09:00 AM EST; Creative Agent, Firefly Graph/Builder и MCP preview.",
+        "TechCrunch: 2026-11-10 06:05 AM PST (14:05 UTC); уточняет private beta local MCP в начале 2027 года."
       ],
-      "category": "Мультимодальные модели и стоимость агентных задач",
-      "release_date": "2026-11-09",
-      "published_at": "2026-11-09T18:00:00Z",
+      "category": "Креативная автоматизация и MCP",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T14:00:00Z",
       "timestamp_verified": true,
-      "timestamp_note": "Официальная страница Meta содержит дату без времени; временная отметка 10:00 AM PST взята из TechCrunch.",
-      "popularity": "В OpenRouter New & Trending модель набрала 12.1B токенов в текущем семидневном окне; это трафик API, не число пользователей и не оценка качества.",
-      "discussion": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/"
-    },
-    {
-      "title": "ElevenLabs Campaign Manager: голосовые кампании теперь ведут контакт до результата",
-      "text": "ElevenLabs запустила Campaign Manager для ElevenAgents: система ведёт контакт до заданного результата, сохраняет контекст между попытками, управляет retries, callbacks и redirects, а также показывает воронку кампании и timeline решений. Сейчас доступны телефон и WhatsApp voice/text, контакты загружаются через CSV или API; email и SMS пока обозначены как coming soon.",
-      "monetization_comment": "Как заработать интегратору: собрать вертикальную outbound-систему для клиник, сервисных компаний, страховых брокеров или дилеров — квалификация лида, подтверждение записи, продление или возврат клиента. Быстрый пилот: одна кампания, синхронизация контактов и результатов с CRM, передача сложных случаев оператору; KPI — дозвон, целевые действия, opt-out и стоимость результата.",
-      "access": "Доступен существующим пользователям ElevenAgents; новым клиентам предлагается обратиться в sales. Кампании не работают с Zero Retention Mode; соблюдение согласий, разрешённых часов, лимитов попыток и требований к раскрытию информации остаётся ответственностью заказчика. Цена Campaign Manager отдельно не указана.",
-      "links": [
-        {
-          "label": "Официальный анонс ElevenLabs",
-          "url": "https://elevenlabs.io/blog/elevenagents-campaign-manager"
-        },
-        {
-          "label": "Документация Campaigns и API",
-          "url": "https://elevenlabs.io/docs/eleven-agents/phone-numbers/campaigns"
-        },
-        {
-          "label": "Независимая сводка с временной отметкой",
-          "url": "https://theagenticweekly.com/news/elevenagents-campaign-manager"
-        }
-      ],
-      "sources": [
-        "ElevenLabs: официальный анонс от 2026-11-09; каналы, CSV/API, контроль кампаний и аналитика.",
-        "ElevenLabs docs: опубликовано 2026-11-09 12:00 UTC по независимому индексу Agentic Weekly; официальный блог показывает только дату.",
-        "Campaigns docs: outbound compliance, Zero Retention Mode, API и ограничения каналов."
-      ],
-      "category": "Голосовые агенты и продажи",
-      "release_date": "2026-11-09",
-      "published_at": "2026-11-09T12:00:00Z",
-      "timestamp_verified": true,
-      "timestamp_note": "В официальном блоге указана только дата; независимый индекс Agentic Weekly фиксирует время публикации исходного материала 12:00 UTC.",
+      "timestamp_note": "Официальный пресс-релиз Adobe имеет отметку 09:00 AM EST (14:00 UTC).",
       "popularity": null,
-      "discussion": "https://theagenticweekly.com/news/elevenagents-campaign-manager"
+      "discussion": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/"
     },
     {
-      "title": "Automattic Spacefast: агент может сам опубликовать MVP и подключить базу",
-      "text": "Automattic открыла Spacefast — hosting и backend, которыми агент управляет через MCP, API или CLI: публикация, SQL-база, загрузки файлов, домен, версии и откат доступны из чата или терминала. Поддерживаются статические сайты и проекты Next.js, Astro, TanStack Start и PHP, а новые пространства приватны по умолчанию.",
-      "monetization_comment": "Как заработать интегратору: упаковать услугу «AI-MVP под ключ» — разработка через ChatGPT/Claude/Codex, публикация, домен, база, сбор обратной связи и сопровождение. Быстрый пилот — лендинг, калькулятор или внутренний dashboard с постоянной ссылкой, историей версий и быстрым откатом.",
-      "access": "Personal: $0 без карты, $1 usage credit в месяц, 20 Spaces и 20 custom domains; текущая страница Spacefast явно разрешает commercial use. Go — $5/месяц с $5 usage credit и почасовыми backup базы. В анонсе встроенная app authentication ещё указана как coming soon — для приложений с логином проверьте текущий статус или используйте собственную авторизацию.",
+      "title": "Google DeepMind и Artificial Analysis запустили MKA — тест для мультимодальных рабочих агентов",
+      "text": "Multimodal Knowledge Agent benchmark включает 200 закрытых задач в 10 отраслях и 83 профессиях: агент должен сопоставлять визуально сложные файлы — чертежи, схемы, сканы и карты — и выдавать готовые документы, таблицы или презентации. Все модели запускаются в одинаковом open-source harness Stirrup, а для самостоятельных экспериментов опубликованы 10 примеров на Hugging Face под Apache 2.0.",
+      "monetization_comment": "Как заработать интегратору: продавать приёмочные испытания document-agent под конкретную отрасль — набор реальных задач клиента, экспертные чек-листы, точность/полнота, время и стоимость принятого deliverable. Быстрый пилот — 10–20 обезличенных задач и сравнение 2–3 моделей; MKA использовать как образец методологии, а не как сертификат качества.",
+      "access": "Публичны 10 showcase tasks на Hugging Face под Apache 2.0; полный набор из 200 задач остаётся закрытым у Artificial Analysis. Stirrup — MIT, поддерживает MCP, мультимодальные файлы и human-in-the-loop. Рубрика MKA взвешивает factual accuracy на 75% и visual design на 25%; заявленные 96.2% совпадения AI-оценщика с экспертами — результат исследования Google, а не независимая сертификация.",
       "links": [
         {
-          "label": "Официальный запуск Spacefast от Automattic",
-          "url": "https://automattic.com/2026/11/09/meet-spacefast/"
+          "label": "Официальный анонс Google DeepMind",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/"
         },
         {
-          "label": "Spacefast: тарифы и возможности",
-          "url": "https://spacefast.com/"
+          "label": "Artificial Analysis: MKA leaderboard и методология",
+          "url": "https://artificialanalysis.ai/evaluations/mka"
         },
         {
-          "label": "TechCrunch — публикация о запуске",
-          "url": "https://techcrunch.com/2026/11/09/automattic-launches-spacefast-an-agent-neutral-hosting-and-database-platform/"
+          "label": "10 публичных задач на Hugging Face",
+          "url": "https://huggingface.co/datasets/google/multimodal-knowledge-agent"
+        },
+        {
+          "label": "Stirrup agent harness — MIT",
+          "url": "https://github.com/ArtificialAnalysis/Stirrup"
+        },
+        {
+          "label": "Технический отчёт Google DeepMind",
+          "url": "https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf"
         }
       ],
       "sources": [
-        "Automattic: официальный запуск 2026-11-09; MCP/API/CLI, hosting, SQL, версии, приватность и app authentication roadmap.",
-        "Spacefast homepage: Personal $0, $1 monthly usage credit, 20 Spaces/domains, commercial use; Go $5/month.",
-        "TechCrunch: 2026-11-09 06:00 AM PST (2026-11-09 14:00 UTC)."
+        "Google DeepMind: официальный анонс от 2026-11-10; 200 задач, 10 вертикалей, 83 профессии и 10 публичных примеров.",
+        "Artificial Analysis: 200-task evaluation, общий harness и результаты 21 модели.",
+        "Google technical report: дата 2026-11-10, методология и проверка согласия оценщика с экспертами.",
+        "PressReleaseFeed: индексировал публикацию в 16:00 UTC; точное время отсутствует на официальной странице Google."
       ],
-      "category": "Публикация приложений и быстрые MVP",
-      "release_date": "2026-11-09",
-      "published_at": "2026-11-09T14:00:00Z",
-      "timestamp_verified": true,
-      "timestamp_note": "Официальный анонс датирован 9 ноября; время 06:00 AM PST подтверждается публикацией TechCrunch.",
-      "popularity": null,
-      "discussion": "https://techcrunch.com/2026/11/09/automattic-launches-spacefast-an-agent-neutral-hosting-and-database-platform/"
-    },
-    {
-      "title": "NVIDIA выложила 9 млн синтетических финансовых персон и 100 тыс. документов с PII-разметкой",
-      "text": "NVIDIA опубликовала два японских синтетических набора: 9 млн финансовых персон с 50 полями и 100 тыс. бизнес-документов с 56 типами PII-разметки в восьми доменах и 43 типах документов. Оба набора доступны под CC BY 4.0 для коммерческого использования и позволяют тестировать customer simulation, обнаружение и маскирование персональных данных без реальных клиентских записей.",
-      "monetization_comment": "Как заработать интегратору: предложить финансовым и сервисным компаниям PII-gateway перед отправкой документов во внешние LLM — обнаружение, маскирование, проверка сохранности смысла и журналирование. Быстрый пилот — прогнать тестовый корпус, измерить пропуски и ложные срабатывания, затем повторить проверку на согласованной выборке клиента; японские данные подходят прежде всего для проектов с японским языком.",
-      "access": "Загрузка через Hugging Face Datasets: nvidia/Nemotron-Personas-Finance-Japan и nvidia/Nemotron-PII-Japan. Лицензия CC BY 4.0 допускает коммерческое использование с атрибуцией; данные синтетические и японские, поэтому результаты не заменяют проверку на реальных документах целевого рынка.",
-      "links": [
-        {
-          "label": "NVIDIA: финансовые персоны Японии",
-          "url": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan"
-        },
-        {
-          "label": "NVIDIA: 100 тыс. синтетических документов с PII",
-          "url": "https://huggingface.co/blog/nvidia/nemotron-pii-japan"
-        },
-        {
-          "label": "Dataset: Nemotron-Personas-Finance-Japan",
-          "url": "https://huggingface.co/datasets/nvidia/Nemotron-Personas-Finance-Japan"
-        },
-        {
-          "label": "Dataset: Nemotron-PII-Japan",
-          "url": "https://huggingface.co/datasets/nvidia/Nemotron-PII-Japan"
-        }
-      ],
-      "sources": [
-        "Hugging Face NVIDIA blog: публикация датирована 2026-11-09; 9M personas, 50 fields, CC BY 4.0.",
-        "Hugging Face NVIDIA blog: Nemotron PII Japan — 100K synthetic docs, 8 domains, 43 document types, 56 PII labels, CC BY 4.0.",
-        "Hugging Face organization activity: оба набора обновлены примерно за 12 часов до проверки; точное время в статье не указано."
-      ],
-      "category": "Синтетические данные, приватность и финансовый AI",
-      "release_date": "2026-11-09",
-      "published_at": null,
+      "category": "Оценка и качество мультимодальных агентов",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T16:00:00Z",
       "timestamp_verified": false,
-      "timestamp_note": "Официальные статьи показывают календарную дату 9 ноября без времени; Hugging Face activity указывает обновление датасетов примерно за 12 часов до проверки, но точная временная отметка недоступна.",
+      "timestamp_note": "Официальный блог Google показывает только дату 10 ноября; 16:00 UTC указано независимым агрегатором PressReleaseFeed, поэтому точное время первоисточником не подтверждено.",
       "popularity": null,
-      "discussion": "https://huggingface.co/blog/nvidia/nemotron-pii-japan"
+      "discussion": "https://aiweekly.co/alerts/google-deepmind-launches-200-task-multimodal-knowledge-agent-benchmark"
     },
     {
-      "title": "Dexto 1.17.0: безопаснее сетевой доступ, shell-команды и работа с URL",
-      "text": "В пакетах Dexto 1.17.0 сервер теперь слушает 127.0.0.1 по умолчанию и требует API key при сетевом bind, process tool проверяет allowlist по точной команде, а built-ins блокируют SSRF на private/metadata IP и небезопасные redirects. Дополнительно появились проверки Origin/Host, лимиты размера ответа и redaction секретов в логах.",
-      "monetization_comment": "Как заработать интегратору: продавать аудит безопасности self-hosted AI-агентов — сетевые bind, API keys, SSRF, файловые ограничения, shell allowlists и утечки секретов. Быстрый пилот — проверить один агентный сервис в Docker/PaaS, выполнить набор adversarial-тестов и выдать план исправлений.",
-      "access": "Обновляются пакеты @dexto/server, @dexto/tools-process и @dexto/tools-builtins до 1.17.0. Для доступа из контейнеров/других хостов может потребоваться явно задать host и DEXTO_SERVER_API_KEY; allowlist теперь должен содержать точные команды. Репозиторий использует Elastic License 2.0, а не OSI open-source; лицензия ограничивает предоставление продукта как hosted/managed service.",
+      "title": "NVIDIA Alpamayo 2 Edge: компактная open-weight VLA-модель для автопрома",
+      "text": "NVIDIA опубликовала Alpamayo 2 Edge — VLA-модель примерно на 2 млрд параметров для автономного вождения: она принимает данные шести камер, навигационную инструкцию и историю движения, выдавая траекторию на 6,4 секунды и причинное объяснение решения. Адаптивное reasoning позволяет пропускать объяснение в обычных ситуациях; NVIDIA заявляет 160–190 мс на DRIVE AGX Thor после TensorRT/FP8/DFlash2-оптимизации.",
+      "monetization_comment": "Как заработать интегратору: только при наличии контактов в automotive/Tier-1/robotaxi — предложить R&D-пилот по анализу сценариев и оценке траекторий на закрытом полигоне или в симуляции с данными клиента. Не продавать как готовый автопилот: это development baseline, а не сертифицированная система для дорог.",
+      "access": "Веса — OpenMDW-1.1 (коммерческое использование разрешено на условиях лицензии и сохранения notices при распространении), код — Apache 2.0. Проверено на H100 80GB; NVIDIA указывает пиковое использование около 12 GiB и рекомендует не менее 16 GB. Заявленные 160–190 мс требуют оптимизации под DRIVE AGX Thor; показатели вождения получены в симуляции NVIDIA и не подтверждают безопасность на дорогах общего пользования.",
       "links": [
         {
-          "label": "Dexto server 1.17.0",
-          "url": "https://github.com/truffle-ai/dexto/releases/tag/%40dexto/server%401.17.0"
+          "label": "NVIDIA Technical Blog: модель и deployment recipe",
+          "url": "https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/"
         },
         {
-          "label": "Dexto process tools 1.17.0",
-          "url": "https://github.com/truffle-ai/dexto/releases/tag/%40dexto/tools-process%401.17.0"
+          "label": "Модель Alpamayo 2 Edge на Hugging Face",
+          "url": "https://huggingface.co/nvidia/Alpamayo2-Edge"
         },
         {
-          "label": "Dexto built-in tools 1.17.0",
-          "url": "https://github.com/truffle-ai/dexto/releases/tag/%40dexto/tools-builtins%401.17.0"
+          "label": "Исходный код NVlabs",
+          "url": "https://github.com/NVlabs/alpamayo2-edge"
         },
         {
-          "label": "Лицензия Elastic License 2.0",
-          "url": "https://github.com/truffle-ai/dexto/blob/main/LICENSE"
+          "label": "Лицензия OpenMDW-1.1",
+          "url": "https://openmdw.ai/license/"
         }
       ],
       "sources": [
-        "GitHub Releases API: @dexto/tools-process@1.17.0 published 2026-11-09T21:18:56Z.",
-        "GitHub Releases API: @dexto/server@1.17.0 and @dexto/tools-builtins@1.17.0 published 2026-11-09T21:19Z.",
-        "Dexto LICENSE: Elastic License 2.0; hosted/managed service restriction."
+        "NVIDIA Developer Blog: официальный материал от 2026-11-10; архитектура, adaptive reasoning и latency recipe.",
+        "Hugging Face model card: release date 2026-11-10, OpenMDW-1.1 weights, Apache 2.0 code, tested hardware and use case.",
+        "Neural Brew: сообщает, что анонс NVIDIA в X вышел 2026-11-10 в 17:08 по Парижу; X endpoint не удалось открыть напрямую."
       ],
-      "category": "Безопасность AI-агентов",
-      "release_date": "2026-11-09",
-      "published_at": "2026-11-09T21:18:56Z",
-      "timestamp_verified": true,
-      "timestamp_note": "Точное время публикации пакета зафиксировано GitHub Releases API.",
-      "popularity": null,
-      "discussion": "https://github.com/truffle-ai/dexto/releases"
-    },
-    {
-      "title": "OpenAI Dots: один агент теперь может работать с несколькими локальными компьютерами",
-      "text": "В документации OpenAI описано подключение к одному dot нескольких локальных компьютеров: для независимых задач можно открыть отдельные threads, каждый работает на одной выбранной машине, а cloud computer остаётся доступен. Это позволяет параллельно проверять сборки на разных OS/SDK или выполнять локальные задачи, пока разработчик продолжает общаться с dot.",
-      "monetization_comment": "Как заработать интегратору: предложить небольшим software-командам пилот multi-machine QA — подключить несколько компьютеров с разными SDK/OS, запускать независимые проверки и собирать результаты в одном рабочем потоке. KPI — время воспроизведения дефекта, число проверенных конфигураций и доля регрессий, пойманных до релиза.",
-      "access": "Требуется поддерживаемый ChatGPT desktop app и постоянно включённый локальный компьютер. Dots доступны только подходящим Pro/Business Premium пользователям в поддерживаемых регионах; Pro rollout исключает EEA, Швейцарию и UK, Enterprise доступен в beta и выключен по умолчанию. Это функция приложения, не API.",
-      "links": [
-        {
-          "label": "Документация OpenAI: подключение компьютеров к dot",
-          "url": "https://learn.chatgpt.com/docs/dots/computers-and-apps"
-        },
-        {
-          "label": "Анонс в OpenAI Developer Community",
-          "url": "https://community.openai.com/t/you-can-now-connect-multiple-local-computers-to-the-same-dot/1414560"
-        },
-        {
-          "label": "OpenAI release notes: доступность Dots",
-          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
-        }
-      ],
-      "sources": [
-        "OpenAI Help Center: документация обновлена в день проверки; несколько компьютеров подключаются отдельно, каждый thread использует одну машину.",
-        "OpenAI Developer Community: announcement displayed as Nov 9, 22:28; timezone not displayed.",
-        "OpenAI release notes: Pro excludes EEA, Switzerland and UK at launch; Enterprise beta is off by default."
-      ],
-      "category": "Локальные агенты и разработческий workflow",
-      "release_date": "2026-11-09",
-      "published_at": null,
+      "category": "Physical AI и автономный транспорт",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T16:08:00Z",
       "timestamp_verified": false,
-      "timestamp_note": "Community post показывает 9 ноября, 22:28 без timezone; документация уже описывает функцию и была обновлена примерно за 6 часов до текущей проверки.",
+      "timestamp_note": "Model card подтверждает дату 10 ноября; время 17:08 Paris приводится Neural Brew со ссылкой на пост NVIDIA в X, который не удалось открыть напрямую.",
       "popularity": null,
-      "discussion": "https://community.openai.com/t/you-can-now-connect-multiple-local-computers-to-the-same-dot/1414560"
+      "discussion": "https://forums.developer.nvidia.com/"
     }
   ],
   "openrouter": {
-    "period": "Сравнение сохранённого среза через 8 ноября с текущими данными OpenRouter через 9 ноября 2026.",
+    "period": "Сравнение официальных рейтингов OpenRouter через 2026-11-10 с сохранённым срезом через 2026-11-09 (предыдущий snapshot сохранён 2026-11-10 08:54:54 МСК).",
     "changes": [
-      "Hy4 (Tencent): 12.8T → 16.0T токенов в скользящем семидневном окне (+3.2T; +25% между дневными снимками), поднялась с 4-го на 3-е место и обошла GLM 5.3 Flash.",
-      "Crouton Alpha: 4.27T → 5.1T токенов (+0.83T; +19.4%), поднялась с 10-го на 8-е место. Провайдер указан как stealth — это только сигнал трафика, не рекомендация для production.",
-      "В New & Trending появились Claude Fable 5.2 (18.5B токенов), Muse Ember (12.1B) и Decisions Fast (free) (11.3B). Decisions Fast — не чат-модель, а web-grounded API структурированных решений; контекст 32K, до 100 вопросов на запрос, бесплатный лимит 50 запросов/день и 20/мин, без EU in-region routing.",
-      "Cohere Embed 5 / Rerank 5 набрали заметный трафик в New & Trending: Rerank 5 Fast — 3.41B, Rerank 5 Pro — 3.05B, Embed 5 Fast — 937M, Embed 5 Pro — 902M токенов; для всех показано >999% week-over-week. Эти модели добавлены в OpenRouter 4 ноября, поэтому это сигнал использования, а не релиз текущего окна; Embed Pro и Fast разделяют embedding space, что позволяет индексировать Pro и искать Fast без перестроения индекса при одинаковых dimensions."
+      "Hy4 (Tencent): 16.0T → 18.8T токенов в скользящем семидневном окне (+2.8T; +17.5% snapshot-to-snapshot); позиция поднялась с 3-й на 2-ю. Это заметный рост трафика модели, но не показатель качества или уникальных пользователей.",
+      "Inkling 2 Small (free) впервые появился в New & Trending с 141B токенов; модель выпущена 9 ноября, то есть сама публикация модели вне текущего 24-часового окна — здесь это только сигнал популярности. OpenRouter указывает 1M context, text+image input и tool calling, но free endpoint ограничен agentic harnesses, prompts/outputs логируются для улучшения моделей, конфиденциальные данные загружать нельзя; EU in-region routing недоступен.",
+      "Gemini 4 Carbon появился в New & Trending с 43.3B токенов и меткой new; это ранний usage-сигнал после запуска, а new означает отсутствие предыдущего недельного окна, не оценку качества."
     ],
-    "methodology": "Text ranking считает prompt + completion tokens, image ranking — requests. Сравнение snapshot-to-snapshot сопоставляет два соседних скользящих семидневных окна; столбец OpenRouter Change сравнивает текущие семь дней с предыдущими семью днями, а метка new означает отсутствие предыдущей недели, не релиз за сутки. Токены и requests не равны уникальным пользователям, выручке или качеству. В image top-10 порядок не изменился; Seedream 5.0 Flash выросла с 651K до 695K requests (+6.8%) без смены позиции — недостаточно для отдельного сигнала.",
+    "methodology": "Официальная страница показывает usage data through Nov 10, 2026. Text ranking считает prompt + completion tokens, image ranking — requests. Сравнение snapshot-to-snapshot сопоставляет два соседних скользящих семидневных окна; New & Trending сравнивает текущие семь дней с предыдущими семью и помечает new модели без предыдущего недельного окна. Токены и requests не равны уникальным пользователям, выручке или качеству. В image top-10 порядок не изменился; Seedream 5.0 Flash выросла с 695K до 728K requests (+4.7%) без смены позиции — отдельный сигнал не публикуем.",
     "links": [
       {
         "label": "OpenRouter Text Rankings",
@@ -249,172 +229,170 @@
         "url": "https://openrouter.ai/rankings/image"
       },
       {
-        "label": "Cohere Embed 5 / Rerank 5 on OpenRouter",
-        "url": "https://docs.cohere.com/v2/changelog/embed-rerank-v5-openrouter"
-      },
-      {
-        "label": "Decisions Fast (free): API и лимиты",
-        "url": "https://openrouter.ai/parallel/decisions-fast:free"
+        "label": "Inkling 2 Small (free): тариф, ограничения и privacy",
+        "url": "https://openrouter.ai/thinkingmachines/inkling-2-small:free"
       }
     ]
   },
   "takeaways": [
-    "Связка для снижения себестоимости: Fable 5.2 планирует и разбирает сложные случаи, Muse Ember выполняет повторяющиеся подзадачи; проверять нужно стоимость принятого результата, а не цену токена отдельно.",
-    "Campaign Manager превращает голосового агента в законченный outbound-процесс: CRM, повторные касания, callback, opt-out и передача оператору можно продавать как вертикальное решение.",
-    "Два практичных предложения для B2B: быстрый MVP с Spacefast и аудит безопасности/PII для агентных систем на базе Dexto и синтетических наборов NVIDIA."
+    "Самая понятная новая услуга — подготовка бизнеса к обнаружению в ChatGPT: профиль, каталог, актуальные цены и аналитика; Business Agents пока ограничены США.",
+    "Для дорогих агентных задач появился понятный сценарий orchestration: Carbon/Argon и /swarm для сложной работы, но экономику надо считать по стоимости принятого результата.",
+    "Для document AI и knowledge agents появился более предметный тестовый контур: MKA + Stirrup позволяют проверять не только текстовые ответы, но и готовые файлы, визуальную точность и стоимость."
   ],
-  "editorial_note": "Окно проверки: 2026-11-09 08:54:54 — 2026-11-10 08:54:54 МСК. Сверен предыдущий digest.json; повторов новостей от 9 ноября нет. Для Anthropic, Meta и Spacefast время выхода подтверждено независимыми публикациями, так как официальные страницы показывают только дату; для ElevenLabs независимый индекс фиксирует 12:00 UTC. Для NVIDIA и Dots первичные страницы не показывают точное время; ограничение отмечено в метаданных. В OpenRouter text rankings существенные изменения есть, image top-10 по сравнению с прошлым снимком стабилен. По Telegram-каналам индексированные превью оказались устаревшими (в частности, @neuraldvig показывал посты недельной/трёхнедельной давности); свежие сообщения из перечисленных каналов подтвердить не удалось, поэтому они не использовались как источники. Google Maps AI Studio не включён: точное время объявления не удалось надёжно установить для 24-часового окна; K-EXAONE 2.5 не включён, так как доступная отметка времени предшествует окну, а условия использования не подходят для коммерческого внедрения.",
+  "editorial_note": "Окно проверки: 2026-11-10 08:42:38 — 2026-11-11 08:42:38 МСК. Сверен предыдущий data/digest.json от 10 ноября; повторов предыдущих выпусков нет. Временные отметки OpenAI, Google Carbon, Anthropic и Adobe подтверждены независимыми публикациями/официальным пресс-релизом; для MKA официальный Google blog указывает только дату, 16:00 UTC взято из независимого агрегатора и помечено как неподтверждённое первоисточником; для Alpamayo 2 Edge дата подтверждена model card, а время X-поста не удалось проверить напрямую. OpenRouter проверен по официальным страницам: Hy4 вырос с 16.0T до 18.8T (+17.5%) и поднялся на одну позицию; Inkling 2 Small (free) и Gemini 4 Carbon появились в New & Trending. В image top-10 существенных изменений нет. Индексированные превью Telegram-каналов из списка пользователя оказались устаревшими или не дали проверяемых публикаций за текущее окно; они не использовались как подтверждение новостей. GetCourse и EdTech исключены.",
+  "audio_script": "AI-дайджест за одиннадцатое ноября. OpenAI открыла Business Hub: компании могут подтвердить профиль в ChatGPT, обновлять каталог и смотреть агрегированные упоминания и переходы на сайт. Business Agents пока доступны только подходящим американским e-commerce и онлайн-сервисам, поэтому интегратору уже можно продавать подготовку каталога и профиля, но не обещать доступ к агенту в других странах. Google открыла Gemini 4 Carbon для платного API и показала /swarm в Antigravity — команду агентов, которая выполняет сложные задачи параллельно. Стартовая цена действует до тридцатого ноября, затем удваивается, поэтому пилот нужно оценивать по стоимости готового результата. Anthropic добавила Sheets и Whiteboards в beta, сделала Claude Data общедоступным и расширила интерактивные коннекторы. Adobe расширяет Creative Agent и готовит локальный MCP для Photoshop, Illustrator, Premiere и After Effects, но публичный доступ к нему ожидается не сейчас. Google DeepMind и Artificial Analysis выпустили MKA — тест, который проверяет, может ли агент читать чертежи, схемы и сканы и собирать готовые файлы; десять примеров уже открыты, а полный набор из двухсот задач закрыт. NVIDIA выпустила Alpamayo 2 Edge для автопрома: коммерчески разрешённые веса и код Apache, но модель пока development baseline, а не готовый автопилот. В OpenRouter Hy4 вырос с шестнадцати до восемнадцати целых восьми триллионов токенов в семидневном окне и поднялся на второе место. Inkling 2 Small появился в трендах, но бесплатный endpoint логирует запросы и не подходит для конфиденциальных данных.",
+  "audio_caption": "🎧 Аудиоверсия AI-дайджеста",
   "ranking_baseline": {
-    "usage_through": "2026-11-09",
-    "snapshot_captured_at": "2026-11-10T08:54:54+03:00",
+    "usage_through": "2026-11-10",
+    "snapshot_captured_at": "2026-11-11T08:42:38+03:00",
     "text_weekly_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "55.4T",
-        "+10%"
-      ],
-      [
-        "DeepSeek V4.1 Flash",
-        "17.5T",
-        "+16%"
+        "53.8T",
+        "-2%"
       ],
       [
         "Hy4",
-        "16T",
+        "18.8T",
         "new"
       ],
       [
-        "GLM 5.3 Flash",
-        "12.1T",
-        "-21%"
+        "DeepSeek V4.1 Flash",
+        "16.9T",
+        "+8%"
       ],
       [
-        "Step 5 Preview",
-        "7.15T",
-        "+11%"
+        "GLM 5.3 Flash",
+        "11.3T",
+        "-31%"
       ],
       [
         "GPT-6 Luna",
-        "7.1T",
-        "-23%"
+        "7.04T",
+        "-24%"
+      ],
+      [
+        "Step 5 Preview",
+        "6.94T",
+        "+4%"
       ],
       [
         "Claude Opus 5.5",
-        "6.75T",
+        "6.76T",
         "+1%"
       ],
       [
         "Crouton Alpha",
-        "5.1T",
-        "new"
-      ],
-      [
-        "MiniMax M3.1 Flash",
-        "4.66T",
-        "-28%"
+        "5.07T",
+        ">999%"
       ],
       [
         "Kimi K3.1 Pro",
-        "4.39T",
-        "+56%"
+        "4.42T",
+        "+46%"
+      ],
+      [
+        "MiniMax M3.1 Flash",
+        "4.33T",
+        "-33%"
       ]
     ],
     "text_daily_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "7.19T",
+        "8.65T",
         "+20%"
       ],
       [
         "Hy4",
-        "3.18T",
-        "+16%"
-      ],
-      [
-        "DeepSeek V4.1 Flash",
-        "2.33T",
-        "+13%"
-      ],
-      [
-        "GLM 5.3 Flash",
-        "1.51T",
-        "+34%"
-      ],
-      [
-        "GPT-6 Luna",
-        "1.01T",
-        "+35%"
-      ],
-      [
-        "Step 5 Preview",
-        "963B",
-        "+0%"
-      ],
-      [
-        "Claude Opus 5.5",
-        "951B",
-        "+38%"
-      ],
-      [
-        "Crouton Alpha",
-        "834B",
+        "2.83T",
         "-11%"
       ],
       [
-        "Kimi K3.1 Pro",
-        "743B",
-        "-10%"
+        "DeepSeek V4.1 Flash",
+        "2.27T",
+        "-3%"
+      ],
+      [
+        "GLM 5.3 Flash",
+        "2.1T",
+        "+40%"
+      ],
+      [
+        "Claude Opus 5.5",
+        "1.11T",
+        "+17%"
+      ],
+      [
+        "GPT-6 Luna",
+        "1.07T",
+        "+5%"
+      ],
+      [
+        "Step 5 Preview",
+        "803B",
+        "-17%"
+      ],
+      [
+        "GPT-6.1 Sol",
+        "664B",
+        "+38%"
       ],
       [
         "MiMo-V2.6-Flash",
-        "658B",
-        "+112%"
+        "655B",
+        "0%"
+      ],
+      [
+        "GLM 5.3",
+        "595B",
+        "+30%"
       ]
     ],
     "text_new_trending": [
       [
         "Hy4",
-        "16T",
-        "new"
-      ],
-      [
-        "Crouton Alpha",
-        "5.1T",
+        "18.8T",
         "new"
       ],
       [
         "Claude Fable 5.2",
-        "18.5B",
+        "198B",
+        "new"
+      ],
+      [
+        "Inkling 2 Small (free)",
+        "141B",
         "new"
       ],
       [
         "Muse Ember",
-        "12.1B",
+        "92.2B",
         "new"
       ],
       [
-        "Decisions Fast (free)",
-        "11.3B",
+        "Gemini 4 Carbon",
+        "43.3B",
         "new"
       ],
       [
-        "Embed 5 Pro",
-        "902M",
+        "Grok 4.6 (batch)",
+        "182M",
+        ">999%"
+      ],
+      [
+        "Reflex",
+        "4.23B",
         ">999%"
       ],
       [
         "Embed 5 Fast",
-        "937M",
+        "1.04B",
         ">999%"
       ],
       [
-        "Rerank 5 Fast",
-        "3.41B",
-        ">999%"
-      ],
-      [
-        "Rerank 5 Pro",
-        "3.05B",
+        "Embed 5 Pro",
+        "1.03B",
         ">999%"
       ],
       [
@@ -426,53 +404,53 @@
     "image_weekly_top10": [
       [
         "Nano Banana 2",
-        "2.67M requests",
-        "+21%"
+        "2.6M requests",
+        "+11%"
       ],
       [
         "GPT Image 2.5 Sunburst",
-        "1.3M requests",
-        "+2%"
+        "1.25M requests",
+        "-6%"
       ],
       [
         "Nano Banana 2.1",
-        "994K requests",
-        "+17%"
+        "1.01M requests",
+        "+14%"
       ],
       [
         "GPT Image 2.5 Flare",
-        "899K requests",
-        "+7%"
+        "869K requests",
+        "+3%"
       ],
       [
         "Nano Banana 2 Lite",
-        "729K requests",
-        "+9%"
+        "739K requests",
+        "+13%"
       ],
       [
         "Seedream 5.0 Flash",
-        "695K requests",
-        "+188%"
+        "728K requests",
+        "+140%"
       ],
       [
         "Muse Image",
-        "620K requests",
-        "-24%"
+        "630K requests",
+        "-13%"
       ],
       [
         "GPT Image 2",
-        "536K requests",
-        "+1%"
+        "543K requests",
+        "+5%"
       ],
       [
         "Nano Banana",
-        "433K requests",
-        "-4%"
+        "446K requests",
+        "+2%"
       ],
       [
         "Nano Banana Pro",
-        "392K requests",
-        "-6%"
+        "397K requests",
+        "-2%"
       ]
     ],
     "text_author_share_weekly": [
@@ -581,10 +559,9 @@
     ],
     "sources": [
       "https://openrouter.ai/rankings",
-      "https://openrouter.ai/rankings/image"
+      "https://openrouter.ai/rankings/image",
+      "https://openrouter.ai/thinkingmachines/inkling-2-small:free"
     ],
-    "note": "Срез сохранён для сравнения со следующим выпуском. Text and image rankings are measured separately: tokens vs requests. Данные через 2026-11-09."
-  },
-  "audio_script": "AI-дайджест за десятое ноября. Anthropic выпустила Claude Fable 5.2: по заявлению компании, она генерирует до тридцати процентов быстрее предыдущей версии и стоит восемь долларов за миллион входных и сорок долларов за миллион выходных токенов. Meta Muse Ember — более дешёвая мультимодальная модель для повторяющихся агентных задач, включая извлечение данных, маршрутизацию и работу с документами. ElevenLabs Campaign Manager ведёт голосовые кампании до результата через телефон и WhatsApp; интегратору стоит связать его с CRM и автоматизировать квалификацию лидов или запись на приём. Automattic запустила Spacefast: агент может опубликовать сайт или MVP, подключить базу, домен и историю версий прямо через MCP. NVIDIA выложила девять миллионов синтетических финансовых персон и сто тысяч японских документов с разметкой персональных данных — на них можно тестировать маскирование перед отправкой в LLM. Dexto 1.17.0 усилил защиту агентного runtime: локальный bind по умолчанию, точный allowlist команд и блокировка SSRF. OpenAI документирует подключение нескольких компьютеров к одному dot для параллельных локальных задач, но доступ ограничен поддерживаемыми тарифами и регионами. В OpenRouter Hy4 вырос с двенадцати целых восьми до шестнадцати триллионов токенов в скользящем семидневном окне, а Cohere Embed и Rerank 5 набирают трафик; это показатели использования API, а не качества моделей.",
-  "audio_caption": "🎧 Аудиоверсия AI-дайджеста"
+    "note": "Срез сохранён для следующего сравнения. Text rankings измеряют токены, image rankings — requests. Данные через 2026-11-10."
+  }
 }
