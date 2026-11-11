@@ -1,247 +1,155 @@
 {
   "date": "2026-11-11",
-  "window": "2026-11-10 08:42:38 — 2026-11-11 08:42:38 (МСК; последние 24 часа)",
+  "window": "2026-11-10 09:10:38 — 2026-11-11 09:10:38 (МСК; последние 24 часа)",
   "news": [
     {
-      "title": "OpenAI Business Hub: бизнес-профили и агенты становятся отдельным каналом в ChatGPT",
-      "text": "OpenAI запустила beta Businesses in ChatGPT: компании могут подтвердить профиль, обновлять сведения и загружать product feeds с ценами и наличием, а Business Hub показывает агрегированные упоминания, переходы на сайт и темы обнаружения бизнеса. Business Agents позволяют подходящим компаниям отвечать на вопросы о товарах и услугах прямо в ChatGPT, но пока доступны только eligible e-commerce и online-service businesses в США.",
-      "monetization_comment": "Как заработать интегратору: предложить магазинам и сервисным компаниям «ChatGPT presence setup» — верификация профиля, нормализация каталога/Shopify feed, проверка цен и наличия, FAQ и мониторинг упоминаний/кликов. Быстрый пилот — одна категория или 20–50 SKU; для бизнеса вне США пока продавать подготовку профиля и каталога, а не внедрение Business Agent. Это гипотеза услуги, не гарантия трафика.",
-      "access": "Businesses in ChatGPT находится в beta. Профиль могут заявить eligible businesses в странах, где доступен ChatGPT; Business Agents пока ограничены подходящими e-commerce и online-service businesses в США. В анонсе не заявлен публичный API управления профилем; указаны self-service product feeds и интеграция Shopify. Политика не разрешает агенту самостоятельно отправлять бронирования/покупки или выполнять действия без разрешённого механизма и явного согласия пользователя.",
+      "title": "MiniMax H3-Image: 4K и до 16 референсов, но с ограничительной лицензией",
+      "text": "10 ноября в 14:15 UTC MiniMax объявила H3-Image — модель для text-to-image и редактирования с 1–16 референсами и выводом до 20 Мп; компания заявляет, что 4K-изображение генерируется менее чем за 10 секунд. ComfyUI 0.45.0 добавил нативную поддержку, а MiniMax API предоставляет отдельные endpoints для генерации и редактирования.",
+      "monetization_comment": "Как заработать интегратору: собрать для e-commerce и рекламных агентств конвейер каталожных изображений — SKU и референсы → варианты креативов → проверка человеком → DAM. Пилот — 10 товаров по 3 визуальных варианта с замером доли принятых изображений и стоимости; самостоятельное коммерческое развёртывание весов в ЕС не предлагать без отдельной лицензии.",
+      "access": "Веса публичны, но лицензия MiniMax-H3-Image Community License Agreement не является стандартной open-source лицензией: она исключает ЕС, Великобританию, США и Южную Корею; для hosted-сервисов и компаний с годовой выручкой выше $1 млн требуется письменное разрешение. Полная модель — 68.65 GB плюс текстовый encoder MiniMax-H3 около 66.7 GB. В официальном API-примере стандартная генерация 4K стоит $0.06879; до 17 ноября 2026, 16:00 UTC действует скидка 50% на изображения от 16.6 Мп, фактический расчёт идёт по токенам. Территориальные условия API следует проверять отдельно, не перенося на него автоматически условия лицензии весов.",
       "links": [
         {
-          "label": "Официальный анонс OpenAI",
-          "url": "https://openai.com/index/introducing-businesses-chatgpt/"
+          "label": "Официальный анонс MiniMax",
+          "url": "https://www.minimax.io/blog/minimax-h3-image"
         },
         {
-          "label": "Business Agents Policy",
-          "url": "https://openai.com/policies/business-agents-policy/"
+          "label": "Официальный репозиторий и модельная карта",
+          "url": "https://github.com/MiniMax-AI/MiniMax-H3-Image"
         },
         {
-          "label": "Reuters: запуск Business Hub и Business Agents",
-          "url": "https://www.reuters.com/technology/openai-lets-businesses-claim-chatgpt-profiles-adds-ai-agents-us-e-commerce-firms-2026-11-10/"
+          "label": "MiniMax API: генерация изображений",
+          "url": "https://platform.minimax.io/docs/api-reference/image-generation-h3-generations"
+        },
+        {
+          "label": "Официальные цены и условия launch discount",
+          "url": "https://platform.minimax.io/docs/pricing/overview"
+        },
+        {
+          "label": "ComfyUI PR #17655",
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/17655"
+        },
+        {
+          "label": "Проверка времени официального X-анонса и лицензии",
+          "url": "https://cellcog.ai/blog/minimax-h3-image/"
         }
       ],
       "sources": [
-        "OpenAI: официальный анонс от 2026-11-10; профили, product feeds, агрегированные insights и география Business Agents.",
-        "Reuters: публикация 2026-11-10 в 13:03 EDT (18:03 UTC), независимая временная отметка.",
-        "OpenAI Business Agents Policy: ограничения на действия агента, представление бизнеса и работу с пользовательскими данными."
+        "MiniMax: официальный блог, модельная карта и API-документация; официальный X-анонс датирован 2026-11-10.",
+        "CellCog зафиксировал публикацию официального X-анонса в 14:15 UTC 2026-11-10 и проверил опубликованную лицензию; это независимая временная отметка.",
+        "ComfyUI: PR #17655 добавляет поддержку H3-Image; официальный репозиторий ComfyUI показывает интеграцию в ветке v0.45.0."
       ],
-      "category": "AI-коммерция и discovery",
+      "category": "Мультимодальные модели и генерация изображений",
       "release_date": "2026-11-10",
-      "published_at": "2026-11-10T18:03:00Z",
+      "published_at": "2026-11-10T14:15:00Z",
       "timestamp_verified": true,
-      "timestamp_note": "Официальная страница OpenAI указывает только дату; время 13:03 EDT подтверждено публикацией Reuters.",
+      "timestamp_note": "Время 14:15 UTC относится к официальному посту MiniMax в X и зафиксировано CellCog; официальный блог MiniMax указывает календарную дату 2026-11-11 без времени.",
       "popularity": null,
-      "discussion": "https://www.reuters.com/technology/openai-lets-businesses-claim-chatgpt-profiles-adds-ai-agents-us-e-commerce-firms-2026-11-10/"
+      "discussion": "https://cellcog.ai/blog/minimax-h3-image/"
     },
     {
-      "title": "Gemini 4 Carbon открылся платному API; в Antigravity появился preview /swarm",
-      "text": "Google открыла Gemini 4 Carbon платным разработчикам и предприятиям через Gemini API: модель рассчитана на длинные многошаговые задачи, сложный код, debugging и работу с плотными документами, тогда как Argon компания рекомендует для большинства обычных задач. В Antigravity отдельно preview `/swarm` превращает один запрос в координируемую команду агентов с изолированными рабочими пространствами и проверяющими.",
-      "monetization_comment": "Как заработать интегратору: предложить «frontier agent sprint» для сложной миграции, анализа многопакетного проекта или сборки отчёта из разнородных документов. Быстрый пилот — один сложный процесс: Carbon планирует и проверяет, более дешёвые модели выполняют повторяемые шаги; считать стоимость полного принятого результата, а не цену токена.",
-      "access": "Gemini API доступен на платном тарифе, бесплатный API tier не заявлен. Стартовая цена — $2 за 1 млн input и $10 за 1 млн output tokens до 30 ноября 2026 года; с 1 декабря — $4/$20. Carbon расходует больше токенов, чем Argon. `/swarm` — preview в Google Antigravity, а не отдельный универсальный API; доступ к Antigravity/consumer rollout зависит от Google AI Ultra и enterprise-доступа.",
+      "title": "TrueDialog MCP: агенты получили доступ к SMS/RCS и контактам",
+      "text": "10 ноября в 09:20 ET TrueDialog запустила MCP-коннектор, через который ChatGPT, Copilot, Claude, Gemini, Perplexity и собственные MCP-агенты могут отправлять SMS/RCS и управлять контактами. Подключение доступно через каталоги ChatGPT и Copilot либо tdmcp.com, а отправка использует инфраструктуру доставки, регистрацию 10DLC и автоматическую обработку opt-out.",
+      "monetization_comment": "Как заработать интегратору: для компаний, работающих с клиентами в США, собрать lead-response agent — новая заявка → поиск контакта в CRM → персональное SMS → follow-up. Пилот — одна форма и одна воронка с тестовой отправкой и подтверждением массовых сообщений человеком; KPI — время до первого касания, доля ответов и opt-out.",
+      "access": "Нужен аккаунт TrueDialog; MCP включён во все тарифы без отдельной платы за сам коннектор, новые пользователи могут начать trial. Сейчас доступны отправка и тест SMS/RCS, выбор номера, поиск/создание/обновление контактов; двусторонние диалоги, кампании и отчётность остаются в платформе или API. Это прежде всего североамериканская enterprise messaging-платформа, а не универсальный шлюз для всех стран.",
       "links": [
         {
-          "label": "Официальный анонс Google",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+          "label": "Официальный анонс TrueDialog",
+          "url": "https://www.prnewswire.com/news-releases/truedialog-launches-mcp-for-chatgpt-copilot-and-other-ai-assistants-302935019.html"
         },
         {
-          "label": "Gemini API pricing",
-          "url": "https://aistudio.google.com/pricing"
+          "label": "Страница TrueDialog MCP и ограничения",
+          "url": "https://www.truedialog.com/features/mcp/"
         },
         {
-          "label": "Neural Brew: дата, доступ и проверка условий",
-          "url": "https://neuralbrew.ai/en/articles/2026/11/gemini-4-carbon-available-api-ultra-pricing/"
+          "label": "Подключение MCP",
+          "url": "https://tdmcp.com"
         }
       ],
       "sources": [
-        "Google: официальный анонс 2026-11-10; paid API, роль Argon/Carbon, /swarm и вводная цена.",
-        "Google AI Studio pricing: стоимость после 30 ноября.",
-        "Neural Brew: 2026-11-10 18:10 CET (17:10 UTC), независимая временная отметка и сверка тарифа."
+        "TrueDialog / PRNewswire: официальный релиз от 2026-11-10, 09:20 ET; описывает SMS/RCS, контакты, test sends, 10DLC и opt-out.",
+        "TrueDialog: официальная MCP-страница подтверждает доступность в ChatGPT, Copilot, Claude, Gemini и других MCP-клиентах, а также отсутствие отдельной платы за MCP."
       ],
-      "category": "Модели и агентная разработка",
+      "category": "Коммуникации и MCP-интеграции",
       "release_date": "2026-11-10",
-      "published_at": "2026-11-10T17:10:00Z",
+      "published_at": "2026-11-10T14:20:00Z",
       "timestamp_verified": true,
-      "timestamp_note": "Официальная страница Google указывает дату без времени; отметка 18:10 CET взята из независимой публикации Neural Brew.",
-      "popularity": "В OpenRouter New & Trending Gemini 4 Carbon появился с 43.3B токенов в текущем скользящем семидневном окне; метка new означает отсутствие предыдущего недельного окна, а не оценку качества.",
-      "discussion": "https://neuralbrew.ai/en/articles/2026/11/gemini-4-carbon-available-api-ultra-pricing/"
-    },
-    {
-      "title": "Anthropic превращает Claude в рабочее пространство: Sheets, Whiteboards, Data и interactive connectors",
-      "text": "Anthropic запустила Claude Whiteboards и Sheets в beta, перевела Claude Dashboards в GA под названием Claude Data и расширила interactive connectors: приложения вроде Adobe, Atlassian, Box и Notion могут открываться внутри Claude рядом с диалогом. Claude Data добавляет certified queries, live sharing, caching и tracked changes, а Sheets генерирует таблицы с формулами и совместным редактированием.",
-      "monetization_comment": "Как заработать интегратору: внедрять Claude workspace для sales, finance или operations — подключить CRM/warehouse, определить утверждённые метрики, собрать dashboard и интерактивный сценарий для команды. Быстрый пилот — один отдел и 5–10 сертифицированных метрик; отдельно проверить права доступа и корректность результатов.",
-      "access": "Все функции доступны на платных планах, но Sheets и Whiteboards пока beta, Claude Data — GA; сертифицированные запросы и live sharing остаются beta. На Team функции включены по умолчанию; на Enterprise Sheets/Whiteboards выключены, а Claude Data должен включиться по умолчанию 19 ноября. Sheets пока не поддерживает live data из подключённых приложений, pivot tables и некоторые расширенные функции Excel; лимит — 100 000 ячеек. Claude Data требует data connector. Claude Meetings в официальном анонсе помечен как coming soon, поэтому не считаем его выпущенным.",
-      "links": [
-        {
-          "label": "Официальный анонс Claude Sheets, Whiteboards и Data",
-          "url": "https://claude.com/resources/articles/sheets-whiteboards-data"
-        },
-        {
-          "label": "Документация interactive connectors",
-          "url": "https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude"
-        },
-        {
-          "label": "Документация Claude Sheets и ограничения beta",
-          "url": "https://support.claude.com/en/articles/18324300-get-started-with-claude-sheets"
-        },
-        {
-          "label": "TechCrunch: время публикации и контекст запуска",
-          "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
-        }
-      ],
-      "sources": [
-        "Anthropic: официальная продуктовая публикация от 2026-11-10; статусы beta/GA, admin defaults и возможности Claude Data.",
-        "Anthropic Help Center: список интерактивных коннекторов, доступность и sandbox/security details.",
-        "TechCrunch: 2026-11-10 17:30 UTC, независимая временная отметка."
-      ],
-      "category": "Бизнес-автоматизация и рабочие инструменты",
-      "release_date": "2026-11-10",
-      "published_at": "2026-11-10T17:30:00Z",
-      "timestamp_verified": true,
-      "timestamp_note": "Официальные страницы Anthropic показывают дату без времени; 17:30 UTC подтверждено независимой публикацией TechCrunch.",
+      "timestamp_note": "PRNewswire указывает 09:20 ET; 10 ноября США уже используют EST (UTC−5), то есть 14:20 UTC / 17:20 МСК.",
       "popularity": null,
-      "discussion": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+      "discussion": null
     },
     {
-      "title": "Adobe открывает Creative Cloud для агентных workflow и готовит локальный MCP",
-      "text": "На Adobe MAX компания расширила Creative Agent и Firefly AI Assistant по Creative Cloud, добавила Firefly Graph для повторяемых творческих workflow и представила Firefly Builder для прототипирования сайтов и приложений. Preview локальных MCP-интеграций позволит внешним агентам менять нативные проекты Photoshop, Illustrator, Premiere и After Effects, сохраняя редактируемые слои и последовательности.",
-      "monetization_comment": "Как заработать интегратору: собрать для маркетинговой команды pipeline «бриф → варианты креатива → адаптации под каналы → согласование», с бренд-настройками и версионностью. Быстрый пилот — одна продуктовая кампания и три формата; пока локальный MCP не доступен клиенту, использовать уже доступные beta Firefly workflows и не обещать production-автоматизацию через MCP.",
-      "access": "Creative Agent/Firefly Assistant и Firefly Graph представлены в beta; Firefly Builder — private beta. Local MCP integrations пока preview; TechCrunch сообщает о private beta в начале 2027 года. Это не общедоступный MCP API на сегодня; доступ к beta зависит от аккаунта и продукта Adobe.",
+      "title": "WellSaid Producer: профессиональный voiceover вызывается через MCP",
+      "text": "10 ноября в 11:11 ET WellSaid запустила Producer — MCP-интерфейс для voiceover production из Claude, ChatGPT, Copilot или собственного агента: выбор голоса, управление подачей и произношением, версии, согласование и доставка аудио в CMS/DAM. Сервис генерирует звук нативно в 48 kHz, а сведения о коммерческой лицензии остаются привязаны к готовому файлу.",
+      "monetization_comment": "Как заработать интегратору: автоматизировать фирменную озвучку для продуктовых компаний и рекламных агентств — сценарий → подбор голоса → словарь произношений → согласование → публикация. Пилот — один продуктовый релиз в двух языках и трёх форматах; измерять срок выпуска, число правок и консистентность произношения бренда.",
+      "access": "Producer доступен сейчас, но подключение предлагается через demo/sales; публичный прайс не найден. Коммерческие голоса основаны на согласии и оплате актёрам. Это производство озвучки для контента, а не движок для live-разговоров с голосовым агентом.",
       "links": [
         {
-          "label": "Официальный анонс Adobe MAX",
-          "url": "https://news.adobe.com/news/2026/11/adobe-powers-new-era-of-creativity"
+          "label": "Официальный анонс WellSaid",
+          "url": "https://www.prnewswire.com/news-releases/wellsaid-brings-voiceover-production-into-mcp-enabled-tools-with-native-48khz-audio-and-licensed-ai-voices-302935119.html"
         },
         {
-          "label": "Adobe: agentic workflows в Creative Cloud",
-          "url": "https://news.adobe.com/news/2026/11/adobe-transforms-creative-cloud-tools"
+          "label": "WellSaid Producer",
+          "url": "https://www.wellsaid.io/platform/producer"
         },
         {
-          "label": "TechCrunch: локальный MCP и доступность",
-          "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/"
+          "label": "Agentic content production",
+          "url": "https://www.wellsaid.io/solutions/agentic-content-production"
         }
       ],
       "sources": [
-        "Adobe: официальный пресс-релиз 2026-11-10 09:00 AM EST; Creative Agent, Firefly Graph/Builder и MCP preview.",
-        "TechCrunch: 2026-11-10 06:05 AM PST (14:05 UTC); уточняет private beta local MCP в начале 2027 года."
+        "WellSaid Labs / PRNewswire: официальный анонс от 2026-11-10, 11:11 ET; подтверждает MCP, native 48 kHz, style guides и лицензирование голосов.",
+        "WellSaid: официальная страница Producer описывает workflow casting → direction → review → delivery в CMS/DAM."
       ],
-      "category": "Креативная автоматизация и MCP",
+      "category": "Голос и контент-производство",
+      "release_date": "2026-11-10",
+      "published_at": "2026-11-10T16:11:00Z",
+      "timestamp_verified": true,
+      "timestamp_note": "PRNewswire указывает 11:11 ET; 10 ноября США уже используют EST (UTC−5), то есть 16:11 UTC / 19:11 МСК.",
+      "popularity": null,
+      "discussion": null
+    },
+    {
+      "title": "WhiteMatter привлекла $20M на управление и безопасность AI-агентов",
+      "text": "10 ноября в 09:00 ET WhiteMatter (ранее QuilrAI) объявила раунд Series A на $20 млн под руководством Blumberg Capital для развития платформы инвентаризации, развёртывания и контроля агентов, моделей и MCP-серверов, включая проверку действий до и после выполнения. Компания заявляет о 2.25 млн агентов под управлением и 116 млрд обработанных AI-взаимодействий; это показатели самой компании, а не независимый аудит.",
+      "monetization_comment": "Как заработать интегратору: продавать аудит готовности к безопасному внедрению агентов — инвентаризация агентов и MCP-серверов, идентичности, scopes, доступ к данным, разрешённые действия, бюджеты и журналирование. Быстрый пилот — три агента в одном подразделении, матрица allow/deny, human approval для рискованных операций и воспроизводимый audit trail.",
+      "access": "WhiteMatter — коммерческая enterprise-платформа; публичной цены и open-source релиза не обнаружено, доступ предлагается через demo. Раунд и метрики — сигнал интереса рынка к agent governance, но не доказательство доступности продукта для небольших интеграторов.",
+      "links": [
+        {
+          "label": "Официальный анонс WhiteMatter",
+          "url": "https://www.prnewswire.com/news-releases/whitematter-raises-20m-series-a-to-close-the-growing-gap-between-ai-autonomy-and-enterprise-governance-302934477.html"
+        },
+        {
+          "label": "Сайт WhiteMatter",
+          "url": "https://whitematter.io/"
+        },
+        {
+          "label": "SecurityWeek: независимый разбор раунда",
+          "url": "https://www.securityweek.com/whitematter-raises-20-million-in-series-a-funding/"
+        }
+      ],
+      "sources": [
+        "WhiteMatter / PRNewswire: официальный релиз от 2026-11-10, 09:00 ET; подтверждает сумму раунда, инвестора и описание платформы.",
+        "SecurityWeek: независимая публикация от 2026-11-10, 09:58 ET; подтверждает раунд и специализацию на governance AI-агентов.",
+        "Метрики 2.25 млн агентов и 116 млрд взаимодействий приведены самой WhiteMatter и не проверялись независимо."
+      ],
+      "category": "Безопасность и governance AI-агентов",
       "release_date": "2026-11-10",
       "published_at": "2026-11-10T14:00:00Z",
       "timestamp_verified": true,
-      "timestamp_note": "Официальный пресс-релиз Adobe имеет отметку 09:00 AM EST (14:00 UTC).",
+      "timestamp_note": "PRNewswire указывает 09:00 ET; 10 ноября США уже используют EST (UTC−5), то есть 14:00 UTC / 17:00 МСК.",
       "popularity": null,
-      "discussion": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/"
-    },
-    {
-      "title": "Google DeepMind и Artificial Analysis запустили MKA — тест для мультимодальных рабочих агентов",
-      "text": "Multimodal Knowledge Agent benchmark включает 200 закрытых задач в 10 отраслях и 83 профессиях: агент должен сопоставлять визуально сложные файлы — чертежи, схемы, сканы и карты — и выдавать готовые документы, таблицы или презентации. Все модели запускаются в одинаковом open-source harness Stirrup, а для самостоятельных экспериментов опубликованы 10 примеров на Hugging Face под Apache 2.0.",
-      "monetization_comment": "Как заработать интегратору: продавать приёмочные испытания document-agent под конкретную отрасль — набор реальных задач клиента, экспертные чек-листы, точность/полнота, время и стоимость принятого deliverable. Быстрый пилот — 10–20 обезличенных задач и сравнение 2–3 моделей; MKA использовать как образец методологии, а не как сертификат качества.",
-      "access": "Публичны 10 showcase tasks на Hugging Face под Apache 2.0; полный набор из 200 задач остаётся закрытым у Artificial Analysis. Stirrup — MIT, поддерживает MCP, мультимодальные файлы и human-in-the-loop. Рубрика MKA взвешивает factual accuracy на 75% и visual design на 25%; заявленные 96.2% совпадения AI-оценщика с экспертами — результат исследования Google, а не независимая сертификация.",
-      "links": [
-        {
-          "label": "Официальный анонс Google DeepMind",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/"
-        },
-        {
-          "label": "Artificial Analysis: MKA leaderboard и методология",
-          "url": "https://artificialanalysis.ai/evaluations/mka"
-        },
-        {
-          "label": "10 публичных задач на Hugging Face",
-          "url": "https://huggingface.co/datasets/google/multimodal-knowledge-agent"
-        },
-        {
-          "label": "Stirrup agent harness — MIT",
-          "url": "https://github.com/ArtificialAnalysis/Stirrup"
-        },
-        {
-          "label": "Технический отчёт Google DeepMind",
-          "url": "https://storage.googleapis.com/deepmind-media/papers/mka_tech_paper.pdf"
-        }
-      ],
-      "sources": [
-        "Google DeepMind: официальный анонс от 2026-11-10; 200 задач, 10 вертикалей, 83 профессии и 10 публичных примеров.",
-        "Artificial Analysis: 200-task evaluation, общий harness и результаты 21 модели.",
-        "Google technical report: дата 2026-11-10, методология и проверка согласия оценщика с экспертами.",
-        "PressReleaseFeed: индексировал публикацию в 16:00 UTC; точное время отсутствует на официальной странице Google."
-      ],
-      "category": "Оценка и качество мультимодальных агентов",
-      "release_date": "2026-11-10",
-      "published_at": "2026-11-10T16:00:00Z",
-      "timestamp_verified": false,
-      "timestamp_note": "Официальный блог Google показывает только дату 10 ноября; 16:00 UTC указано независимым агрегатором PressReleaseFeed, поэтому точное время первоисточником не подтверждено.",
-      "popularity": null,
-      "discussion": "https://aiweekly.co/alerts/google-deepmind-launches-200-task-multimodal-knowledge-agent-benchmark"
-    },
-    {
-      "title": "NVIDIA Alpamayo 2 Edge: компактная open-weight VLA-модель для автопрома",
-      "text": "NVIDIA опубликовала Alpamayo 2 Edge — VLA-модель примерно на 2 млрд параметров для автономного вождения: она принимает данные шести камер, навигационную инструкцию и историю движения, выдавая траекторию на 6,4 секунды и причинное объяснение решения. Адаптивное reasoning позволяет пропускать объяснение в обычных ситуациях; NVIDIA заявляет 160–190 мс на DRIVE AGX Thor после TensorRT/FP8/DFlash2-оптимизации.",
-      "monetization_comment": "Как заработать интегратору: только при наличии контактов в automotive/Tier-1/robotaxi — предложить R&D-пилот по анализу сценариев и оценке траекторий на закрытом полигоне или в симуляции с данными клиента. Не продавать как готовый автопилот: это development baseline, а не сертифицированная система для дорог.",
-      "access": "Веса — OpenMDW-1.1 (коммерческое использование разрешено на условиях лицензии и сохранения notices при распространении), код — Apache 2.0. Проверено на H100 80GB; NVIDIA указывает пиковое использование около 12 GiB и рекомендует не менее 16 GB. Заявленные 160–190 мс требуют оптимизации под DRIVE AGX Thor; показатели вождения получены в симуляции NVIDIA и не подтверждают безопасность на дорогах общего пользования.",
-      "links": [
-        {
-          "label": "NVIDIA Technical Blog: модель и deployment recipe",
-          "url": "https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/"
-        },
-        {
-          "label": "Модель Alpamayo 2 Edge на Hugging Face",
-          "url": "https://huggingface.co/nvidia/Alpamayo2-Edge"
-        },
-        {
-          "label": "Исходный код NVlabs",
-          "url": "https://github.com/NVlabs/alpamayo2-edge"
-        },
-        {
-          "label": "Лицензия OpenMDW-1.1",
-          "url": "https://openmdw.ai/license/"
-        }
-      ],
-      "sources": [
-        "NVIDIA Developer Blog: официальный материал от 2026-11-10; архитектура, adaptive reasoning и latency recipe.",
-        "Hugging Face model card: release date 2026-11-10, OpenMDW-1.1 weights, Apache 2.0 code, tested hardware and use case.",
-        "Neural Brew: сообщает, что анонс NVIDIA в X вышел 2026-11-10 в 17:08 по Парижу; X endpoint не удалось открыть напрямую."
-      ],
-      "category": "Physical AI и автономный транспорт",
-      "release_date": "2026-11-10",
-      "published_at": "2026-11-10T16:08:00Z",
-      "timestamp_verified": false,
-      "timestamp_note": "Model card подтверждает дату 10 ноября; время 17:08 Paris приводится Neural Brew со ссылкой на пост NVIDIA в X, который не удалось открыть напрямую.",
-      "popularity": null,
-      "discussion": "https://forums.developer.nvidia.com/"
+      "metrics": "По заявлению WhiteMatter: 2.25 млн агентов под управлением и 116 млрд AI-взаимодействий; не независимая метрика.",
+      "discussion": "https://www.securityweek.com/whitematter-raises-20-million-in-series-a-funding/"
     }
   ],
-  "openrouter": {
-    "period": "Сравнение официальных рейтингов OpenRouter через 2026-11-10 с сохранённым срезом через 2026-11-09 (предыдущий snapshot сохранён 2026-11-10 08:54:54 МСК).",
-    "changes": [
-      "Hy4 (Tencent): 16.0T → 18.8T токенов в скользящем семидневном окне (+2.8T; +17.5% snapshot-to-snapshot); позиция поднялась с 3-й на 2-ю. Это заметный рост трафика модели, но не показатель качества или уникальных пользователей.",
-      "Inkling 2 Small (free) впервые появился в New & Trending с 141B токенов; модель выпущена 9 ноября, то есть сама публикация модели вне текущего 24-часового окна — здесь это только сигнал популярности. OpenRouter указывает 1M context, text+image input и tool calling, но free endpoint ограничен agentic harnesses, prompts/outputs логируются для улучшения моделей, конфиденциальные данные загружать нельзя; EU in-region routing недоступен.",
-      "Gemini 4 Carbon появился в New & Trending с 43.3B токенов и меткой new; это ранний usage-сигнал после запуска, а new означает отсутствие предыдущего недельного окна, не оценку качества."
-    ],
-    "methodology": "Официальная страница показывает usage data through Nov 10, 2026. Text ranking считает prompt + completion tokens, image ranking — requests. Сравнение snapshot-to-snapshot сопоставляет два соседних скользящих семидневных окна; New & Trending сравнивает текущие семь дней с предыдущими семью и помечает new модели без предыдущего недельного окна. Токены и requests не равны уникальным пользователям, выручке или качеству. В image top-10 порядок не изменился; Seedream 5.0 Flash выросла с 695K до 728K requests (+4.7%) без смены позиции — отдельный сигнал не публикуем.",
-    "links": [
-      {
-        "label": "OpenRouter Text Rankings",
-        "url": "https://openrouter.ai/rankings"
-      },
-      {
-        "label": "OpenRouter Image Rankings",
-        "url": "https://openrouter.ai/rankings/image"
-      },
-      {
-        "label": "Inkling 2 Small (free): тариф, ограничения и privacy",
-        "url": "https://openrouter.ai/thinkingmachines/inkling-2-small:free"
-      }
-    ]
-  },
   "takeaways": [
-    "Самая понятная новая услуга — подготовка бизнеса к обнаружению в ChatGPT: профиль, каталог, актуальные цены и аналитика; Business Agents пока ограничены США.",
-    "Для дорогих агентных задач появился понятный сценарий orchestration: Carbon/Argon и /swarm для сложной работы, но экономику надо считать по стоимости принятого результата.",
-    "Для document AI и knowledge agents появился более предметный тестовый контур: MKA + Stirrup позволяют проверять не только текстовые ответы, но и готовые файлы, визуальную точность и стоимость."
+    "Генерация изображений с множеством референсов становится доступнее, но лицензия важнее красивого демо: проверяй территорию, hosted-use и право на коммерческое внедрение до продажи решения.",
+    "MCP уже превращается в канал реальных действий — SMS, контакты, производство контента; продавай не подключение коннектора, а законченный workflow с правами, подтверждениями и метриками.",
+    "Agent governance можно продавать как отдельный проект: инвентаризация агентов, ограничение полномочий, журнал действий и контроль расходов."
   ],
-  "editorial_note": "Окно проверки: 2026-11-10 08:42:38 — 2026-11-11 08:42:38 МСК. Сверен предыдущий data/digest.json от 10 ноября; повторов предыдущих выпусков нет. Временные отметки OpenAI, Google Carbon, Anthropic и Adobe подтверждены независимыми публикациями/официальным пресс-релизом; для MKA официальный Google blog указывает только дату, 16:00 UTC взято из независимого агрегатора и помечено как неподтверждённое первоисточником; для Alpamayo 2 Edge дата подтверждена model card, а время X-поста не удалось проверить напрямую. OpenRouter проверен по официальным страницам: Hy4 вырос с 16.0T до 18.8T (+17.5%) и поднялся на одну позицию; Inkling 2 Small (free) и Gemini 4 Carbon появились в New & Trending. В image top-10 существенных изменений нет. Индексированные превью Telegram-каналов из списка пользователя оказались устаревшими или не дали проверяемых публикаций за текущее окно; они не использовались как подтверждение новостей. GetCourse и EdTech исключены.",
-  "audio_script": "AI-дайджест за одиннадцатое ноября. OpenAI открыла Business Hub: компании могут подтвердить профиль в ChatGPT, обновлять каталог и смотреть агрегированные упоминания и переходы на сайт. Business Agents пока доступны только подходящим американским e-commerce и онлайн-сервисам, поэтому интегратору уже можно продавать подготовку каталога и профиля, но не обещать доступ к агенту в других странах. Google открыла Gemini 4 Carbon для платного API и показала /swarm в Antigravity — команду агентов, которая выполняет сложные задачи параллельно. Стартовая цена действует до тридцатого ноября, затем удваивается, поэтому пилот нужно оценивать по стоимости готового результата. Anthropic добавила Sheets и Whiteboards в beta, сделала Claude Data общедоступным и расширила интерактивные коннекторы. Adobe расширяет Creative Agent и готовит локальный MCP для Photoshop, Illustrator, Premiere и After Effects, но публичный доступ к нему ожидается не сейчас. Google DeepMind и Artificial Analysis выпустили MKA — тест, который проверяет, может ли агент читать чертежи, схемы и сканы и собирать готовые файлы; десять примеров уже открыты, а полный набор из двухсот задач закрыт. NVIDIA выпустила Alpamayo 2 Edge для автопрома: коммерчески разрешённые веса и код Apache, но модель пока development baseline, а не готовый автопилот. В OpenRouter Hy4 вырос с шестнадцати до восемнадцати целых восьми триллионов токенов в семидневном окне и поднялся на второе место. Inkling 2 Small появился в трендах, но бесплатный endpoint логирует запросы и не подходит для конфиденциальных данных.",
-  "audio_caption": "🎧 Аудиоверсия AI-дайджеста",
+  "editorial_note": "Проверено окно 2026-11-10 09:10:38 — 2026-11-11 09:10:38 МСК. Предыдущий data/digest.json за 11 ноября прочитан; шесть предыдущих тем не повторяются. В OpenRouter нет нового среза: обе официальные страницы показывают usage data through Nov 10, а текстовый weekly top-10, daily top-10, New & Trending и image top-10 совпадают с сохранённым baseline; поэтому блок OpenRouter опущен, baseline не перезаписывался. В поиске Telegram-каналов целевые публичные превью не дали подтверждённых публикаций с датами внутри окна, поэтому они не использовались как источники. Palo Alto Networks Data Security MCP Server и обновление Gemini 4 Carbon в GitHub Copilot не включены: у первого официальный источник показывает только календарную дату без точного времени, у второго дата есть, но он уже фигурировал в предыдущем выпуске как запуск модели; строгую принадлежность к новому 24-часовому окну подтвердить нельзя.",
+  "audio_script": "Сегодня четыре прикладных сигнала для AI-интегратора. MiniMax выпустила H3-Image: генерация и редактирование до 20 мегапикселей с шестнадцатью референсами, а ComfyUI уже добавил поддержку. Но веса идут под специальной лицензией, которая исключает Европейский союз; перед коммерческим развёртыванием нужна отдельная проверка прав. TrueDialog подключила SMS и RCS к MCP: агент может отправлять сообщения, проводить тестовые отправки и обновлять контакты. Это основа для быстрых ответов на лиды, особенно для компаний, работающих с американскими номерами. WellSaid Producer переносит профессиональную озвучку в Claude, ChatGPT и Copilot: голос, произношение, согласование и доставка аудио становятся частью одного процесса. Это не голосовой бот для разговоров, а конвейер брендированного контента. Наконец, WhiteMatter привлекла двадцать миллионов долларов на управление безопасностью AI-агентов. Для интегратора здесь возможность продавать аудит полномочий, MCP-серверов, журналирования и контроля действий. Главная мысль дня: монетизируется не сама модель и не сам коннектор, а надёжный бизнес-процесс вокруг них.",
+  "audio_caption": "🎧 Аудиоверсия AI-дайджеста — 11 ноября 2026",
   "ranking_baseline": {
     "usage_through": "2026-11-10",
     "snapshot_captured_at": "2026-11-11T08:42:38+03:00",
