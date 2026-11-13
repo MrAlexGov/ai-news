@@ -1,10 +1,10 @@
 {
-  "date": "2026-11-12",
-  "window": "ДОПОЛНЕНИЕ к уже отправленному выпуску. 11 ноября 2026, 09:19:53 — 12 ноября 2026, 09:19:53 (МСК; последние 24 часа).",
-  "window_start": "2026-11-11T09:19:53+03:00",
-  "window_end": "2026-11-12T09:19:53+03:00",
+  "date": "2026-11-13",
+  "window": "12 ноября 2026, 08:08:47 — 13 ноября 2026, 08:08:47 (МСК; последние 24 часа). Для части официальных анонсов указан только календарный день, без часа; это отмечено отдельно.",
+  "window_start": "2026-11-12T08:08:47+03:00",
+  "window_end": "2026-11-13T08:08:47+03:00",
   "timezone": "Europe/Moscow",
-  "issue_type": "supplemental",
+  "issue_type": "daily",
   "previous_issue": {
     "date": "2026-11-12",
     "commit": "6a8c826714bab945ccc4f84eaa3a40ec40fbc6e4",
@@ -18,233 +18,352 @@
       "anthropic-usage-policy-effective"
     ]
   },
+  "previous_supplemental_issue": {
+    "date": "2026-11-12",
+    "commit": "23f301abbf040f177a90252a47bf002f11c3da36",
+    "telegram_publication_verified": true,
+    "already_published_story_ids": [
+      "databricks-always-on-genie-2026-11-11",
+      "runway-praxis-1-open-weights-2026-11-11",
+      "google-workspace-mcp-agentic-oauth-enforcement-2026-11-11"
+    ]
+  },
   "news": [
     {
-      "id": "databricks-always-on-genie-2026-11-11",
-      "title": "Databricks Genie: постоянный агент с бизнес-контекстом и 100+ источниками",
-      "text": "11 ноября Databricks объявила второе поколение Genie: автономный агент будет вести долгие задачи, делегировать их субагентам, отслеживать прогресс и обращаться к человеку за решением через priority inbox и email. Genie Search объединяет более 100 источников, включая Google Drive, Jira и Confluence, а действия подчиняются разрешениям Unity Catalog и правилам Unity Gateway — это переход от чат-аналитики к постоянным процессам поверх корпоративных данных.",
-      "monetization_comment": "Как заработать интегратору: подготовить для компаний на Databricks бизнес-контекст и интеграционный слой — согласовать определения метрик, роли, источники и правила эскалации, затем спроектировать агента мониторинга клиентских сигналов или выручки. Быстрый пилот — один процесс и 2–3 источника данных; KPI — точность сигналов, время до реакции и число рекомендаций, отменённых сотрудником.",
-      "access": "Genie и Genie Ontology доступны в GA; новый always-on Genie, Genie Search и Ontology Manager на момент анонса только готовятся к preview/beta. Публичная цена новых возможностей не указана. Подключение внешних приложений описано через Lakeflow Connect и MCP; не следует продавать новый always-on режим как уже доступный production-функционал.",
-      "category": "Enterprise agents и корпоративные данные",
-      "published_at": "2026-11-11",
+      "id": "google-gemini-4-hydrogen-2026-11-12",
+      "title": "Gemini 4 Hydrogen: быстрый исполнитель для coding и агентных процессов",
+      "text": "12 ноября Google выпустила Gemini 4 Hydrogen — более быструю модель для повседневной разработки и агентных задач с контекстом до 1 млн токенов и четырьмя уровнями thinking. В Antigravity Orchestrator может сочетать Hydrogen с Carbon; в тесте Google на Terminal-Bench 4.0 такая связка почти сравнялась с Carbon по успешности, расходуя на 24% меньше квоты и завершая задачи на 19% быстрее.",
+      "monetization_comment": "Как заработать интегратору: внедрить двухуровневый стек для software-команд — Carbon планирует и разбирает сложные случаи, Hydrogen пишет код, запускает тесты и проверяет изменения. Быстрый пилот — один репозиторий и 2–3 типовых задачи; сравнить стоимость принятого PR, время выполнения и долю исправлений после ревью.",
+      "access": "Gemini API model ID: `gemini-4-hydrogen`; доступен через AI Studio и Gemini API. Standard API: $1.50 за 1 млн входных и $7.50 за 1 млн выходных токенов; Batch/Flex — $0.75/$3.75. Ограниченный Free tier подтверждён, но контент Free tier может использоваться Google для улучшения продуктов; для Paid tier это не предусмотрено. Orchestrator относится к Google Antigravity, а не к универсальному API-оркестратору.",
+      "category": "Модели, coding agents и снижение себестоимости",
+      "published_at": "2026-11-12",
       "timestamp_verified": false,
-      "timestamp_note": "Официальная страница Databricks указывает 11 ноября, но не публикует час. Включено с явной оговоркой: календарная дата подтверждена, точное попадание в 24-часовое окно по часу независимо не установлено.",
+      "timestamp_note": "Официальный блог Google датирует анонс 12 ноября, но не публикует точный час. Дата подтверждена; точное попадание публикации внутрь 24-часового окна по часу независимо не установлено.",
       "popularity": null,
       "discussion": null,
       "links": [
         {
-          "label": "Официальный анонс Databricks",
-          "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex"
+          "label": "Официальный анонс Gemini 4 Hydrogen",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        },
+        {
+          "label": "Анонс для разработчиков",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/"
+        },
+        {
+          "label": "Официальные тарифы Gemini API",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
         }
       ],
       "sources": [
-        "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex"
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
+        "https://ai.google.dev/gemini-api/docs/pricing"
       ]
     },
     {
-      "id": "runway-praxis-1-open-weights-2026-11-11",
-      "title": "Runway Praxis-1: открытая модель управления роботами под Apache 2.0",
-      "text": "11 ноября Runway открыла веса Praxis-1 — 27B MoE-модели, которая совместно предсказывает следующий видеофрагмент и действия робота; доступны код инференса и fine-tuning, включая LoRA, под Apache 2.0 для коммерческого использования. Runway сообщает 46,2% успеха на 1 200 эпизодах RoboLab-120, но это benchmark компании, а не независимая гарантия: для конкретного робота, камер и задачи всё равно нужны адаптация и испытания.",
-      "monetization_comment": "Как заработать интегратору: предложить производственным и складским робототехническим компаниям пилот адаптации открытой robot policy под одну повторяющуюся операцию — захват, сортировку или перемещение предметов. Начать с симуляции и короткого набора телеметрии/teleoperation, затем измерить success rate, время цикла, recovery после ошибок и срабатывания safety-stop; не подключать модель напрямую к производству без независимого safety-контура.",
-      "access": "Веса, inference code и fine-tuning code доступны на GitHub и Hugging Face под Apache 2.0, включая коммерческое применение; есть интеграция с LeRobot и vLLM-Omni. BF16-вариант занимает 54,4 GB и рассчитан на GPU с 80 GB памяти; текущие специализированные checkpoints ориентированы на DROID/Franka и двуручный YAM, а новый робот требует адаптации. В техническом отчёте Runway отдельно отмечает ошибки на похожих объектах, расплывчатых инструкциях и длинных многошаговых задачах.",
-      "category": "Physical AI и робототехника",
-      "published_at": "2026-11-11",
+      "id": "ibm-granite-llmon-preview-2026-11-12",
+      "title": "IBM LLMON: явное разделение инструкций и недоверенных данных для агентов",
+      "text": "12 ноября IBM Granite представила LLMON и две экспериментальные модели Granite 4.1 3B/8B, которые размечают инструкции, требования, документы, tool definitions и результаты инструментов как отдельные адресуемые блоки. IBM сообщает о резком снижении успешности статических indirect prompt-injection атак на своих тестах, но сама документация подчёркивает: это выученное поведение, а не гарантированная защита.",
+      "monetization_comment": "Как заработать интегратору: предложить аудит RAG- и MCP-агентов, которые читают письма, PDF, тикеты и ответы внешних tools. Пилот — сравнить обычную модель и LLMON на обезличенном наборе из 50–100 prompt-injection сценариев; измерить долю выполненных вредоносных инструкций и неудачные легитимные задачи.",
+      "access": "Модели `ibm-granite/granite-4.1-3b-llmon-preview` и `ibm-granite/granite-4.1-8b-llmon-preview` опубликованы под Apache 2.0; доступны через Hugging Face, vLLM, SGLang и Docker с OpenAI-совместимым endpoint. Это experimental preview, не production-релиз: требуется собственный LLMON chat template, обычный chat prompt ухудшает качество. LLMON не заменяет permission checks, sandboxing и human approval; benchmark IBM в основном проверяет статические indirect injections.",
+      "category": "Безопасность агентов и open-weight модели",
+      "published_at": "2026-11-12",
       "timestamp_verified": false,
-      "timestamp_note": "Официальный анонс указывает 11 ноября без времени; независимый release tracker впервые зафиксировал его в 15:06 UTC (18:06 МСК), внутри окна.",
-      "popularity": null,
+      "timestamp_note": "Hugging Face указывал возраст статьи около 10 часов на момент проверки; точный абсолютный timestamp не опубликован. Model card подтверждает release date 12 ноября.",
+      "popularity": "Hugging Face: 18 upvotes у технической статьи на момент проверки; это реакция на публикацию, не показатель внедрений или качества.",
       "discussion": null,
       "links": [
         {
-          "label": "Официальный анонс Runway",
-          "url": "https://runway.com/news/company-news/praxis-1-is-now-available"
+          "label": "Технический анонс IBM Granite",
+          "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
         },
         {
-          "label": "Технический отчёт Praxis-1",
-          "url": "https://runway.com/research/praxis-1-video-pretraining-to-robot-control"
+          "label": "Granite 4.1 3B LLMON model card",
+          "url": "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview"
         },
         {
-          "label": "Код и инструкции по запуску",
-          "url": "https://github.com/runwayml/praxis-1-oss"
-        },
-        {
-          "label": "Независимая фиксация публикации",
-          "url": "https://forck.live/items/34651-praxis-1-is-now-available"
+          "label": "Репозиторий LLMON",
+          "url": "https://github.com/generative-computing/llmon"
         }
       ],
       "sources": [
-        "https://runway.com/news/company-news/praxis-1-is-now-available",
-        "https://runway.com/research/praxis-1-video-pretraining-to-robot-control",
-        "https://github.com/runwayml/praxis-1-oss",
-        "https://forck.live/items/34651-praxis-1-is-now-available"
+        "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+        "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview",
+        "https://github.com/generative-computing/llmon"
       ]
     },
     {
-      "id": "google-workspace-mcp-agentic-oauth-enforcement-2026-11-11",
-      "title": "Google Workspace MCP: OAuth-клиентам агентов теперь нужен отдельный флаг",
-      "text": "С 11 ноября Google Workspace MCP servers начали отклонять запросы OAuth 2.0 клиентов, у которых в Google Auth Platform не включён флаг `Use this client for an AI-powered agent`; с 12 ноября неотмеченные клиенты не могут вызывать MCP-серверы. Изменение затрагивает MCP для Gmail, Drive, Docs, Sheets, Slides, Calendar и Chat, но не обычные вызовы Workspace REST API.",
-      "monetization_comment": "Как заработать интегратору: предложить аудит существующих Google Workspace MCP-интеграций — найти OAuth clients, разделить agentic и обычные приложения, включить нужный флаг и проверить scopes/consent. Быстрый пилот — тестовый агент для Gmail, Drive и Calendar; KPI — отсутствие auth failures и минимально необходимые права доступа.",
-      "access": "Для user-delegated OAuth 2.0 clients настройка находится в Google Auth Platform > Clients. Если один client обслуживает и AI-агента, и обычную функциональность, Google рекомендует создать отдельный OAuth client для агента. Google Workspace MCP остаётся в Developer Preview; обычные Workspace REST API не затронуты.",
-      "category": "MCP, OAuth и интеграционная безопасность",
-      "published_at": "effective 2026-11-11",
+      "id": "anthropic-self-hosted-managed-agents-2026-11-12",
+      "title": "Anthropic: Managed Agents теперь можно развернуть в собственном контуре",
+      "text": "12 ноября Anthropic открыла private beta self-hosted Claude Managed Agents: в облаке или on-prem заказчика работают agent harness, sandbox, обработка credentials, история сессий и workers. Запросы к модели при этом можно направлять в Anthropic, Amazon Bedrock, Google Agent Platform, Microsoft Foundry или собственный gateway — это self-hosted control plane, а не выпуск локальных весов Claude.",
+      "monetization_comment": "Как заработать интегратору: продавать проект развёртывания и hardening агентной платформы в контуре клиента — secrets manager, allowlist сетевых адресов, изоляция workers, OpenTelemetry и подключение корпоративных MCP/API. Пилот — один агент для triage инцидентов или исправления CI-сборок с журналом всех tool calls и запретом выхода за разрешённые hostnames.",
+      "access": "Private beta; запрос доступа — через команду Anthropic, публичная цена не указана. История сессий хранится в базе заказчика, секреты можно держать в собственном secrets manager, сетевой доступ ограничивается allowlist, события экспортируются через OpenTelemetry. ZDR действует для запросов к Claude только если он отдельно подключён у организации.",
+      "category": "Self-hosted агенты и enterprise security",
+      "published_at": "2026-11-12",
       "timestamp_verified": false,
-      "timestamp_note": "Само требование объявлено Google 12 октября; дата enforcement — 11 ноября, следующий рубеж — 12 ноября. Точный час переключения не опубликован; включено как вступление изменения в силу, а не как новая публикация.",
+      "timestamp_note": "Официальная статья Anthropic указывает 12 ноября без точного часа. Календарная дата подтверждена, но час публикации не раскрыт.",
       "popularity": null,
       "discussion": null,
       "links": [
         {
-          "label": "Официальные release notes Google Workspace",
-          "url": "https://developers.google.com/workspace/release-notes"
+          "label": "Официальный анонс self-hosted Managed Agents",
+          "url": "https://claude.com/resources/articles/self-hosted-claude-managed-agents"
         },
         {
-          "label": "Инструкция по настройке Workspace MCP",
-          "url": "https://developers.google.com/workspace/guides/configure-mcp-servers"
+          "label": "Документация Managed Agents",
+          "url": "https://platform.claude.com/docs/en/agents/managed-agents"
         }
       ],
       "sources": [
-        "https://developers.google.com/workspace/release-notes",
-        "https://developers.google.com/workspace/guides/configure-mcp-servers"
+        "https://claude.com/resources/articles/self-hosted-claude-managed-agents",
+        "https://platform.claude.com/docs/en/agents/managed-agents"
+      ]
+    },
+    {
+      "id": "anthropic-claude-for-manufacturing-2026-11-12",
+      "title": "Claude for Manufacturing: 17 навыков для заводских процессов",
+      "text": "12 ноября Anthropic выпустила плагин Claude for Manufacturing с 17 skills для подготовки коммерческих предложений, расследования дефектов, запросов поставщикам, диагностики поломок и отчётности производства. Он подключается к Autodesk Fusion, Infor, Microsoft 365 и Oracle NetSuite, а документы и действия должны пройти проверку ответственного сотрудника; оборудование плагин не управляет.",
+      "monetization_comment": "Как заработать интегратору: предложить промышленному предприятию аналогичный workflow поверх его ERP, MES и документооборота — начать с подготовки quote или отчёта о несоответствии из заказов, техдокументации и истории работ. Пилот — один участок и один тип документа; KPI — время подготовки, число исправлений и доля фактов со ссылкой на исходную запись.",
+      "access": "Плагин доступен на планах Claude Team и Enterprise; публичная отдельная цена не указана. Четыре заявленных коннектора — Autodesk Fusion, Infor, Microsoft 365 и Oracle NetSuite. Для систем без готового коннектора Anthropic предлагает использовать регулярные выгрузки; каждое внешнее действие остаётся на проверке сотрудника.",
+      "category": "Вертикальные AI-решения для промышленности",
+      "published_at": "2026-11-12",
+      "timestamp_verified": false,
+      "timestamp_note": "Официальная страница Anthropic датирует анонс 12 ноября, но не показывает час публикации.",
+      "popularity": null,
+      "discussion": null,
+      "links": [
+        {
+          "label": "Официальный анонс Claude for Manufacturing",
+          "url": "https://claude.com/resources/articles/claude-for-manufacturing"
+        },
+        {
+          "label": "Описание решения для производства",
+          "url": "https://claude.com/solutions/manufacturing"
+        }
+      ],
+      "sources": [
+        "https://claude.com/resources/articles/claude-for-manufacturing",
+        "https://claude.com/solutions/manufacturing"
+      ]
+    },
+    {
+      "id": "salesforce-sov-transcribe-1-2026-11-12",
+      "title": "Salesforce SOV-Transcribe-1: открытая batch-ASR модель для корпоративных записей",
+      "text": "12 ноября Salesforce Sovereign Intelligence опубликовала SOV-Transcribe-1 — open-weight модель распознавания записанной речи с 26,6 млрд параметров всего и 4,6 млрд активных, контекстными подсказками и управлением verbatim/clean transcript. Salesforce ссылается на результат 2,28% AA-WER и первое место среди open-weight ASR, однако модель не потоковая и поддерживает только английский, французский, немецкий, испанский, итальянский, португальский и нидерландский — русского языка нет.",
+      "monetization_comment": "Как заработать интегратору: для англоязычного контакт-центра или финансовой службы собрать локальный конвейер транскрибации и QA звонков с подсказками по именам, email и номерам счетов. Пилот — 100–200 записей с ручной эталонной разметкой; сравнить WER, точность критичных сущностей и стоимость минуты аудио.",
+      "access": "Веса доступны на Hugging Face под Apache 2.0; запуск через Transformers с `trust_remote_code` или vLLM 0.32.0 plugin, который предоставляет OpenAI-совместимый transcription endpoint. Модель обрабатывает batch-записи до 30 минут, а не live-поток; готового hosted inference provider на карточке модели нет. Вычислительные ресурсы оплачиваются отдельно, hardware sizing в model card не нормирован.",
+      "category": "Speech AI и локальная обработка аудио",
+      "published_at": "2026-11-12",
+      "timestamp_verified": false,
+      "timestamp_note": "Статья Salesforce на Hugging Face показывала возраст около 12 часов на момент проверки; абсолютное время публикации не раскрыто. Model card и launch article датированы 12 ноября.",
+      "popularity": "Salesforce указывает 2,28% AA-WER и #1 среди open-weight моделей в non-streaming ASR; это benchmark, не показатель аудитории. Model card также ссылается на #2 из 23 систем в VoiceCodeBench.",
+      "discussion": null,
+      "links": [
+        {
+          "label": "Анонс Salesforce SOV-Transcribe-1",
+          "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
+        },
+        {
+          "label": "Model card и инструкции запуска",
+          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+        },
+        {
+          "label": "Artificial Analysis Speech-to-Text leaderboard",
+          "url": "https://artificialanalysis.ai/speech-to-text/non-streaming?error-rate=word-error-rate-by-open-weights"
+        }
+      ],
+      "sources": [
+        "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1",
+        "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1",
+        "https://artificialanalysis.ai/speech-to-text/non-streaming?error-rate=word-error-rate-by-open-weights"
+      ]
+    },
+    {
+      "id": "nice-cognigy-next-gen-2026-11-12",
+      "title": "NiCE Cognigy обновилась: reusable skills, tracing и voice-to-voice",
+      "text": "12 ноября NiCE представила следующее поколение Cognigy: AI-assisted Studio, повторно используемые skills, координацию subagents, трассировку решений и native voice-to-voice. Базовые STT/TTS/LLM включены в стоимость разговора, а премиальные модели оплачиваются по использованию или через собственные контракты клиента; действующим клиентам обновление обещано в рамках текущего продукта.",
+      "monetization_comment": "Как заработать интегратору: предложить контакт-центру внедрение одного голосового сценария — проверка статуса заказа, запись, возврат или квалификация обращения — с CRM, передачей оператору и аудитом каждого шага. Пилот на одной очереди; KPI — доля автоматического решения, среднее время обработки, частота перевода на человека и стоимость закрытого обращения.",
+      "access": "Enterprise-платформа NiCE Cognigy; публичный прайс для новых клиентов в анонсе не указан, детали предлагаются через sales. Для действующих клиентов новые возможности включены в дальнейшее развитие Cognigy; premium STT/TTS/LLM имеют usage-based billing либо могут использоваться по собственным контрактам.",
+      "category": "Voice agents и автоматизация контакт-центров",
+      "published_at": "2026-11-12",
+      "timestamp_verified": false,
+      "timestamp_note": "Официальный пресс-релиз Business Wire и URL подтверждают дату 12 ноября, но точный час публикации в открытом тексте не указан.",
+      "popularity": null,
+      "discussion": null,
+      "links": [
+        {
+          "label": "Официальный пресс-релиз NiCE через Business Wire",
+          "url": "https://www.businesswire.com/news/home/20261112890751/en/NiCE-Launches-Next-Generation-NiCE-Cognigy-to-Accelerate-Enterprise-AI-Agent-Deployment-and-Orchestration"
+        },
+        {
+          "label": "Официальный сайт NiCE Cognigy",
+          "url": "https://www.nice.com/products/cognigy"
+        }
+      ],
+      "sources": [
+        "https://www.businesswire.com/news/home/20261112890751/en/NiCE-Launches-Next-Generation-NiCE-Cognigy-to-Accelerate-Enterprise-AI-Agent-Deployment-and-Orchestration",
+        "https://www.nice.com/products/cognigy"
       ]
     }
   ],
   "takeaways": [
-    "Проверьте OAuth-конфигурации Google Workspace MCP уже сейчас: старый OAuth client без agentic-флага может остановить работу интеграции.",
-    "Databricks показывает ценность не очередного чат-интерфейса, а слоя бизнес-контекста: определения метрик, права, источники и контролируемые действия.",
-    "Praxis-1 открывает нишу для интеграторов physical AI, но коммерческий пилот должен начинаться с симуляции, адаптации под конкретную руку и отдельного контура безопасности."
+    "Для coding и внутренних агентов тестируйте Hydrogen как дешёвый исполнитель, оставляя Carbon для планирования и сложных решений; сравнивайте стоимость принятого результата, а не только цену токена.",
+    "IBM LLMON и self-hosted Managed Agents Anthropic показывают, что безопасность агентной системы — отдельная продаваемая работа: границы доверия, секреты, сетевые allowlist, аудит и проверка prompt injection.",
+    "Самые прикладные вертикали дня — промышленность и контакт-центры: берите один процесс, подключайте реальные ERP/CRM/документы и оставляйте подтверждение рискованных действий человеку."
   ],
-  "editorial_note": "Это дополнение к уже отправленному 12 ноября основному выпуску: GitHub Actions подтвердил публикацию шести других новостей в Telegram в 09:15 МСК. Чтобы не дублировать их, в дополнение включены только три новых сюжета. У Databricks официальная дата публикации — 11 ноября, без часа; у Runway официальная дата также 11 ноября, независимый release tracker зафиксировал публикацию в 15:06 UTC; изменение Google Workspace MCP вступило в силу 11 ноября, точный час не опубликован. OpenRouter пропущен: рейтинги text и image по-прежнему показывают usage through 11 ноября, то есть тот же период, что и сохранённый baseline; содержательного нового среза для сравнения нет. Предыдущий baseline сохранён без изменений.",
-  "audio_caption": "🎧 Дополнение к AI-дайджесту — 12 ноября 2026",
-  "audio_script": "Это короткое дополнение к сегодняшнему AI-дайджесту — без повторения уже отправленных новостей.\\n\\nПервое. Databricks объявила новое поколение Genie — постоянного корпоративного агента, который может вести долгие задачи, делегировать работу субагентам и возвращаться к сотруднику, когда требуется решение. Genie Search должен объединить более ста источников, включая Google Drive, Jira и Confluence, с учётом прав Unity Catalog. Важная оговорка: новый always-on режим и Genie Search пока готовятся к preview и beta. Для интегратора здесь коммерческая возможность — подготовка бизнес-онтологии, метрик, прав доступа и одного измеримого процесса мониторинга.\\n\\nВторое. Runway открыла Praxis-1 — модель, которая предсказывает не только будущие кадры, но и действия робота. Веса и код выпущены под Apache 2.0, включая коммерческое использование. Компания сообщает 46,2 процента успеха на RoboLab-120, но это её собственный benchmark, а не гарантия для любого оборудования. Для пилота стоит выбрать одну операцию, начать с симуляции, адаптировать модель под конкретную руку и обязательно измерять безопасность и восстановление после ошибок.\\n\\nТретье. Google Workspace меняет требования к OAuth для MCP. С одиннадцатого ноября OAuth-клиенты, не помеченные как клиенты AI-агентов в Google Auth Platform, начали получать отказ при вызове Workspace MCP; с двенадцатого ноября такие клиенты не могут использовать MCP. Обычные REST API это изменение не затрагивает. Если один OAuth client обслуживает и агента, и обычное приложение, Google рекомендует разделить их.\\n\\nГлавный практический вывод: проверьте Google OAuth сегодня, Databricks рассматривайте как будущую платформу для контекстных корпоративных агентов, а Praxis-1 — как экспериментальную, но коммерчески лицензированную основу для робототехнических пилотов.",
+  "editorial_note": "Предыдущий основной выпуск и дополнение за 12 ноября прочитаны; девять ранее опубликованных сюжетов исключены. Шесть включённых анонсов относятся к 12 ноября; у Google, Anthropic и NiCE точный час публикации не опубликован. Страницы Hugging Face для IBM LLMON и Salesforce SOV-Transcribe-1 показывали приблизительный возраст около 10 и 12 часов соответственно, но абсолютный timestamp отсутствует. Поэтому дата подтверждена, а точное попадание всех date-only анонсов в 24-часовое окно не гарантируется. Из поиска исключены ZONOS3-Mini и Seedream 5.5 (официальные релизы 9 ноября), Google AI Edge speech announcement (оригинальный Google Developers post 10 ноября) и GitHub Rubicon (официальный engineering post 5 ноября). @exploitex и @ai_machinelearning_big_data были доступны как публичные превью, но часть сообщений не имела абсолютной даты или повторяла прежние темы; @aitshnya, @neuro_channel, @xor_journal и @neuraldvig не открылись. Неподтверждённые Telegram-сообщения не использованы как факты. OpenRouter: сравнение сохранённого снимка through 11 ноября с актуальным through 12 ноября выявило вход GLM 5.3 в недельный text top-10 (#10, 3.88T tokens) и выход Crouton Alpha из отображаемой десятки; точный текущий объём Crouton Alpha и процент его снижения не публикуются в top-10, поэтому они не рассчитаны. В image top-10 состав участников сохранился; перестановка Nano Banana 2 Lite и Seedream 5.0 Flash не трактуется как достаточный сигнал для смены стека.",
+  "audio_caption": "🎧 Аудиоверсия AI-дайджеста — 13 ноября 2026",
+  "audio_script": "Сегодня шесть практических новостей для разработчика и интегратора.\\n\\nПервое. Google выпустила Gemini 4 Hydrogen — быструю модель для повседневного coding и агентных задач с контекстом до миллиона токенов. В Antigravity Orchestrator она может работать вместе с Carbon: по тесту Google такая связка почти сохраняет успешность Carbon, но расходует на 24 процента меньше квоты и выполняет задачи на 19 процентов быстрее. Стандартный API стоит полтора доллара за миллион входных и семь с половиной за миллион выходных токенов; ограниченный бесплатный уровень тоже есть, но его данные могут использоваться для улучшения продуктов Google.\\n\\nВторое. IBM представила LLMON — формат, который отделяет инструкции от документов, пользовательских данных и результатов инструментов. Вместе с ним вышли экспериментальные Granite 4.1 на три и восемь миллиардов параметров. IBM сообщает о сильном снижении успешности статических prompt injection атак, но это не гарантия безопасности и не готовый production-релиз. Модели доступны под Apache 2.0 и запускаются через vLLM или SGLang, если использовать специальный chat template.\\n\\nТретье. Anthropic открыла закрытую бету self-hosted Managed Agents. Теперь в инфраструктуре заказчика могут работать агентный контур, песочницы, секреты, история сессий и workers. Саму модель при этом можно вызывать через Anthropic, Bedrock, Google Agent Platform, Microsoft Foundry или свой gateway. Это не локальные веса Claude, а управляемая платформа агентов в собственном контуре.\\n\\nЧетвёртое. Claude for Manufacturing — плагин с семнадцатью навыками для расчёта предложений, контроля качества, закупок, диагностики поломок и производственной отчётности. Он подключается к Autodesk Fusion, Infor, Microsoft 365 и Oracle NetSuite, но не управляет оборудованием и оставляет утверждение документов человеку.\\n\\nПятое. Salesforce выпустила SOV-Transcribe-1 — открытую модель для распознавания записанных звонков и встреч. Salesforce заявляет первое место среди open-weight систем по своему результату на Artificial Analysis, но модель не потоковая и не поддерживает русский язык. Она интересна для англоязычного batch-QA контакт-центров, где особенно важны имена, email и номера счетов.\\n\\nШестое. NiCE обновила Cognigy: добавила повторно используемые skills, трассировку каждого решения и голосовой режим voice-to-voice. Для контакт-центров это готовая enterprise-платформа, а для интегратора — повод продавать внедрение одного конкретного сценария с CRM, передачей оператору и измерением стоимости закрытого обращения.\\n\\nOpenRouter: в недельный текстовый топ-10 вошла GLM 5.3 с 3,88 триллиона токенов, а Crouton Alpha вышла из отображаемой десятки. Это трафик через OpenRouter, а не рейтинг качества. В image top-10 значимого изменения нет.\\n\\nГлавный вывод: продавайте не отдельный чат с моделью, а законченный бизнес-процесс — с данными клиента, правами, журналом действий, метриками и человеком на этапе, где ошибка дорого стоит.",
+  "openrouter": {
+    "period": "Сравнение сохранённого снимка usage through 2026-11-11 с актуальным снимком usage through 2026-11-12; оба рейтинга — скользящие окна.",
+    "changes": [
+      "Text: GLM 5.3 вошла в недельный top-10 на 10-е место с 3.88T обработанных токенов; в предыдущем снимке она не входила в top-10. Crouton Alpha, ранее находившаяся на 8-м месте с 4.5T, теперь вышла из отображаемой десятки; её точный текущий объём не опубликован в top-10, поэтому процент падения не рассчитывается.",
+      "Image: состав top-10 сохранился. Nano Banana 2 Lite и Seedream 5.0 Flash поменялись местами на 5-м и 6-м местах, но это не считаю достаточным основанием менять image-стек."
+    ],
+    "methodology": "OpenRouter text ranking считает prompt+completion tokens, image ranking — requests. Сравниваются два соседних снимка скользящих 7-дневных окон, заканчивающихся последним полным UTC-днём; это не чистый суточный прирост. Рейтинг показывает трафик через OpenRouter, а не уникальных пользователей, расходы, выручку или качество моделей. Данные OpenRouter распространяются по CC BY 4.0.",
+    "links": [
+      {
+        "label": "OpenRouter Text Rankings",
+        "url": "https://openrouter.ai/rankings"
+      },
+      {
+        "label": "OpenRouter Image Rankings",
+        "url": "https://openrouter.ai/rankings/image"
+      }
+    ]
+  },
   "ranking_baseline": {
-    "usage_through": "2026-11-11",
-    "snapshot_captured_at": "2026-11-12T08:51:56+03:00",
+    "usage_through": "2026-11-12",
+    "snapshot_captured_at": "2026-11-13T08:08:47+03:00",
     "text_weekly_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "53.2T",
-        "-8%"
+        "55.8T",
+        "-1%"
       ],
       [
         "Hy4",
-        "20.2T",
-        ">999%"
+        "20.3T",
+        "+405%"
       ],
       [
         "DeepSeek V4.1 Flash",
-        "16.3T",
-        "+1%"
+        "16T",
+        "-3%"
       ],
       [
         "GLM 5.3 Flash",
         "12T",
-        "-25%"
-      ],
-      [
-        "GPT-6 Luna",
-        "7.16T",
         "-20%"
       ],
       [
-        "Step 5 Preview",
-        "6.88T",
+        "GPT-6 Luna",
+        "7.43T",
         "+2%"
       ],
       [
         "Claude Opus 5.5",
-        "6.65T",
-        "-2%"
+        "6.79T",
+        "+4%"
       ],
       [
-        "Crouton Alpha",
-        "4.5T",
-        "+657%"
+        "Step 5 Preview",
+        "6.73T",
+        "+1%"
       ],
       [
         "Kimi K3.1 Pro",
-        "4.42T",
-        "+32%"
+        "4.38T",
+        "+24%"
       ],
       [
         "GPT-6.1 Sol",
-        "4.14T",
-        "+1%"
+        "4.23T",
+        "+17%"
+      ],
+      [
+        "GLM 5.3",
+        "3.88T",
+        "+9%"
       ]
     ],
     "text_daily_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "9.62T",
-        "+11%"
+        "9.51T",
+        "-1%"
       ],
       [
         "Hy4",
-        "2.71T",
-        "-4%"
-      ],
-      [
-        "GLM 5.3 Flash",
-        "2.61T",
-        "+24%"
+        "2.74T",
+        "+1%"
       ],
       [
         "DeepSeek V4.1 Flash",
-        "2.4T",
-        "+6%"
+        "2.23T",
+        "-7%"
+      ],
+      [
+        "GLM 5.3 Flash",
+        "1.64T",
+        "-37%"
       ],
       [
         "GPT-6 Luna",
-        "1.25T",
-        "+17%"
+        "1.35T",
+        "+8%"
       ],
       [
         "Claude Opus 5.5",
-        "1.04T",
-        "-6%"
+        "1.18T",
+        "+13%"
       ],
       [
         "Step 5 Preview",
-        "961B",
-        "+20%"
-      ],
-      [
-        "GLM 5.3",
-        "796B",
-        "+34%"
-      ],
-      [
-        "MiMo-V2.6-Flash",
-        "674B",
-        "+3%"
+        "963B",
+        "0%"
       ],
       [
         "GPT-6.1 Sol",
-        "650B",
-        "-2%"
+        "729B",
+        "+12%"
+      ],
+      [
+        "MiMo-V2.6-Flash",
+        "637B",
+        "-5%"
+      ],
+      [
+        "GLM 5.3",
+        "611B",
+        "-23%"
       ]
     ],
     "text_new_trending": [
       [
-        "Claude Fable 5.2",
-        "322B",
-        "new"
-      ],
-      [
         "Inkling 2 Small (free)",
-        "320B",
+        "507B",
         "new"
       ],
       [
-        "Muse Ember",
-        "162B",
-        "new"
-      ],
-      [
-        "Gemini 4 Carbon",
-        "138B",
+        "Claude Fable 5.2",
+        "457B",
         "new"
       ],
       [
         "ERNIE-5.5-Flash-Preview (free)",
-        "82.6B",
+        "422B",
+        "new"
+      ],
+      [
+        "Muse Ember",
+        "248B",
+        "new"
+      ],
+      [
+        "Gemini 4 Carbon",
+        "234B",
         "new"
       ],
       [
@@ -253,76 +372,76 @@
         ">999%"
       ],
       [
-        "Ripple 65B Preview",
-        "18B",
+        "Motif 3",
+        "13.6M",
         ">999%"
       ],
       [
-        "Mistral Medium 3.5 (batch)",
-        "82.3M",
-        ">999%"
-      ],
-      [
-        "Claude Haiku 4.5 (batch)",
-        "28.6M",
+        "Mi",
+        "26.2M",
         ">999%"
       ],
       [
         "GPT-5.4 Mini (batch)",
-        "201M",
+        "285M",
+        ">999%"
+      ],
+      [
+        "GPT-5.6 Terra Pro (batch)",
+        "1.41M",
         ">999%"
       ]
     ],
     "image_weekly_top10": [
       [
         "Nano Banana 2",
-        "2.49M requests",
-        "+0%"
+        "2.42M requests",
+        "-7%"
       ],
       [
         "GPT Image 2.5 Sunburst",
-        "1.23M requests",
-        "-9%"
+        "1.24M requests",
+        "-7%"
       ],
       [
         "Nano Banana 2.1",
-        "1.07M requests",
+        "1.1M requests",
         "+17%"
       ],
       [
         "GPT Image 2.5 Flare",
-        "855K requests",
-        "+0%"
-      ],
-      [
-        "Seedream 5.0 Flash",
-        "728K requests",
-        "+86%"
+        "836K requests",
+        "-1%"
       ],
       [
         "Nano Banana 2 Lite",
-        "720K requests",
-        "+8%"
+        "725K requests",
+        "+6%"
+      ],
+      [
+        "Seedream 5.0 Flash",
+        "676K requests",
+        "+36%"
       ],
       [
         "Muse Image",
-        "631K requests",
-        "-9%"
+        "629K requests",
+        "-4%"
       ],
       [
         "GPT Image 2",
-        "510K requests",
-        "-6%"
+        "500K requests",
+        "-8%"
       ],
       [
         "Nano Banana",
-        "430K requests",
+        "422K requests",
         "-2%"
       ],
       [
         "Nano Banana Pro",
-        "407K requests",
-        "+1%"
+        "401K requests",
+        "0%"
       ]
     ],
     "text_author_share_weekly": [
@@ -433,6 +552,6 @@
       "https://openrouter.ai/rankings",
       "https://openrouter.ai/rankings/image"
     ],
-    "note": "Срез по usage through 2026-11-11. Text — prompt+completion tokens, image — requests; daily buckets UTC. Сохранён для сравнения со следующим выпуском."
+    "note": "Срез usage through 2026-11-12. Text — prompt+completion tokens, image — requests; недельные и дневные окна рассчитываются по UTC. Сохранён для сравнения со следующим выпуском."
   }
 }
