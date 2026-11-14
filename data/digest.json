@@ -1,21 +1,21 @@
 {
-  "date": "2026-11-13",
-  "window": "12 ноября 2026, 08:08:47 — 13 ноября 2026, 08:08:47 (МСК; последние 24 часа). Для части официальных анонсов указан только календарный день, без часа; это отмечено отдельно.",
-  "window_start": "2026-11-12T08:08:47+03:00",
-  "window_end": "2026-11-13T08:08:47+03:00",
+  "date": "2026-11-14",
+  "window": "13 ноября 2026, 08:12:08 — 14 ноября 2026, 08:12:08 (МСК; последние 24 часа).",
+  "window_start": "2026-11-13T08:12:08+03:00",
+  "window_end": "2026-11-14T08:12:08+03:00",
   "timezone": "Europe/Moscow",
   "issue_type": "daily",
   "previous_issue": {
-    "date": "2026-11-12",
-    "commit": "6a8c826714bab945ccc4f84eaa3a40ec40fbc6e4",
+    "date": "2026-11-13",
+    "commit": "2cfd3c1c95e4d6caad3836a84b636e3533d5aece",
     "telegram_publication_verified": true,
     "already_published_story_ids": [
-      "gemini-decisions-api",
-      "unsloth-0-1-917-beta",
-      "pomerado-launch-hn",
-      "cognitum-spaces-launch",
-      "united-third-party-ai-agents",
-      "anthropic-usage-policy-effective"
+      "google-gemini-4-hydrogen-2026-11-12",
+      "ibm-granite-llmon-preview-2026-11-12",
+      "anthropic-self-hosted-managed-agents-2026-11-12",
+      "anthropic-claude-for-manufacturing-2026-11-12",
+      "salesforce-sov-transcribe-1-2026-11-12",
+      "nice-cognigy-next-gen-2026-11-12"
     ]
   },
   "previous_supplemental_issue": {
@@ -28,200 +28,136 @@
       "google-workspace-mcp-agentic-oauth-enforcement-2026-11-11"
     ]
   },
+  "previous_main_issue_before_that": {
+    "date": "2026-11-12",
+    "commit": "6a8c826714bab945ccc4f84eaa3a40ec40fbc6e4",
+    "telegram_publication_verified": true,
+    "already_published_story_ids": [
+      "gemini-decisions-api",
+      "unsloth-0-1-917-beta",
+      "pomerado-launch-hn",
+      "cognitum-spaces-launch",
+      "united-third-party-ai-agents",
+      "anthropic-usage-policy-effective"
+    ]
+  },
   "news": [
     {
-      "id": "google-gemini-4-hydrogen-2026-11-12",
-      "title": "Gemini 4 Hydrogen: быстрый исполнитель для coding и агентных процессов",
-      "text": "12 ноября Google выпустила Gemini 4 Hydrogen — более быструю модель для повседневной разработки и агентных задач с контекстом до 1 млн токенов и четырьмя уровнями thinking. В Antigravity Orchestrator может сочетать Hydrogen с Carbon; в тесте Google на Terminal-Bench 4.0 такая связка почти сравнялась с Carbon по успешности, расходуя на 24% меньше квоты и завершая задачи на 19% быстрее.",
-      "monetization_comment": "Как заработать интегратору: внедрить двухуровневый стек для software-команд — Carbon планирует и разбирает сложные случаи, Hydrogen пишет код, запускает тесты и проверяет изменения. Быстрый пилот — один репозиторий и 2–3 типовых задачи; сравнить стоимость принятого PR, время выполнения и долю исправлений после ревью.",
-      "access": "Gemini API model ID: `gemini-4-hydrogen`; доступен через AI Studio и Gemini API. Standard API: $1.50 за 1 млн входных и $7.50 за 1 млн выходных токенов; Batch/Flex — $0.75/$3.75. Ограниченный Free tier подтверждён, но контент Free tier может использоваться Google для улучшения продуктов; для Paid tier это не предусмотрено. Orchestrator относится к Google Antigravity, а не к универсальному API-оркестратору.",
-      "category": "Модели, coding agents и снижение себестоимости",
-      "published_at": "2026-11-12",
+      "id": "openai-chatgpt-wallet-agentic-commerce-2026-11-13",
+      "title": "ChatGPT Wallet: агенты OpenAI начинают оплачивать покупки",
+      "text": "OpenAI запустила ChatGPT Wallet: пользователь проверяет корзину и подтверждает каждую покупку, а агент получает платёжный токен вместо реальных данных карты. Вместе с Wallet компания выпустила инструкции для бизнеса по product feeds, Web Bot Auth, антифроду и подключению действий через plugins/WebMCP — теперь подготовка магазина к агентным покупкам становится отдельной интеграционной задачей.",
+      "monetization_comment": "Редакторская гипотеза: продавать интернет-магазинам аудит agentic-commerce readiness — проверить доступ Cloud Browser, правила CDN/WAF для Web Bot Auth, актуальность каталога, реакцию антифрода и сценарий plugin/WebMCP; быстрый пилот — 20 SKU и один путь от поиска товара до checkout.",
+      "access": "Первый rollout — через dots для ChatGPT Pro, пользователей 18+ в США с подходящими картами, выпущенными в США; публичный платёжный API для произвольных агентов в анонсе не заявлен. Существующий checkout может работать без отдельной Wallet-интеграции, но антифрод может отклонять легитимные агентные покупки; product feed не обязателен для Cloud Browser, но помогает поиску товаров.",
+      "source": "OpenAI",
+      "published_at": "2026-11-13T10:45",
       "timestamp_verified": false,
-      "timestamp_note": "Официальный блог Google датирует анонс 12 ноября, но не публикует точный час. Дата подтверждена; точное попадание публикации внутрь 24-часового окна по часу независимо не установлено.",
-      "popularity": null,
-      "discussion": null,
+      "timestamp_note": "Официальный анонс датирован 13 ноября; Reuters через Investing.com показывает 10:45 AM того же дня, но часовой пояс в отображении не указан. Дата попадает в окно, точная нормализация времени не подтверждена.",
+      "category": "agentic-commerce",
       "links": [
         {
-          "label": "Официальный анонс Gemini 4 Hydrogen",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+          "label": "Анонс OpenAI",
+          "url": "https://openai.com/tr-TR/index/introducing-chatgpt-wallet/"
         },
         {
-          "label": "Анонс для разработчиков",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/"
+          "label": "Commerce Partner Playbook",
+          "url": "https://developers.openai.com/commerce/guides/overview"
         },
         {
-          "label": "Официальные тарифы Gemini API",
-          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+          "label": "Web Bot Auth и доступ Cloud Browser",
+          "url": "https://developers.openai.com/commerce/agent-access"
+        },
+        {
+          "label": "Обсуждение в OpenAI Developer Community",
+          "url": "https://community.openai.com/t/introducing-chatgpt-wallet/1416044"
         }
-      ],
-      "sources": [
-        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
-        "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
-        "https://ai.google.dev/gemini-api/docs/pricing"
       ]
     },
     {
-      "id": "ibm-granite-llmon-preview-2026-11-12",
-      "title": "IBM LLMON: явное разделение инструкций и недоверенных данных для агентов",
-      "text": "12 ноября IBM Granite представила LLMON и две экспериментальные модели Granite 4.1 3B/8B, которые размечают инструкции, требования, документы, tool definitions и результаты инструментов как отдельные адресуемые блоки. IBM сообщает о резком снижении успешности статических indirect prompt-injection атак на своих тестах, но сама документация подчёркивает: это выученное поведение, а не гарантированная защита.",
-      "monetization_comment": "Как заработать интегратору: предложить аудит RAG- и MCP-агентов, которые читают письма, PDF, тикеты и ответы внешних tools. Пилот — сравнить обычную модель и LLMON на обезличенном наборе из 50–100 prompt-injection сценариев; измерить долю выполненных вредоносных инструкций и неудачные легитимные задачи.",
-      "access": "Модели `ibm-granite/granite-4.1-3b-llmon-preview` и `ibm-granite/granite-4.1-8b-llmon-preview` опубликованы под Apache 2.0; доступны через Hugging Face, vLLM, SGLang и Docker с OpenAI-совместимым endpoint. Это experimental preview, не production-релиз: требуется собственный LLMON chat template, обычный chat prompt ухудшает качество. LLMON не заменяет permission checks, sandboxing и human approval; benchmark IBM в основном проверяет статические indirect injections.",
-      "category": "Безопасность агентов и open-weight модели",
-      "published_at": "2026-11-12",
+      "id": "deepseek-application-apis-suite-2026-11-13",
+      "title": "DeepSeek открыла полный набор application APIs",
+      "text": "DeepSeek открыла разработчикам функции своего приложения: web search и многошаговый поиск, загрузку документов, чтение URL и базовую проверку безопасности прямо в Messages, Responses и Chat Completions API. Отдельно доступны Search & Fetch, OCR, ASR и TTS, поэтому можно собирать документно-голосовые ассистенты без собственной инфраструктуры поиска и распознавания.",
+      "monetization_comment": "Редакторская гипотеза: упаковать для бухгалтерий, юристов и сервисных компаний конвейер входящих документов и обращений — OCR/PDF и Office → извлечение полей → ASR голосовых сообщений → проверка человеком → CRM/ERP; пилот на 100 документах и 50 аудиозаписях с замером точности и стоимости обработки.",
+      "access": "API тарифицируется по использованию; бесплатная квота на странице тарифов не указана. Search и fetch стоят $0.75 за 1 000 вызовов каждый, OCR/file parsing — $0.225 за 1 000 страниц, ASR — $0.116 за час аудио (временно указана цена $0.058), TTS — $0.45 за 10 000 символов (временно $0.225); цены DeepSeek Flash начинаются с $0.15/$0.60 за миллион входных/выходных токенов вне пиковых часов. ASR поддерживает русский, но работает пакетно и принимает до 120 секунд/8 MiB на файл; русский отсутствует в опубликованном списке языков TTS.",
+      "source": "DeepSeek API Docs",
+      "published_at": "2026-11-13",
       "timestamp_verified": false,
-      "timestamp_note": "Hugging Face указывал возраст статьи около 10 часов на момент проверки; точный абсолютный timestamp не опубликован. Model card подтверждает release date 12 ноября.",
-      "popularity": "Hugging Face: 18 upvotes у технической статьи на момент проверки; это реакция на публикацию, не показатель внедрений или качества.",
-      "discussion": null,
+      "timestamp_note": "Официальный changelog указывает только календарную дату 13 ноября 2026 года, без времени публикации; точное попадание в 24-часовой cutoff не подтверждается.",
+      "category": "api",
       "links": [
         {
-          "label": "Технический анонс IBM Granite",
-          "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
+          "label": "Официальный changelog",
+          "url": "https://api-docs.deepseek.com/updates/"
         },
         {
-          "label": "Granite 4.1 3B LLMON model card",
-          "url": "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview"
+          "label": "Модели и тарифы",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/"
         },
         {
-          "label": "Репозиторий LLMON",
-          "url": "https://github.com/generative-computing/llmon"
+          "label": "Руководство по chatbot API",
+          "url": "https://api-docs.deepseek.com/guides/build_a_chatbot/"
+        },
+        {
+          "label": "ASR и список языков",
+          "url": "https://api-docs.deepseek.com/guides/asr/"
+        },
+        {
+          "label": "TTS и ограничения языков",
+          "url": "https://api-docs.deepseek.com/guides/tts/"
         }
-      ],
-      "sources": [
-        "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
-        "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview",
-        "https://github.com/generative-computing/llmon"
       ]
     },
     {
-      "id": "anthropic-self-hosted-managed-agents-2026-11-12",
-      "title": "Anthropic: Managed Agents теперь можно развернуть в собственном контуре",
-      "text": "12 ноября Anthropic открыла private beta self-hosted Claude Managed Agents: в облаке или on-prem заказчика работают agent harness, sandbox, обработка credentials, история сессий и workers. Запросы к модели при этом можно направлять в Anthropic, Amazon Bedrock, Google Agent Platform, Microsoft Foundry или собственный gateway — это self-hosted control plane, а не выпуск локальных весов Claude.",
-      "monetization_comment": "Как заработать интегратору: продавать проект развёртывания и hardening агентной платформы в контуре клиента — secrets manager, allowlist сетевых адресов, изоляция workers, OpenTelemetry и подключение корпоративных MCP/API. Пилот — один агент для triage инцидентов или исправления CI-сборок с журналом всех tool calls и запретом выхода за разрешённые hostnames.",
-      "access": "Private beta; запрос доступа — через команду Anthropic, публичная цена не указана. История сессий хранится в базе заказчика, секреты можно держать в собственном secrets manager, сетевой доступ ограничивается allowlist, события экспортируются через OpenTelemetry. ZDR действует для запросов к Claude только если он отдельно подключён у организации.",
-      "category": "Self-hosted агенты и enterprise security",
-      "published_at": "2026-11-12",
+      "id": "microsoft-agent-framework-go-0-3-1-2026-11-13",
+      "title": "Microsoft Agent Framework for Go: MCP tools стали task-aware",
+      "text": "В pre-release v0.3.1 добавлены task-aware MCP tools с проверкой ответов задач и обработкой жизненного цикла транспорта, а также MCP-backed skills с ленивой загрузкой источников. Это полезно для Go-сервисов, где агент запускает длительную операцию как задачу и подгружает нужный навык только по мере необходимости.",
+      "monetization_comment": "Редакторская гипотеза: для компаний с Go backend собрать асинхронного операционного агента — разбор инцидента, обработка заявки или пакет документов — с MCP tasks, skills, checkpointing и OpenTelemetry; пилот на одной очереди задач с ручным подтверждением внешних действий.",
+      "access": "Лицензия репозитория — MIT; установка через `go get github.com/microsoft/agent-framework-go`. Версия v0.3.1 помечена как pre-release, а весь Go SDK остаётся public preview и развивается; часть возможностей .NET-версии в Go ещё не реализована.",
+      "source": "Microsoft Agent Framework for Go",
+      "published_at": "2026-11-13T11:31",
       "timestamp_verified": false,
-      "timestamp_note": "Официальная статья Anthropic указывает 12 ноября без точного часа. Календарная дата подтверждена, но час публикации не раскрыт.",
-      "popularity": null,
-      "discussion": null,
+      "timestamp_note": "GitHub показывает время релиза 11:31 13 ноября, но не указывает часовой пояс; дата подтверждена, точное UTC-время не нормализовано.",
+      "category": "agent-framework",
       "links": [
         {
-          "label": "Официальный анонс self-hosted Managed Agents",
-          "url": "https://claude.com/resources/articles/self-hosted-claude-managed-agents"
+          "label": "Release notes v0.3.1",
+          "url": "https://github.com/microsoft/agent-framework-go/releases"
         },
         {
-          "label": "Документация Managed Agents",
-          "url": "https://platform.claude.com/docs/en/agents/managed-agents"
+          "label": "Репозиторий и статус preview",
+          "url": "https://github.com/microsoft/agent-framework-go"
         }
-      ],
-      "sources": [
-        "https://claude.com/resources/articles/self-hosted-claude-managed-agents",
-        "https://platform.claude.com/docs/en/agents/managed-agents"
       ]
     },
     {
-      "id": "anthropic-claude-for-manufacturing-2026-11-12",
-      "title": "Claude for Manufacturing: 17 навыков для заводских процессов",
-      "text": "12 ноября Anthropic выпустила плагин Claude for Manufacturing с 17 skills для подготовки коммерческих предложений, расследования дефектов, запросов поставщикам, диагностики поломок и отчётности производства. Он подключается к Autodesk Fusion, Infor, Microsoft 365 и Oracle NetSuite, а документы и действия должны пройти проверку ответственного сотрудника; оборудование плагин не управляет.",
-      "monetization_comment": "Как заработать интегратору: предложить промышленному предприятию аналогичный workflow поверх его ERP, MES и документооборота — начать с подготовки quote или отчёта о несоответствии из заказов, техдокументации и истории работ. Пилот — один участок и один тип документа; KPI — время подготовки, число исправлений и доля фактов со ссылкой на исходную запись.",
-      "access": "Плагин доступен на планах Claude Team и Enterprise; публичная отдельная цена не указана. Четыре заявленных коннектора — Autodesk Fusion, Infor, Microsoft 365 и Oracle NetSuite. Для систем без готового коннектора Anthropic предлагает использовать регулярные выгрузки; каждое внешнее действие остаётся на проверке сотрудника.",
-      "category": "Вертикальные AI-решения для промышленности",
-      "published_at": "2026-11-12",
+      "id": "openai-codex-cli-0-169-0-2026-11-13",
+      "title": "Codex CLI 0.169.0: gateway setup и более строгая граница доверия",
+      "text": "Codex CLI 0.169.0 добавил несколько сохраняемых side-chat вкладок, поиск прошлых задач и настройку custom model providers прямо из терминала, включая device-code авторизацию gateway по SSH. Важное изменение безопасности: `codex exec` больше не включает конфигурацию проекта и MCP-серверы в недоверенной директории даже с `--sandbox workspace-write` — для этого требуется явный `--trust`.",
+      "monetization_comment": "Редакторская гипотеза: предлагать командам настройку корпоративного Codex CLI — подключение собственного model gateway, device-code вход по SSH, политики доверия репозиториев и ревизию MCP-конфигураций; быстрый пилот на 3–5 разработчиках и одном тестовом репозитории.",
+      "access": "Обновление доступно в Codex CLI 0.169.0; terminal workspace остаётся opt-in. `--trust` следует включать только для репозиториев, которые команда проверила и считает доверенными; стоимость моделей и gateway зависит от выбранного провайдера.",
+      "source": "OpenAI Codex",
+      "published_at": "2026-11-13T08:37",
       "timestamp_verified": false,
-      "timestamp_note": "Официальная страница Anthropic датирует анонс 12 ноября, но не показывает час публикации.",
-      "popularity": null,
-      "discussion": null,
+      "timestamp_note": "GitHub показывает время релиза 08:37 13 ноября, но не указывает часовой пояс; дата подтверждена, точное UTC-время не нормализовано.",
+      "category": "developer-tools",
       "links": [
         {
-          "label": "Официальный анонс Claude for Manufacturing",
-          "url": "https://claude.com/resources/articles/claude-for-manufacturing"
+          "label": "Официальный релиз Codex CLI 0.169.0",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0"
         },
         {
-          "label": "Описание решения для производства",
-          "url": "https://claude.com/solutions/manufacturing"
+          "label": "Официальный changelog Codex",
+          "url": "https://learn.chatgpt.com/docs/changelog"
         }
-      ],
-      "sources": [
-        "https://claude.com/resources/articles/claude-for-manufacturing",
-        "https://claude.com/solutions/manufacturing"
-      ]
-    },
-    {
-      "id": "salesforce-sov-transcribe-1-2026-11-12",
-      "title": "Salesforce SOV-Transcribe-1: открытая batch-ASR модель для корпоративных записей",
-      "text": "12 ноября Salesforce Sovereign Intelligence опубликовала SOV-Transcribe-1 — open-weight модель распознавания записанной речи с 26,6 млрд параметров всего и 4,6 млрд активных, контекстными подсказками и управлением verbatim/clean transcript. Salesforce ссылается на результат 2,28% AA-WER и первое место среди open-weight ASR, однако модель не потоковая и поддерживает только английский, французский, немецкий, испанский, итальянский, португальский и нидерландский — русского языка нет.",
-      "monetization_comment": "Как заработать интегратору: для англоязычного контакт-центра или финансовой службы собрать локальный конвейер транскрибации и QA звонков с подсказками по именам, email и номерам счетов. Пилот — 100–200 записей с ручной эталонной разметкой; сравнить WER, точность критичных сущностей и стоимость минуты аудио.",
-      "access": "Веса доступны на Hugging Face под Apache 2.0; запуск через Transformers с `trust_remote_code` или vLLM 0.32.0 plugin, который предоставляет OpenAI-совместимый transcription endpoint. Модель обрабатывает batch-записи до 30 минут, а не live-поток; готового hosted inference provider на карточке модели нет. Вычислительные ресурсы оплачиваются отдельно, hardware sizing в model card не нормирован.",
-      "category": "Speech AI и локальная обработка аудио",
-      "published_at": "2026-11-12",
-      "timestamp_verified": false,
-      "timestamp_note": "Статья Salesforce на Hugging Face показывала возраст около 12 часов на момент проверки; абсолютное время публикации не раскрыто. Model card и launch article датированы 12 ноября.",
-      "popularity": "Salesforce указывает 2,28% AA-WER и #1 среди open-weight моделей в non-streaming ASR; это benchmark, не показатель аудитории. Model card также ссылается на #2 из 23 систем в VoiceCodeBench.",
-      "discussion": null,
-      "links": [
-        {
-          "label": "Анонс Salesforce SOV-Transcribe-1",
-          "url": "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1"
-        },
-        {
-          "label": "Model card и инструкции запуска",
-          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
-        },
-        {
-          "label": "Artificial Analysis Speech-to-Text leaderboard",
-          "url": "https://artificialanalysis.ai/speech-to-text/non-streaming?error-rate=word-error-rate-by-open-weights"
-        }
-      ],
-      "sources": [
-        "https://huggingface.co/blog/salesforce-sovereign-intelligence/sov-transcribe-1",
-        "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1",
-        "https://artificialanalysis.ai/speech-to-text/non-streaming?error-rate=word-error-rate-by-open-weights"
-      ]
-    },
-    {
-      "id": "nice-cognigy-next-gen-2026-11-12",
-      "title": "NiCE Cognigy обновилась: reusable skills, tracing и voice-to-voice",
-      "text": "12 ноября NiCE представила следующее поколение Cognigy: AI-assisted Studio, повторно используемые skills, координацию subagents, трассировку решений и native voice-to-voice. Базовые STT/TTS/LLM включены в стоимость разговора, а премиальные модели оплачиваются по использованию или через собственные контракты клиента; действующим клиентам обновление обещано в рамках текущего продукта.",
-      "monetization_comment": "Как заработать интегратору: предложить контакт-центру внедрение одного голосового сценария — проверка статуса заказа, запись, возврат или квалификация обращения — с CRM, передачей оператору и аудитом каждого шага. Пилот на одной очереди; KPI — доля автоматического решения, среднее время обработки, частота перевода на человека и стоимость закрытого обращения.",
-      "access": "Enterprise-платформа NiCE Cognigy; публичный прайс для новых клиентов в анонсе не указан, детали предлагаются через sales. Для действующих клиентов новые возможности включены в дальнейшее развитие Cognigy; premium STT/TTS/LLM имеют usage-based billing либо могут использоваться по собственным контрактам.",
-      "category": "Voice agents и автоматизация контакт-центров",
-      "published_at": "2026-11-12",
-      "timestamp_verified": false,
-      "timestamp_note": "Официальный пресс-релиз Business Wire и URL подтверждают дату 12 ноября, но точный час публикации в открытом тексте не указан.",
-      "popularity": null,
-      "discussion": null,
-      "links": [
-        {
-          "label": "Официальный пресс-релиз NiCE через Business Wire",
-          "url": "https://www.businesswire.com/news/home/20261112890751/en/NiCE-Launches-Next-Generation-NiCE-Cognigy-to-Accelerate-Enterprise-AI-Agent-Deployment-and-Orchestration"
-        },
-        {
-          "label": "Официальный сайт NiCE Cognigy",
-          "url": "https://www.nice.com/products/cognigy"
-        }
-      ],
-      "sources": [
-        "https://www.businesswire.com/news/home/20261112890751/en/NiCE-Launches-Next-Generation-NiCE-Cognigy-to-Accelerate-Enterprise-AI-Agent-Deployment-and-Orchestration",
-        "https://www.nice.com/products/cognigy"
       ]
     }
   ],
-  "takeaways": [
-    "Для coding и внутренних агентов тестируйте Hydrogen как дешёвый исполнитель, оставляя Carbon для планирования и сложных решений; сравнивайте стоимость принятого результата, а не только цену токена.",
-    "IBM LLMON и self-hosted Managed Agents Anthropic показывают, что безопасность агентной системы — отдельная продаваемая работа: границы доверия, секреты, сетевые allowlist, аудит и проверка prompt injection.",
-    "Самые прикладные вертикали дня — промышленность и контакт-центры: берите один процесс, подключайте реальные ERP/CRM/документы и оставляйте подтверждение рискованных действий человеку."
-  ],
-  "editorial_note": "Предыдущий основной выпуск и дополнение за 12 ноября прочитаны; девять ранее опубликованных сюжетов исключены. Шесть включённых анонсов относятся к 12 ноября; у Google, Anthropic и NiCE точный час публикации не опубликован. Страницы Hugging Face для IBM LLMON и Salesforce SOV-Transcribe-1 показывали приблизительный возраст около 10 и 12 часов соответственно, но абсолютный timestamp отсутствует. Поэтому дата подтверждена, а точное попадание всех date-only анонсов в 24-часовое окно не гарантируется. Из поиска исключены ZONOS3-Mini и Seedream 5.5 (официальные релизы 9 ноября), Google AI Edge speech announcement (оригинальный Google Developers post 10 ноября) и GitHub Rubicon (официальный engineering post 5 ноября). @exploitex и @ai_machinelearning_big_data были доступны как публичные превью, но часть сообщений не имела абсолютной даты или повторяла прежние темы; @aitshnya, @neuro_channel, @xor_journal и @neuraldvig не открылись. Неподтверждённые Telegram-сообщения не использованы как факты. OpenRouter: сравнение сохранённого снимка through 11 ноября с актуальным through 12 ноября выявило вход GLM 5.3 в недельный text top-10 (#10, 3.88T tokens) и выход Crouton Alpha из отображаемой десятки; точный текущий объём Crouton Alpha и процент его снижения не публикуются в top-10, поэтому они не рассчитаны. В image top-10 состав участников сохранился; перестановка Nano Banana 2 Lite и Seedream 5.0 Flash не трактуется как достаточный сигнал для смены стека.",
-  "audio_caption": "🎧 Аудиоверсия AI-дайджеста — 13 ноября 2026",
-  "audio_script": "Сегодня шесть практических новостей для разработчика и интегратора.\\n\\nПервое. Google выпустила Gemini 4 Hydrogen — быструю модель для повседневного coding и агентных задач с контекстом до миллиона токенов. В Antigravity Orchestrator она может работать вместе с Carbon: по тесту Google такая связка почти сохраняет успешность Carbon, но расходует на 24 процента меньше квоты и выполняет задачи на 19 процентов быстрее. Стандартный API стоит полтора доллара за миллион входных и семь с половиной за миллион выходных токенов; ограниченный бесплатный уровень тоже есть, но его данные могут использоваться для улучшения продуктов Google.\\n\\nВторое. IBM представила LLMON — формат, который отделяет инструкции от документов, пользовательских данных и результатов инструментов. Вместе с ним вышли экспериментальные Granite 4.1 на три и восемь миллиардов параметров. IBM сообщает о сильном снижении успешности статических prompt injection атак, но это не гарантия безопасности и не готовый production-релиз. Модели доступны под Apache 2.0 и запускаются через vLLM или SGLang, если использовать специальный chat template.\\n\\nТретье. Anthropic открыла закрытую бету self-hosted Managed Agents. Теперь в инфраструктуре заказчика могут работать агентный контур, песочницы, секреты, история сессий и workers. Саму модель при этом можно вызывать через Anthropic, Bedrock, Google Agent Platform, Microsoft Foundry или свой gateway. Это не локальные веса Claude, а управляемая платформа агентов в собственном контуре.\\n\\nЧетвёртое. Claude for Manufacturing — плагин с семнадцатью навыками для расчёта предложений, контроля качества, закупок, диагностики поломок и производственной отчётности. Он подключается к Autodesk Fusion, Infor, Microsoft 365 и Oracle NetSuite, но не управляет оборудованием и оставляет утверждение документов человеку.\\n\\nПятое. Salesforce выпустила SOV-Transcribe-1 — открытую модель для распознавания записанных звонков и встреч. Salesforce заявляет первое место среди open-weight систем по своему результату на Artificial Analysis, но модель не потоковая и не поддерживает русский язык. Она интересна для англоязычного batch-QA контакт-центров, где особенно важны имена, email и номера счетов.\\n\\nШестое. NiCE обновила Cognigy: добавила повторно используемые skills, трассировку каждого решения и голосовой режим voice-to-voice. Для контакт-центров это готовая enterprise-платформа, а для интегратора — повод продавать внедрение одного конкретного сценария с CRM, передачей оператору и измерением стоимости закрытого обращения.\\n\\nOpenRouter: в недельный текстовый топ-10 вошла GLM 5.3 с 3,88 триллиона токенов, а Crouton Alpha вышла из отображаемой десятки. Это трафик через OpenRouter, а не рейтинг качества. В image top-10 значимого изменения нет.\\n\\nГлавный вывод: продавайте не отдельный чат с моделью, а законченный бизнес-процесс — с данными клиента, правами, журналом действий, метриками и человеком на этапе, где ошибка дорого стоит.",
   "openrouter": {
-    "period": "Сравнение сохранённого снимка usage through 2026-11-11 с актуальным снимком usage through 2026-11-12; оба рейтинга — скользящие окна.",
+    "period": "Сохранённый снимок usage through 12 ноября 2026 сравнен с актуальным снимком usage through 13 ноября 2026.",
     "changes": [
-      "Text: GLM 5.3 вошла в недельный top-10 на 10-е место с 3.88T обработанных токенов; в предыдущем снимке она не входила в top-10. Crouton Alpha, ранее находившаяся на 8-м месте с 4.5T, теперь вышла из отображаемой десятки; её точный текущий объём не опубликован в top-10, поэтому процент падения не рассчитывается.",
-      "Image: состав top-10 сохранился. Nano Banana 2 Lite и Seedream 5.0 Flash поменялись местами на 5-м и 6-м местах, но это не считаю достаточным основанием менять image-стек."
+      "Text weekly top-10: MiMo-V2.6-Flash вошла на 10-е место с 3.85T обработанных токенов; OpenRouter показывает +61% week-over-week. GLM 5.3, ранее находившаяся на 10-м месте с 3.88T, вышла из отображаемой десятки; её точный текущий объём ниже top-10 не опубликован, поэтому процент падения не рассчитывается.",
+      "Image weekly top-10: состав и порядок участников не изменились относительно сохранённого снимка; отдельного сигнала для смены image-стека нет."
     ],
-    "methodology": "OpenRouter text ranking считает prompt+completion tokens, image ranking — requests. Сравниваются два соседних снимка скользящих 7-дневных окон, заканчивающихся последним полным UTC-днём; это не чистый суточный прирост. Рейтинг показывает трафик через OpenRouter, а не уникальных пользователей, расходы, выручку или качество моделей. Данные OpenRouter распространяются по CC BY 4.0.",
+    "methodology": "Text ranking считает prompt и completion tokens, image ranking — requests. Сравниваются скользящие семидневные окна; +61% у MiMo — изменение к предыдущим семи дням, а не прирост за последние 24 часа. Токены и requests не равны уникальным пользователям, расходам, выручке или качеству моделей. Данные рейтингов OpenRouter распространяются по CC BY 4.0.",
     "links": [
       {
         "label": "OpenRouter Text Rankings",
@@ -233,215 +169,223 @@
       }
     ]
   },
+  "takeaways": [
+    "Подготовка магазина к агентным покупкам становится новой интеграционной услугой: каталог, Web Bot Auth, антифрод и checkout нужно проверять вместе.",
+    "DeepSeek теперь закрывает одним API-стеком поиск, документы и речь; для русских сценариев ASR подходит, а TTS пока не заявляет русский язык.",
+    "Для Go-команд появились более зрелые кирпичики асинхронных MCP-workflow, а Codex CLI усиливает настройку gateway и явное управление доверием к репозиториям."
+  ],
+  "editorial_note": "Основной выпуск за 13 ноября и дополнение за 12 ноября прочитаны; девять опубликованных там сюжетов исключены. OpenAI Wallet подтверждён официальным анонсом от 13 ноября и публикацией Reuters от 13 ноября 10:45 AM (часовой пояс репринта не указан). DeepSeek changelog показывает только дату 13 ноября; GitHub UI для Microsoft Agent Framework Go и Codex CLI показывает время, но не часовой пояс. Эти ограничения не скрываются. Telegram previews: @exploitex и @ai_machinelearning_big_data открылись, но их сообщения не имели надёжных абсолютных timestamp для точной привязки к окну; @aitshnya, @neuro_channel, @xor_journal и @neuraldvig не открылись. Неподтверждённые сообщения каналов не использованы как факты. GetCourse и EdTech исключены.",
+  "audio_caption": "🎧 Аудиоверсия AI-дайджеста — 14 ноября",
+  "audio_script": "AI-дайджест на четырнадцатое ноября. Первое. OpenAI запустила ChatGPT Wallet. Агент может оплатить покупку, но пользователь подтверждает каждую транзакцию, а агент не видит номер карты. Для бизнеса это повод проверить каталог, доступ Cloud Browser, антифрод и поддержку Web Bot Auth. Второе. DeepSeek открыла API для поиска, документов, чтения ссылок, OCR, распознавания речи и синтеза голоса. Распознавание поддерживает русский язык, но русский пока не указан среди языков синтеза речи. Третье. Microsoft Agent Framework for Go в версии ноль точка три точка один добавил длительные MCP-задачи и ленивую загрузку skills. Версия пока предварительная. Четвёртое. Codex CLI ноль точка сто шестьдесят девять добавил настройку собственного gateway из терминала и более строгую проверку доверия к репозиториям. Главное за день: готовьте интернет-магазины к агентным покупкам, тестируйте DeepSeek на документах и голосовых обращениях, а корпоративные агентные workflow проектируйте с асинхронными задачами и явными границами доверия.",
   "ranking_baseline": {
-    "usage_through": "2026-11-12",
-    "snapshot_captured_at": "2026-11-13T08:08:47+03:00",
+    "usage_through": "2026-11-13",
+    "snapshot_captured_at": "2026-11-14T08:12:08+03:00",
     "text_weekly_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "55.8T",
-        "-1%"
-      ],
-      [
-        "Hy4",
-        "20.3T",
-        "+405%"
-      ],
-      [
-        "DeepSeek V4.1 Flash",
-        "16T",
-        "-3%"
-      ],
-      [
-        "GLM 5.3 Flash",
-        "12T",
-        "-20%"
-      ],
-      [
-        "GPT-6 Luna",
-        "7.43T",
-        "+2%"
-      ],
-      [
-        "Claude Opus 5.5",
-        "6.79T",
-        "+4%"
-      ],
-      [
-        "Step 5 Preview",
-        "6.73T",
+        "56.9T",
         "+1%"
       ],
       [
+        "Hy4",
+        "19.8T",
+        "+181%"
+      ],
+      [
+        "DeepSeek V4.1 Flash",
+        "15.8T",
+        "-8%"
+      ],
+      [
+        "GLM 5.3 Flash",
+        "11.8T",
+        "-16%"
+      ],
+      [
+        "GPT-6 Luna",
+        "7.53T",
+        "+4%"
+      ],
+      [
+        "Claude Opus 5.5",
+        "6.99T",
+        "+6%"
+      ],
+      [
+        "Step 5 Preview",
+        "6.57T",
+        "-4%"
+      ],
+      [
         "Kimi K3.1 Pro",
-        "4.38T",
-        "+24%"
+        "4.32T",
+        "+23%"
       ],
       [
         "GPT-6.1 Sol",
-        "4.23T",
-        "+17%"
+        "4.11T",
+        "+9%"
       ],
       [
-        "GLM 5.3",
-        "3.88T",
-        "+9%"
+        "MiMo-V2.6-Flash",
+        "3.85T",
+        "+61%"
       ]
     ],
     "text_daily_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "9.51T",
-        "-1%"
+        "8.98T",
+        "-6%"
       ],
       [
         "Hy4",
-        "2.74T",
-        "+1%"
+        "2.62T",
+        "-4%"
       ],
       [
         "DeepSeek V4.1 Flash",
-        "2.23T",
-        "-7%"
+        "2.39T",
+        "+7%"
       ],
       [
         "GLM 5.3 Flash",
-        "1.64T",
-        "-37%"
-      ],
-      [
-        "GPT-6 Luna",
-        "1.35T",
-        "+8%"
+        "1.54T",
+        "-6%"
       ],
       [
         "Claude Opus 5.5",
-        "1.18T",
-        "+13%"
+        "1.25T",
+        "+6%"
+      ],
+      [
+        "GPT-6 Luna",
+        "1.25T",
+        "-7%"
       ],
       [
         "Step 5 Preview",
-        "963B",
+        "959B",
         "0%"
       ],
       [
-        "GPT-6.1 Sol",
-        "729B",
-        "+12%"
-      ],
-      [
         "MiMo-V2.6-Flash",
-        "637B",
+        "603B",
         "-5%"
       ],
       [
+        "GPT-6.1 Sol",
+        "546B",
+        "-25%"
+      ],
+      [
         "GLM 5.3",
-        "611B",
-        "-23%"
+        "517B",
+        "-15%"
       ]
     ],
     "text_new_trending": [
       [
+        "ERNIE-5.5-Flash-Preview (free)",
+        "920B",
+        "new"
+      ],
+      [
         "Inkling 2 Small (free)",
-        "507B",
+        "712B",
         "new"
       ],
       [
         "Claude Fable 5.2",
-        "457B",
-        "new"
-      ],
-      [
-        "ERNIE-5.5-Flash-Preview (free)",
-        "422B",
+        "658B",
         "new"
       ],
       [
         "Muse Ember",
-        "248B",
+        "361B",
         "new"
       ],
       [
         "Gemini 4 Carbon",
-        "234B",
+        "354B",
         "new"
       ],
       [
-        "Grok 4.6 (batch)",
-        "262M",
+        "MiniMax M3 (batch)",
+        "445M",
+        ">999%"
+      ],
+      [
+        "Qwen3.8 27B (batch)",
+        "37.6M",
         ">999%"
       ],
       [
         "Motif 3",
-        "13.6M",
+        "18.8M",
         ">999%"
       ],
       [
         "Mi",
-        "26.2M",
-        ">999%"
-      ],
-      [
-        "GPT-5.4 Mini (batch)",
-        "285M",
+        "659M",
         ">999%"
       ],
       [
         "GPT-5.6 Terra Pro (batch)",
-        "1.41M",
+        "1.42M",
         ">999%"
       ]
     ],
     "image_weekly_top10": [
       [
         "Nano Banana 2",
-        "2.42M requests",
-        "-7%"
+        "2.38M requests",
+        "-11%"
       ],
       [
         "GPT Image 2.5 Sunburst",
-        "1.24M requests",
-        "-7%"
+        "1.21M requests",
+        "-11%"
       ],
       [
         "Nano Banana 2.1",
-        "1.1M requests",
-        "+17%"
+        "1.16M requests",
+        "+22%"
       ],
       [
         "GPT Image 2.5 Flare",
-        "836K requests",
-        "-1%"
+        "889K requests",
+        "+7%"
       ],
       [
         "Nano Banana 2 Lite",
-        "725K requests",
-        "+6%"
+        "699K requests",
+        "-1%"
       ],
       [
         "Seedream 5.0 Flash",
-        "676K requests",
-        "+36%"
+        "690K requests",
+        "+32%"
       ],
       [
         "Muse Image",
-        "629K requests",
-        "-4%"
+        "628K requests",
+        "-3%"
       ],
       [
         "GPT Image 2",
-        "500K requests",
-        "-8%"
+        "479K requests",
+        "-12%"
       ],
       [
         "Nano Banana",
-        "422K requests",
-        "-2%"
+        "418K requests",
+        "-3%"
       ],
       [
         "Nano Banana Pro",
-        "401K requests",
-        "0%"
+        "393K requests",
+        "+2%"
       ]
     ],
     "text_author_share_weekly": [
@@ -552,6 +496,6 @@
       "https://openrouter.ai/rankings",
       "https://openrouter.ai/rankings/image"
     ],
-    "note": "Срез usage through 2026-11-12. Text — prompt+completion tokens, image — requests; недельные и дневные окна рассчитываются по UTC. Сохранён для сравнения со следующим выпуском."
+    "note": "Снимок usage through 2026-11-13, сохранён 2026-11-14 в 08:12:08 МСК. Text — токены, image — requests; недельные и дневные окна OpenRouter рассчитывает отдельно. Использовать для следующего сравнения, не трактовать как число пользователей или качество моделей."
   }
 }
