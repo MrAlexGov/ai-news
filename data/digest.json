@@ -1,11 +1,22 @@
 {
-  "date": "2026-11-14",
-  "window": "13 ноября 2026, 08:12:08 — 14 ноября 2026, 08:12:08 (МСК; последние 24 часа).",
-  "window_start": "2026-11-13T08:12:08+03:00",
-  "window_end": "2026-11-14T08:12:08+03:00",
+  "date": "2026-11-15",
+  "window": "14 ноября 2026, 08:44:42 — 15 ноября 2026, 08:44:42 (МСК; последние 24 часа).",
+  "window_start": "2026-11-14T08:44:42+03:00",
+  "window_end": "2026-11-15T08:44:42+03:00",
   "timezone": "Europe/Moscow",
   "issue_type": "daily",
   "previous_issue": {
+    "date": "2026-11-14",
+    "commit": "21786e3f36ad2d129a1922f5fb8485ca8cdbc708",
+    "telegram_publication_verified": true,
+    "already_published_story_ids": [
+      "openai-chatgpt-wallet-agentic-commerce-2026-11-13",
+      "deepseek-application-apis-suite-2026-11-13",
+      "microsoft-agent-framework-go-0-3-1-2026-11-13",
+      "openai-codex-cli-0-169-0-2026-11-13"
+    ]
+  },
+  "previous_supplemental_issue": {
     "date": "2026-11-13",
     "commit": "2cfd3c1c95e4d6caad3836a84b636e3533d5aece",
     "telegram_publication_verified": true,
@@ -18,21 +29,15 @@
       "nice-cognigy-next-gen-2026-11-12"
     ]
   },
-  "previous_supplemental_issue": {
+  "previous_main_issue_before_that": {
     "date": "2026-11-12",
     "commit": "23f301abbf040f177a90252a47bf002f11c3da36",
+    "other_commit": "6a8c826714bab945ccc4f84eaa3a40ec40fbc6e4",
     "telegram_publication_verified": true,
     "already_published_story_ids": [
       "databricks-always-on-genie-2026-11-11",
       "runway-praxis-1-open-weights-2026-11-11",
-      "google-workspace-mcp-agentic-oauth-enforcement-2026-11-11"
-    ]
-  },
-  "previous_main_issue_before_that": {
-    "date": "2026-11-12",
-    "commit": "6a8c826714bab945ccc4f84eaa3a40ec40fbc6e4",
-    "telegram_publication_verified": true,
-    "already_published_story_ids": [
+      "google-workspace-mcp-agentic-oauth-enforcement-2026-11-11",
       "gemini-decisions-api",
       "unsloth-0-1-917-beta",
       "pomerado-launch-hn",
@@ -43,121 +48,156 @@
   },
   "news": [
     {
-      "id": "openai-chatgpt-wallet-agentic-commerce-2026-11-13",
-      "title": "ChatGPT Wallet: агенты OpenAI начинают оплачивать покупки",
-      "text": "OpenAI запустила ChatGPT Wallet: пользователь проверяет корзину и подтверждает каждую покупку, а агент получает платёжный токен вместо реальных данных карты. Вместе с Wallet компания выпустила инструкции для бизнеса по product feeds, Web Bot Auth, антифроду и подключению действий через plugins/WebMCP — теперь подготовка магазина к агентным покупкам становится отдельной интеграционной задачей.",
-      "monetization_comment": "Редакторская гипотеза: продавать интернет-магазинам аудит agentic-commerce readiness — проверить доступ Cloud Browser, правила CDN/WAF для Web Bot Auth, актуальность каталога, реакцию антифрода и сценарий plugin/WebMCP; быстрый пилот — 20 SKU и один путь от поиска товара до checkout.",
-      "access": "Первый rollout — через dots для ChatGPT Pro, пользователей 18+ в США с подходящими картами, выпущенными в США; публичный платёжный API для произвольных агентов в анонсе не заявлен. Существующий checkout может работать без отдельной Wallet-интеграции, но антифрод может отклонять легитимные агентные покупки; product feed не обязателен для Cloud Browser, но помогает поиску товаров.",
-      "source": "OpenAI",
-      "published_at": "2026-11-13T10:45",
-      "timestamp_verified": false,
-      "timestamp_note": "Официальный анонс датирован 13 ноября; Reuters через Investing.com показывает 10:45 AM того же дня, но часовой пояс в отображении не указан. Дата попадает в окно, точная нормализация времени не подтверждена.",
-      "category": "agentic-commerce",
+      "id": "browser-use-1-0-5-self-judging-browser-agent-2026-11-14",
+      "title": "browser-use 1.0.5: браузерный агент теперь проверяет сам себя",
+      "text": "В browser-use 1.0.5 каждый запуск Agent.run() после выполнения получает отдельную оценку моделью: success, причину сбоя, признаки prompt injection, CAPTCHA или блокировки и до пяти gotchas о правилах сайта. В небольшом тесте авторов на 13 реальных сессиях полезные замечания при проблемах сайта появились в 15 из 15 вердиктов против 6 из 15 раньше; это тест разработчиков, а не независимый бенчмарк.",
+      "monetization_comment": "Редакторская гипотеза: для e-commerce, travel, закупок и сервисных компаний продавать надёжную браузерную автоматизацию с проверкой результата и объяснением отказов; пилот — 20 реальных задач на порталах с KPI по успешным завершениям, CAPTCHA/блокировкам, повторам и стоимости одной выполненной задачи.",
+      "access": "MIT-лицензия; установка: pip install 'browser-use==1.0.5'. Судья делает один дополнительный low-effort запрос к модели на запуск, а его токены и стоимость попадают в result.cost_usd; проверку можно отключить через judge=False.",
+      "source": "browser-use / GitHub",
+      "published_at": "2026-11-14T08:24:22Z",
+      "timestamp_verified": true,
+      "timestamp_note": "GitHub Release API: 2026-11-14T08:24:22Z (11:24:22 МСК); точное время попадает в 24-часовое окно.",
+      "category": "browser-automation",
       "links": [
         {
-          "label": "Анонс OpenAI",
-          "url": "https://openai.com/tr-TR/index/introducing-chatgpt-wallet/"
+          "label": "Релиз browser-use 1.0.5",
+          "url": "https://github.com/browser-use/browser-use/releases/tag/1.0.5"
         },
         {
-          "label": "Commerce Partner Playbook",
-          "url": "https://developers.openai.com/commerce/guides/overview"
+          "label": "PR: оценка каждого запуска",
+          "url": "https://github.com/browser-use/browser-use/pull/6398"
         },
         {
-          "label": "Web Bot Auth и доступ Cloud Browser",
-          "url": "https://developers.openai.com/commerce/agent-access"
+          "label": "PR: скриншоты и gotchas",
+          "url": "https://github.com/browser-use/browser-use/pull/6403"
         },
         {
-          "label": "Обсуждение в OpenAI Developer Community",
-          "url": "https://community.openai.com/t/introducing-chatgpt-wallet/1416044"
+          "label": "Репозиторий и MIT-лицензия",
+          "url": "https://github.com/browser-use/browser-use"
         }
       ]
     },
     {
-      "id": "deepseek-application-apis-suite-2026-11-13",
-      "title": "DeepSeek открыла полный набор application APIs",
-      "text": "DeepSeek открыла разработчикам функции своего приложения: web search и многошаговый поиск, загрузку документов, чтение URL и базовую проверку безопасности прямо в Messages, Responses и Chat Completions API. Отдельно доступны Search & Fetch, OCR, ASR и TTS, поэтому можно собирать документно-голосовые ассистенты без собственной инфраструктуры поиска и распознавания.",
-      "monetization_comment": "Редакторская гипотеза: упаковать для бухгалтерий, юристов и сервисных компаний конвейер входящих документов и обращений — OCR/PDF и Office → извлечение полей → ASR голосовых сообщений → проверка человеком → CRM/ERP; пилот на 100 документах и 50 аудиозаписях с замером точности и стоимости обработки.",
-      "access": "API тарифицируется по использованию; бесплатная квота на странице тарифов не указана. Search и fetch стоят $0.75 за 1 000 вызовов каждый, OCR/file parsing — $0.225 за 1 000 страниц, ASR — $0.116 за час аудио (временно указана цена $0.058), TTS — $0.45 за 10 000 символов (временно $0.225); цены DeepSeek Flash начинаются с $0.15/$0.60 за миллион входных/выходных токенов вне пиковых часов. ASR поддерживает русский, но работает пакетно и принимает до 120 секунд/8 MiB на файл; русский отсутствует в опубликованном списке языков TTS.",
-      "source": "DeepSeek API Docs",
-      "published_at": "2026-11-13",
-      "timestamp_verified": false,
-      "timestamp_note": "Официальный changelog указывает только календарную дату 13 ноября 2026 года, без времени публикации; точное попадание в 24-часовой cutoff не подтверждается.",
-      "category": "api",
+      "id": "memro-0-1-1-agent-memory-release-2026-11-14",
+      "title": "Memro v0.1.1: память и координация для нескольких AI-агентов",
+      "text": "Memro v0.1.1 — первый тегированный релиз слоя постоянной памяти для AI-агентов: MCP, SDK для Python/TypeScript/Go, ключи с изоляцией клиентов и batch ingest до 500 воспоминаний за транзакцию. Серверные leases и handoffs помогают нескольким агентам координировать работу и не редактировать одни и те же файлы одновременно.",
+      "monetization_comment": "Редакторская гипотеза: компаниям с Claude Code, Cursor, Codex и собственными агентами предлагать внедрение общей памяти с изоляцией по клиентам, переносом проектных решений и координацией задач; пилот — один репозиторий и два агента, метрики — повторное использование контекста и число конфликтов.",
+      "access": "Self-host бесплатно только для некоммерческого использования по PolyForm Noncommercial; коммерческий self-host требует отдельной лицензии. Memro Cloud: Builder — $29/мес. (1,5 млн хранимых токенов, 25 тыс. запросов и 1 ГБ ingest), Pro — $99, Scale — $299; v0.1.1 — ранний первый tagged release.",
+      "source": "Memro / GitHub и официальная документация",
+      "published_at": "2026-11-14T20:53:19Z",
+      "timestamp_verified": true,
+      "timestamp_note": "GitHub Release API: 2026-11-14T20:53:19Z (23:53:19 МСК); точное время попадает в 24-часовое окно.",
+      "category": "agent-memory",
       "links": [
         {
-          "label": "Официальный changelog",
-          "url": "https://api-docs.deepseek.com/updates/"
+          "label": "Релиз Memro v0.1.1",
+          "url": "https://github.com/memrohq/memro/releases/tag/v0.1.1"
         },
         {
-          "label": "Модели и тарифы",
-          "url": "https://api-docs.deepseek.com/quick_start/pricing/"
+          "label": "Quickstart и SDK",
+          "url": "https://memro.co/docs/"
         },
         {
-          "label": "Руководство по chatbot API",
-          "url": "https://api-docs.deepseek.com/guides/build_a_chatbot/"
+          "label": "Официальные тарифы и лицензирование",
+          "url": "https://memro.co/pricing/"
         },
         {
-          "label": "ASR и список языков",
-          "url": "https://api-docs.deepseek.com/guides/asr/"
-        },
-        {
-          "label": "TTS и ограничения языков",
-          "url": "https://api-docs.deepseek.com/guides/tts/"
+          "label": "Репозиторий",
+          "url": "https://github.com/memrohq/memro"
         }
       ]
     },
     {
-      "id": "microsoft-agent-framework-go-0-3-1-2026-11-13",
-      "title": "Microsoft Agent Framework for Go: MCP tools стали task-aware",
-      "text": "В pre-release v0.3.1 добавлены task-aware MCP tools с проверкой ответов задач и обработкой жизненного цикла транспорта, а также MCP-backed skills с ленивой загрузкой источников. Это полезно для Go-сервисов, где агент запускает длительную операцию как задачу и подгружает нужный навык только по мере необходимости.",
-      "monetization_comment": "Редакторская гипотеза: для компаний с Go backend собрать асинхронного операционного агента — разбор инцидента, обработка заявки или пакет документов — с MCP tasks, skills, checkpointing и OpenTelemetry; пилот на одной очереди задач с ручным подтверждением внешних действий.",
-      "access": "Лицензия репозитория — MIT; установка через `go get github.com/microsoft/agent-framework-go`. Версия v0.3.1 помечена как pre-release, а весь Go SDK остаётся public preview и развивается; часть возможностей .NET-версии в Go ещё не реализована.",
-      "source": "Microsoft Agent Framework for Go",
-      "published_at": "2026-11-13T11:31",
-      "timestamp_verified": false,
-      "timestamp_note": "GitHub показывает время релиза 11:31 13 ноября, но не указывает часовой пояс; дата подтверждена, точное UTC-время не нормализовано.",
-      "category": "agent-framework",
+      "id": "vercel-fx-0-0-17-subagents-token-pass-2026-11-14",
+      "title": "fx v0.0.17: параллельные subagents и меньший prompt overhead",
+      "text": "Vercel Labs выпустила fx v0.0.17: subagents теперь работают рядом с основным агентом, могут использовать разные модели и права, а несколько сессий запускаются в одном терминале. По тестам проекта, prompt-cache reads выросли с 61,3% до 82%, а встроенные tool definitions стали на 48% компактнее; это показатели авторов, не независимый бенчмарк.",
+      "monetization_comment": "Редакторская гипотеза: встраивать libfx в внутренний developer portal или специализированного coding assistant для софтверных команд; быстрый пилот — два агента (исправление тестов и code review) с разными MCP-инструментами и правами, измерить время цикла и стоимость токенов.",
+      "access": "Apache-2.0; CLI работает на macOS/Linux x86_64 и arm64, подключается к Vercel AI Gateway, подпискам ChatGPT/Grok или OpenAI-compatible endpoint. JavaScript-библиотека libfx предназначена для встраивания; проект прямо помечен Experimental, WebAssembly-сборка также экспериментальная.",
+      "source": "Vercel Labs / GitHub",
+      "published_at": "2026-11-14T21:37:54Z",
+      "timestamp_verified": true,
+      "timestamp_note": "GitHub Release API: 2026-11-14T21:37:54Z (15 ноября, 00:37:54 МСК); точное время попадает в 24-часовое окно.",
+      "category": "coding-agent",
       "links": [
         {
-          "label": "Release notes v0.3.1",
-          "url": "https://github.com/microsoft/agent-framework-go/releases"
+          "label": "Релиз fx v0.0.17",
+          "url": "https://github.com/vercel-labs/fx/releases/tag/v0.0.17"
         },
         {
-          "label": "Репозиторий и статус preview",
-          "url": "https://github.com/microsoft/agent-framework-go"
+          "label": "Репозиторий и инструкции по встраиванию",
+          "url": "https://github.com/vercel-labs/fx"
+        },
+        {
+          "label": "Документация fx",
+          "url": "https://fx.sh/docs"
         }
       ]
     },
     {
-      "id": "openai-codex-cli-0-169-0-2026-11-13",
-      "title": "Codex CLI 0.169.0: gateway setup и более строгая граница доверия",
-      "text": "Codex CLI 0.169.0 добавил несколько сохраняемых side-chat вкладок, поиск прошлых задач и настройку custom model providers прямо из терминала, включая device-code авторизацию gateway по SSH. Важное изменение безопасности: `codex exec` больше не включает конфигурацию проекта и MCP-серверы в недоверенной директории даже с `--sandbox workspace-write` — для этого требуется явный `--trust`.",
-      "monetization_comment": "Редакторская гипотеза: предлагать командам настройку корпоративного Codex CLI — подключение собственного model gateway, device-code вход по SSH, политики доверия репозиториев и ревизию MCP-конфигураций; быстрый пилот на 3–5 разработчиках и одном тестовом репозитории.",
-      "access": "Обновление доступно в Codex CLI 0.169.0; terminal workspace остаётся opt-in. `--trust` следует включать только для репозиториев, которые команда проверила и считает доверенными; стоимость моделей и gateway зависит от выбранного провайдера.",
-      "source": "OpenAI Codex",
-      "published_at": "2026-11-13T08:37",
-      "timestamp_verified": false,
-      "timestamp_note": "GitHub показывает время релиза 08:37 13 ноября, но не указывает часовой пояс; дата подтверждена, точное UTC-время не нормализовано.",
-      "category": "developer-tools",
+      "id": "openclaw-2026-11-5-beta-3-reliability-2026-11-15",
+      "title": "OpenClaw 2026.11.5-beta.3: надёжность длинных сессий и доставки",
+      "text": "OpenClaw 2026.11.5-beta.3 снижает расход памяти при индексации и сжатии длинных транскриптов, а при перезапуске лучше сохраняет принятые сообщения, исходные права и владение финальной доставкой. В релиз вошли 50 PR с улучшениями восстановления рабочих пространств, MCP-инструментов и каналов; это prerelease, а не стабильная версия.",
+      "monetization_comment": "Редакторская гипотеза: компаниям, которые используют self-hosted OpenClaw в Telegram/Slack и других каналах, предлагать обновление через staging и regression-аудит длинных диалогов, восстановления после рестарта, очередей сообщений и границ полномочий; продавать сопровождение и мониторинг надёжности.",
+      "access": "Pre-release; пакет опубликован как openclaw@2026.11.5-beta.3. Не обновлять production напрямую: сначала прогнать тесты на staging и проверить доставку сообщений и права инструментов.",
+      "source": "OpenClaw / GitHub",
+      "published_at": "2026-11-15T00:31:00Z",
+      "timestamp_verified": true,
+      "timestamp_note": "GitHub Release API: 2026-11-15T00:31:00Z (03:31 МСК); точное время попадает в 24-часовое окно.",
+      "category": "agent-infrastructure",
       "links": [
         {
-          "label": "Официальный релиз Codex CLI 0.169.0",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0"
+          "label": "Релиз OpenClaw 2026.11.5-beta.3",
+          "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.5-beta.3"
         },
         {
-          "label": "Официальный changelog Codex",
-          "url": "https://learn.chatgpt.com/docs/changelog"
+          "label": "Репозиторий OpenClaw",
+          "url": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "label": "Проверка релиза и CI evidence",
+          "url": "https://github.com/openclaw/releases/blob/main/evidence/2026.11.5-beta.3/release-evidence.md"
+        }
+      ]
+    },
+    {
+      "id": "comfy-mcp-elicitation-2026-07-28-2026-11-14",
+      "title": "Comfy-MCP: новые approval prompts для MCP 2026-07-28",
+      "text": "В Comfy-MCP в main merged поддержка MCP revision 2026-07-28 InputRequiredResult: подтверждения расходов, установки сторонних nodes и сетевых действий теперь могут проходить через повторный вызов инструмента, если клиент больше не поддерживает старый back-channel. Ответ на approval привязан к конкретному запросу и одноразовому nonce, чтобы чужой или повторный yes не разрешал действие.",
+      "monetization_comment": "Редакторская гипотеза: студиям и маркетинговым агентствам предлагать ComfyUI-пайплайны с явным согласованием платных генераций, установки сторонних nodes и открытия сетевого доступа; пилот — один workflow с журналом подтверждений и замером предотвращённых ошибочных действий.",
+      "access": "PR merged в main 14 ноября, но последняя tagged release — v0.10.0 от 10 августа, поэтому изменение пока не подтверждено в опубликованном пакете. Лицензия двойная: AGPL-3.0-or-later или коммерческая лицензия Comfy Org; для проприетарного hosted deployment без раскрытия исходников нужна коммерческая лицензия.",
+      "source": "Comfy Org / GitHub",
+      "published_at": "2026-11-14T18:43:34Z",
+      "timestamp_verified": true,
+      "timestamp_note": "GitHub API merged_at для PR #317: 2026-11-14T18:43:34Z (21:43:34 МСК); точное время попадает в 24-часовое окно. Изменение пока только в main.",
+      "category": "mcp-security",
+      "links": [
+        {
+          "label": "PR #317: MCP elicitation через InputRequiredResult",
+          "url": "https://github.com/Comfy-Org/comfy-mcp/pull/317"
+        },
+        {
+          "label": "Коммит",
+          "url": "https://github.com/Comfy-Org/comfy-mcp/commit/a99599f42f85a7d4350a4c806761a4222b86e93b"
+        },
+        {
+          "label": "Репозиторий Comfy-MCP",
+          "url": "https://github.com/Comfy-Org/comfy-mcp"
+        },
+        {
+          "label": "Лицензия",
+          "url": "https://github.com/Comfy-Org/comfy-mcp/blob/main/LICENSE"
         }
       ]
     }
   ],
   "openrouter": {
-    "period": "Сохранённый снимок usage through 12 ноября 2026 сравнен с актуальным снимком usage through 13 ноября 2026.",
+    "period": "Снимок usage through 13 ноября 2026 (сохранён 14 ноября в 08:12 МСК) сравнен со снимком usage through 14 ноября 2026 (сохранён 15 ноября в 08:44:42 МСК).",
     "changes": [
-      "Text weekly top-10: MiMo-V2.6-Flash вошла на 10-е место с 3.85T обработанных токенов; OpenRouter показывает +61% week-over-week. GLM 5.3, ранее находившаяся на 10-м месте с 3.88T, вышла из отображаемой десятки; её точный текущий объём ниже top-10 не опубликован, поэтому процент падения не рассчитывается.",
-      "Image weekly top-10: состав и порядок участников не изменились относительно сохранённого снимка; отдельного сигнала для смены image-стека нет."
+      "Text weekly top-10: MiMo-V2.6-Flash поднялась с 10-го на 8-е место; объём вырос с 3.85T до 4.04T токенов (+4,9% между снимками), а опубликованное OpenRouter week-over-week изменение ускорилось с +61% до +79% (+18 п.п.).",
+      "Hy4 осталась на 2-м месте, но объём в недельном рейтинге снизился с 19.8T до 18.9T (-4,5%), а опубликованное week-over-week изменение замедлилось с +181% до +88% (-93 п.п.).",
+      "Text daily top-10: MiniMax M3.1 Flash вошла на 8-е место с 535B токенов и +4% к предыдущему завершённому дню; это новый участник отображаемой дневной десятки, а не доказательство качества модели или числа пользователей."
     ],
-    "methodology": "Text ranking считает prompt и completion tokens, image ranking — requests. Сравниваются скользящие семидневные окна; +61% у MiMo — изменение к предыдущим семи дням, а не прирост за последние 24 часа. Токены и requests не равны уникальным пользователям, расходам, выручке или качеству моделей. Данные рейтингов OpenRouter распространяются по CC BY 4.0.",
+    "methodology": "Сравниваются два сохранённых снимка рейтингов, а не суточные изменения недельных окон. Text weekly top-10 ранжирует обработанные токены; значения и проценты OpenRouter относятся к окнам рейтинга. Daily top-10 сравнивает последний завершённый день с предыдущим. Image ranking проверен: состав и порядок первой десятки не изменились, поэтому отдельный image-блок не публикуется. Токены и запросы не равны уникальным пользователям, расходам, выручке или качеству моделей; рейтинг OpenRouter распространяется по CC BY 4.0.",
     "links": [
       {
         "label": "OpenRouter Text Rankings",
@@ -170,98 +210,93 @@
     ]
   },
   "takeaways": [
-    "Подготовка магазина к агентным покупкам становится новой интеграционной услугой: каталог, Web Bot Auth, антифрод и checkout нужно проверять вместе.",
-    "DeepSeek теперь закрывает одним API-стеком поиск, документы и речь; для русских сценариев ASR подходит, а TTS пока не заявляет русский язык.",
-    "Для Go-команд появились более зрелые кирпичики асинхронных MCP-workflow, а Codex CLI усиливает настройку gateway и явное управление доверием к репозиториям."
+    "Браузерную автоматизацию теперь можно продавать как проверяемый процесс: агент возвращает не только результат, но и причину блокировки, CAPTCHA и правила сайта.",
+    "Постоянная память, изоляция клиентов и координация агентов становятся отдельным слоем B2B-архитектуры; условия лицензии нужно проверять до выбора self-host или Cloud.",
+    "Для self-hosted агентов критичны восстановление после перезапуска и контроль полномочий: обновляйте beta-релизы только через staging, а траты, установки и сетевые действия оставляйте за явным подтверждением."
   ],
-  "editorial_note": "Основной выпуск за 13 ноября и дополнение за 12 ноября прочитаны; девять опубликованных там сюжетов исключены. OpenAI Wallet подтверждён официальным анонсом от 13 ноября и публикацией Reuters от 13 ноября 10:45 AM (часовой пояс репринта не указан). DeepSeek changelog показывает только дату 13 ноября; GitHub UI для Microsoft Agent Framework Go и Codex CLI показывает время, но не часовой пояс. Эти ограничения не скрываются. Telegram previews: @exploitex и @ai_machinelearning_big_data открылись, но их сообщения не имели надёжных абсолютных timestamp для точной привязки к окну; @aitshnya, @neuro_channel, @xor_journal и @neuraldvig не открылись. Неподтверждённые сообщения каналов не использованы как факты. GetCourse и EdTech исключены.",
-  "audio_caption": "🎧 Аудиоверсия AI-дайджеста — 14 ноября",
-  "audio_script": "AI-дайджест на четырнадцатое ноября. Первое. OpenAI запустила ChatGPT Wallet. Агент может оплатить покупку, но пользователь подтверждает каждую транзакцию, а агент не видит номер карты. Для бизнеса это повод проверить каталог, доступ Cloud Browser, антифрод и поддержку Web Bot Auth. Второе. DeepSeek открыла API для поиска, документов, чтения ссылок, OCR, распознавания речи и синтеза голоса. Распознавание поддерживает русский язык, но русский пока не указан среди языков синтеза речи. Третье. Microsoft Agent Framework for Go в версии ноль точка три точка один добавил длительные MCP-задачи и ленивую загрузку skills. Версия пока предварительная. Четвёртое. Codex CLI ноль точка сто шестьдесят девять добавил настройку собственного gateway из терминала и более строгую проверку доверия к репозиториям. Главное за день: готовьте интернет-магазины к агентным покупкам, тестируйте DeepSeek на документах и голосовых обращениях, а корпоративные агентные workflow проектируйте с асинхронными задачами и явными границами доверия.",
+  "editorial_note": "Окно 14 ноября 08:44:42 — 15 ноября 08:44:42 МСК проверено по точным GitHub release timestamps и merged_at, приведённым к Europe/Moscow. Предыдущий выпуск от 14 ноября прочитан; его четыре сюжета исключены. В OpenRouter сравнен сохранённый baseline through 13 ноября с обновлёнными данными through 14 ноября; image top-10 не изменился по составу и порядку. Telegram previews @exploitex и @ai_machinelearning_big_data открылись, но HTML показывает время суток без надёжной абсолютной даты; @aitshnya, @neuro_channel, @xor_journal и @neuraldvig не открылись. Поэтому сообщения этих каналов не использованы как подтверждение событий 24-часового окна. GetCourse и EdTech исключены. Memorilla и обновление Claude Code Projects проверены, но не включены в основной список: первое пока требует CUDA GPU класса 80 GB и публикует latency только для memory-модуля, второе дублирует тему параллельных coding agents без отдельного API для интеграции.",
+  "audio_caption": "🎧 Аудиоверсия AI-дайджеста — 15 ноября",
+  "audio_script": "AI-дайджест на пятнадцатое ноября. Первое. Browser-use версии один точка ноль пять добавил проверку каждого браузерного запуска: модель оценивает успех, причину отказа, признаки prompt injection, капчи и блокировки, а также сохраняет правила сайта. Это позволяет продавать не просто автоклики, а проверяемую браузерную автоматизацию. Второе. Memro версии ноль точка один точка один выпустил первый тегированный релиз слоя постоянной памяти для агентов. Он подключает Claude Code, Cursor и Codex через MCP и поддерживает изоляцию клиентов; коммерческий self-host требует отдельной лицензии. Третье. fx версии ноль точка ноль точка семнадцать добавил параллельных субагентов и улучшил prompt caching. Инструмент экспериментальный, но его JavaScript SDK позволяет встраивать агентный runtime в собственные приложения. Четвёртое. OpenClaw beta три улучшает длинные сессии и доставку сообщений после перезапуска. Это предварительная версия, её нужно проверять на staging. Пятое. Comfy-MCP добавил новый способ запрашивать подтверждение перед расходами, установкой nodes и сетевыми действиями. Пока изменение находится только в main, поэтому для production лучше дождаться tagged release. Главное: внедряйте браузерную автоматизацию с самопроверкой, добавляйте память и изоляцию к агентам, а любые действия с расходами и доступом оставляйте под явным подтверждением.",
   "ranking_baseline": {
-    "usage_through": "2026-11-13",
-    "snapshot_captured_at": "2026-11-14T08:12:08+03:00",
+    "usage_through": "2026-11-14",
+    "snapshot_captured_at": "2026-11-15T08:44:42+03:00",
     "text_weekly_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "56.9T",
-        "+1%"
-      ],
-      [
-        "Hy4",
-        "19.8T",
-        "+181%"
-      ],
-      [
-        "DeepSeek V4.1 Flash",
-        "15.8T",
-        "-8%"
-      ],
-      [
-        "GLM 5.3 Flash",
-        "11.8T",
-        "-16%"
-      ],
-      [
-        "GPT-6 Luna",
-        "7.53T",
+        "58T",
         "+4%"
       ],
       [
-        "Claude Opus 5.5",
-        "6.99T",
+        "Hy4",
+        "18.9T",
+        "+88%"
+      ],
+      [
+        "DeepSeek V4.1 Flash",
+        "15.7T",
+        "-11%"
+      ],
+      [
+        "GLM 5.3 Flash",
+        "11.9T",
+        "-12%"
+      ],
+      [
+        "GPT-6 Luna",
+        "7.68T",
         "+6%"
+      ],
+      [
+        "Claude Opus 5.5",
+        "6.98T",
+        "+4%"
       ],
       [
         "Step 5 Preview",
         "6.57T",
-        "-4%"
-      ],
-      [
-        "Kimi K3.1 Pro",
-        "4.32T",
-        "+23%"
-      ],
-      [
-        "GPT-6.1 Sol",
-        "4.11T",
-        "+9%"
+        "-6%"
       ],
       [
         "MiMo-V2.6-Flash",
-        "3.85T",
-        "+61%"
+        "4.04T",
+        "+79%"
+      ],
+      [
+        "Kimi K3.1 Pro",
+        "3.92T",
+        "-5%"
+      ],
+      [
+        "GPT-6.1 Sol",
+        "3.89T",
+        "-1%"
       ]
     ],
     "text_daily_top10": [
       [
         "DeepSeek V4.1 Flash 1017",
-        "8.98T",
-        "-6%"
+        "8.09T",
+        "-10%"
       ],
       [
         "Hy4",
-        "2.62T",
-        "-4%"
+        "2.11T",
+        "-19%"
       ],
       [
         "DeepSeek V4.1 Flash",
-        "2.39T",
-        "+7%"
+        "2.01T",
+        "-16%"
       ],
       [
         "GLM 5.3 Flash",
-        "1.54T",
-        "-6%"
-      ],
-      [
-        "Claude Opus 5.5",
-        "1.25T",
-        "+6%"
+        "1.33T",
+        "-13%"
       ],
       [
         "GPT-6 Luna",
-        "1.25T",
-        "-7%"
+        "999B",
+        "-20%"
       ],
       [
         "Step 5 Preview",
@@ -269,123 +304,128 @@
         "0%"
       ],
       [
+        "Claude Opus 5.5",
+        "754B",
+        "-40%"
+      ],
+      [
+        "MiniMax M3.1 Flash",
+        "535B",
+        "+4%"
+      ],
+      [
         "MiMo-V2.6-Flash",
-        "603B",
-        "-5%"
+        "501B",
+        "-17%"
       ],
       [
-        "GPT-6.1 Sol",
-        "546B",
-        "-25%"
-      ],
-      [
-        "GLM 5.3",
-        "517B",
-        "-15%"
+        "ERNIE-5.5-Flash-Preview (free)",
+        "496B",
+        "-1%"
       ]
     ],
     "text_new_trending": [
       [
         "ERNIE-5.5-Flash-Preview (free)",
-        "920B",
+        "1.42T",
         "new"
       ],
       [
         "Inkling 2 Small (free)",
-        "712B",
+        "892B",
         "new"
       ],
       [
         "Claude Fable 5.2",
-        "658B",
-        "new"
-      ],
-      [
-        "Muse Ember",
-        "361B",
+        "750B",
         "new"
       ],
       [
         "Gemini 4 Carbon",
-        "354B",
+        "500B",
         "new"
       ],
       [
-        "MiniMax M3 (batch)",
-        "445M",
-        ">999%"
-      ],
-      [
-        "Qwen3.8 27B (batch)",
-        "37.6M",
-        ">999%"
+        "Muse Ember",
+        "468B",
+        "new"
       ],
       [
         "Motif 3",
-        "18.8M",
+        "26.5M",
         ">999%"
       ],
       [
         "Mi",
-        "659M",
+        "670M",
+        ">999%"
+      ],
+      [
+        "GPT-6 Sol Pro (batch)",
+        "10.2M",
         ">999%"
       ],
       [
         "GPT-5.6 Terra Pro (batch)",
         "1.42M",
         ">999%"
+      ],
+      [
+        "MiniMax M3 (batch)",
+        "444M",
+        ">999%"
       ]
     ],
     "image_weekly_top10": [
       [
         "Nano Banana 2",
-        "2.38M requests",
-        "-11%"
+        "2.35M requests",
+        "-14%"
       ],
       [
         "GPT Image 2.5 Sunburst",
-        "1.21M requests",
-        "-11%"
+        "1.19M requests",
+        "-10%"
       ],
       [
         "Nano Banana 2.1",
         "1.16M requests",
-        "+22%"
+        "+21%"
       ],
       [
         "GPT Image 2.5 Flare",
-        "889K requests",
-        "+7%"
+        "894K requests",
+        "+8%"
       ],
       [
         "Nano Banana 2 Lite",
-        "699K requests",
-        "-1%"
+        "697K requests",
+        "-2%"
       ],
       [
         "Seedream 5.0 Flash",
-        "690K requests",
-        "+32%"
+        "665K requests",
+        "+13%"
       ],
       [
         "Muse Image",
-        "628K requests",
-        "-3%"
+        "631K requests",
+        "+5%"
       ],
       [
         "GPT Image 2",
-        "479K requests",
-        "-12%"
+        "476K requests",
+        "-11%"
       ],
       [
         "Nano Banana",
-        "418K requests",
-        "-3%"
+        "424K requests",
+        "-1%"
       ],
       [
         "Nano Banana Pro",
-        "393K requests",
-        "+2%"
+        "388K requests",
+        "+1%"
       ]
     ],
     "text_author_share_weekly": [
@@ -496,6 +536,6 @@
       "https://openrouter.ai/rankings",
       "https://openrouter.ai/rankings/image"
     ],
-    "note": "Снимок usage through 2026-11-13, сохранён 2026-11-14 в 08:12:08 МСК. Text — токены, image — requests; недельные и дневные окна OpenRouter рассчитывает отдельно. Использовать для следующего сравнения, не трактовать как число пользователей или качество моделей."
+    "note": "Снимок usage through 2026-11-14, сохранён 2026-11-15 в 08:44:42 МСК. Text — токены, image — requests; недельные и дневные окна OpenRouter рассчитывает отдельно. Использовать для следующего сравнения, не трактовать как число пользователей или качество моделей."
   }
 }
