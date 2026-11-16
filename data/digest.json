@@ -1,43 +1,51 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-16",
+  "window": "2026-11-15T08:55:42+03:00 — 2026-11-16T08:55:42+03:00 (МСК)",
+  "show_date_window": false,
   "news": [
     {
-      "id": "browser-use-1-0-5-self-judging-browser-agent-2026-11-14",
-      "title": "browser-use 1.0.5 проверяет результат каждого запуска",
-      "text": "Добавлен отдельный judge-запрос: он определяет успех, причину сбоя, prompt injection, CAPTCHA и блокировки сайта. В тесте авторов полезные замечания о проблемах сайта появились в 15 из 15 вердиктов против 6 из 15 ранее.",
-      "monetization_comment": "Интегратору: пилот браузерной автоматизации для e-commerce или закупок с проверкой результата и отчётом о сбоях.",
-      "access": "MIT; pip install 'browser-use==1.0.5'. Судья добавляет запрос к модели; отключается через judge=False.",
+      "id": "qwen4-max-general-api-2026-11-16",
+      "published_at": "2026-11-16",
+      "title": "Qwen4-Max вышла в обычный API",
+      "text": "Alibaba открыла Qwen4-Max в pay-as-you-go API: модель принимает текст, изображения и видео, поддерживает tool calling, JSON и контекст 1 млн токенов. Совместимость с OpenAI Chat Completions/Responses и Anthropic Messages позволяет подключить её к существующим агентам через новый model ID `qwen4-max`.",
+      "monetization_comment": "Как заработать интегратору: мультимодальный триаж заявок для сервисных компаний — анализ фото, видео и документов с записью результата в CRM; пилот на одном типе обращений.",
+      "access": "Singapore: $1.50/$4.50 за 1 млн input/output токенов, cache-read $0.075; 1 млн бесплатных токенов на 90 дней. Global endpoints (Frankfurt, US, Tokyo, Hong Kong): $1.413/$4.24; бесплатная квота доступна только в Singapore.",
       "links": [
         {
-          "label": "Релиз",
-          "url": "https://github.com/browser-use/browser-use/releases/tag/1.0.5"
+          "label": "Официальный анонс Qwen",
+          "url": "https://qwen.ai/blog?id=qwen4-max"
         },
         {
-          "label": "PyPI",
-          "url": "https://pypi.org/project/browser-use/1.0.5/"
+          "label": "Документация API",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max"
+        },
+        {
+          "label": "Официальные цены и квоты",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"
         }
       ]
     },
     {
-      "id": "comfy-mcp-input-required-result-2026-11-14",
-      "title": "Comfy-MCP добавил подтверждение опасных действий",
-      "text": "В main добавлена поддержка MCP elicitation: подтверждение расходов, установки сторонних nodes и сетевых действий через InputRequiredResult. Ответ привязан к запросу одноразовым nonce.",
-      "monetization_comment": "Интегратору: внедрять ComfyUI-процессы с согласованием платных генераций, установки nodes и сетевого доступа.",
-      "access": "Изменение пока в main, не в опубликованном релизе. Лицензия AGPL-3.0-or-later или коммерческая.",
+      "id": "dreamina-seedance-2-5-flash-modelark-2026-11-15",
+      "published_at": "2026-11-15",
+      "title": "Dreamina Seedance 2.5 Flash появилась в API",
+      "text": "BytePlus добавил в ModelArk Dreamina Seedance 2.5 Flash: text-to-video, генерацию по первому и последнему кадру, референсы, редактирование и продолжение роликов. API создаёт асинхронные задачи с получением результата через webhook; доступны 480p/720p, без Draft mode и 1080p.",
+      "monetization_comment": "Как заработать интегратору: пакетная генерация рекламных роликов из фото карточек товара для e-commerce; пилот на 10 SKU с автоматической передачей готовых клипов в CMS.",
+      "access": "ModelArk API; model ID: `dreamina-seedance-2-5-flash-261115`.",
       "links": [
         {
-          "label": "PR #317",
-          "url": "https://github.com/Comfy-Org/comfy-mcp/pull/317"
+          "label": "Официальный список релизов BytePlus",
+          "url": "https://ai.byteplus.com/ark/region:ap-southeast-1/docs/model-release-announcement"
         },
         {
-          "label": "Коммит",
-          "url": "https://github.com/Comfy-Org/comfy-mcp/commit/a99599f42f85a7d4350a4c806761a4222b86e93b"
+          "label": "Документация API и ограничения",
+          "url": "https://ai.byteplus.com/ark/region:ap-southeast-1/docs/video-generation-tutorial"
         }
       ]
     }
   ],
   "takeaways": [
-    "Браузерную автоматизацию можно продавать как проверяемый процесс, а не набор кликов.",
-    "В ComfyUI контроль расходов и доступа пока требует установки версии из main."
+    "Qwen4-Max уже можно тестировать в реальном backend; сравни качество и стоимость на одном агентном процессе.",
+    "Seedance Flash позволяет упаковать генерацию товарных видео в повторяемую услугу, но пока ограничена 720p."
   ]
 }
