@@ -1,51 +1,88 @@
 {
-  "date": "2026-11-16",
-  "window": "2026-11-15T08:55:42+03:00 — 2026-11-16T08:55:42+03:00 (МСК)",
+  "date": "2026-11-17",
+  "window": "2026-11-16T08:07:35+03:00 — 2026-11-17T08:07:35+03:00 (МСК)",
   "show_date_window": false,
   "news": [
     {
-      "id": "qwen4-max-general-api-2026-11-16",
+      "id": "masttro-mcp-server-2026-11-16",
       "published_at": "2026-11-16",
-      "title": "Qwen4-Max вышла в обычный API",
-      "text": "Alibaba открыла Qwen4-Max в pay-as-you-go API: модель принимает текст, изображения и видео, поддерживает tool calling, JSON и контекст 1 млн токенов. Совместимость с OpenAI Chat Completions/Responses и Anthropic Messages позволяет подключить её к существующим агентам через новый model ID `qwen4-max`.",
-      "monetization_comment": "Как заработать интегратору: мультимодальный триаж заявок для сервисных компаний — анализ фото, видео и документов с записью результата в CRM; пилот на одном типе обращений.",
-      "access": "Singapore: $1.50/$4.50 за 1 млн input/output токенов, cache-read $0.075; 1 млн бесплатных токенов на 90 дней. Global endpoints (Frankfurt, US, Tokyo, Hong Kong): $1.413/$4.24; бесплатная квота доступна только в Singapore.",
+      "time_precision": "В первоисточнике указана только дата; точное время не опубликовано.",
+      "title": "Masttro открыла MCP-доступ к данным family office",
+      "text": "Новый MCP Server подключает Claude, ChatGPT и другие MCP-клиенты к данным об активах, транзакциях, доходности и структуре владения. Доступ включается администратором, работает только на чтение и наследует права пользователя.",
+      "monetization_comment": "Как заработать интегратору: ассистент для family office — отчёты и подготовка к встречам; пилот на запросах по портфелю и транзакциям.",
+      "access": "Для клиентов с активированной Masttro API, без дополнительной платы Masttro на старте. Данные передаются внешнему AI-провайдеру и подпадают под его правила обработки.",
       "links": [
         {
-          "label": "Официальный анонс Qwen",
-          "url": "https://qwen.ai/blog?id=qwen4-max"
+          "label": "Анонс и документация",
+          "url": "https://masttro.com/insights/masttro-mcp-server"
         },
         {
-          "label": "Документация API",
-          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max"
-        },
-        {
-          "label": "Официальные цены и квоты",
-          "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing"
+          "label": "MCP endpoint и сценарии",
+          "url": "https://masttro.com/masttro-mcp"
         }
       ]
     },
     {
-      "id": "dreamina-seedance-2-5-flash-modelark-2026-11-15",
-      "published_at": "2026-11-15",
-      "title": "Dreamina Seedance 2.5 Flash появилась в API",
-      "text": "BytePlus добавил в ModelArk Dreamina Seedance 2.5 Flash: text-to-video, генерацию по первому и последнему кадру, референсы, редактирование и продолжение роликов. API создаёт асинхронные задачи с получением результата через webhook; доступны 480p/720p, без Draft mode и 1080p.",
-      "monetization_comment": "Как заработать интегратору: пакетная генерация рекламных роликов из фото карточек товара для e-commerce; пилот на 10 SKU с автоматической передачей готовых клипов в CMS.",
-      "access": "ModelArk API; model ID: `dreamina-seedance-2-5-flash-261115`.",
+      "id": "elevenlabs-python-sdk-2-79-agent-tools-as-code-2026-11-16",
+      "published_at": "2026-11-16",
+      "source_event_at": "2026-11-16T13:24:14Z",
+      "time_precision": "Коммит SDK датирован 16 ноября, 13:24 UTC; PyPI указывает дату публикации без времени.",
+      "title": "ElevenLabs добавила конструктор инструментов для voice agents",
+      "text": "В Python SDK 2.79.0 появился agent_tools: webhook-, client- и system-инструменты описываются цепочками методов вместо ручного JSON. build() проверяет схему, а конфигурации можно сохранять в Git и переиспользовать.",
+      "monetization_comment": "Как заработать интегратору: библиотека типовых CRM-, ERP- и booking-инструментов для голосовых агентов; пилот — запись клиента или проверка статуса заказа.",
+      "access": "MIT; Python от 3.8. Установка: pip install -U elevenlabs.",
       "links": [
         {
-          "label": "Официальный список релизов BytePlus",
-          "url": "https://ai.byteplus.com/ark/region:ap-southeast-1/docs/model-release-announcement"
+          "label": "ElevenLabs SDK 2.79.0",
+          "url": "https://pypi.org/project/elevenlabs/2.79.0/"
         },
         {
-          "label": "Документация API и ограничения",
-          "url": "https://ai.byteplus.com/ark/region:ap-southeast-1/docs/video-generation-tutorial"
+          "label": "Коммит версии 2.79.0",
+          "url": "https://github.com/elevenlabs/elevenlabs-python/commit/bc814005e4319298b3c9ae5c301c7d326f630dbd"
+        }
+      ]
+    },
+    {
+      "id": "openai-csam-image-classifier-2026-11-16",
+      "published_at": "2026-11-16",
+      "time_precision": "В changelog указана дата 16 ноября; точное время не опубликовано.",
+      "title": "OpenAI открыла отдельный API-классификатор CSAM",
+      "text": "Модель omni-moderation-csam-latest в /v1/moderations возвращает отдельные сигналы потенциального CSAM и AI-generated CSAM для одного изображения. Это приоритизация материалов для ручной проверки, а не автоматический вердикт или отправка жалобы.",
+      "monetization_comment": "Как заработать интегратору: фильтр пользовательских изображений и очередь эскалации для UGC-платформ и маркетплейсов; пилот с обязательной ручной проверкой флагов.",
+      "access": "Без платы для одобренных OpenAI организаций, доступ по заявке; одно изображение до 20 MB, без текстовой классификации и Batch API.",
+      "links": [
+        {
+          "label": "Changelog OpenAI",
+          "url": "https://developers.openai.com/api/docs/changelog"
+        },
+        {
+          "label": "Документация классификатора",
+          "url": "https://developers.openai.com/api/docs/guides/csam-classifier"
+        }
+      ]
+    },
+    {
+      "id": "cognition-mckinsey-ai-coding-roi-alliance-2026-11-16",
+      "published_at": "2026-11-16T12:00:00-05:00",
+      "time_precision": "Business Wire: 16 ноября, 12:00 EST.",
+      "title": "Cognition и McKinsey объединяются для внедрения Devin",
+      "text": "McKinsey будет помогать компаниям выбирать инженерные проекты и перестраивать процессы, Cognition предоставит Devin; результат планируют измерять по стоимости, срокам и качеству. В опросе 334 руководителей верхний квартиль компаний сообщил о росте продуктивности более чем вдвое, но 30% — о снижении.",
+      "monetization_comment": "Как заработать интегратору: аудит AI-разработки и пилот на миграции, тестах или техническом долге с замером baseline до и после.",
+      "links": [
+        {
+          "label": "Анонс Cognition / Business Wire",
+          "url": "https://www.businesswire.com/news/home/20261112399186/en"
+        },
+        {
+          "label": "Публикация с временной меткой",
+          "url": "https://finance.yahoo.com/technology/ai/articles/cognition-mckinsey-form-alliance-help-170000493.html"
         }
       ]
     }
   ],
   "takeaways": [
-    "Qwen4-Max уже можно тестировать в реальном backend; сравни качество и стоимость на одном агентном процессе.",
-    "Seedance Flash позволяет упаковать генерацию товарных видео в повторяемую услугу, но пока ограничена 720p."
+    "Самый понятный MCP-пилот — read-only аналитика для family office; заранее согласуй передачу данных внешнему AI.",
+    "ElevenLabs tool builder позволяет превращать интеграции CRM и booking в повторно используемые модули voice agents.",
+    "AI-кодинг продавай через измеримый результат на конкретном backlog, а не через число токенов или строк кода."
   ]
 }
