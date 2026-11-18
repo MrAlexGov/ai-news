@@ -1,88 +1,149 @@
 {
-  "date": "2026-11-17",
-  "window": "2026-11-16T08:07:35+03:00 — 2026-11-17T08:07:35+03:00 (МСК)",
+  "date": "2026-11-18",
+  "window": "2026-11-17T08:10:01+03:00 — 2026-11-18T08:10:01+03:00 (МСК)",
   "show_date_window": false,
   "news": [
     {
-      "id": "masttro-mcp-server-2026-11-16",
-      "published_at": "2026-11-16",
-      "time_precision": "В первоисточнике указана только дата; точное время не опубликовано.",
-      "title": "Masttro открыла MCP-доступ к данным family office",
-      "text": "Новый MCP Server подключает Claude, ChatGPT и другие MCP-клиенты к данным об активах, транзакциях, доходности и структуре владения. Доступ включается администратором, работает только на чтение и наследует права пользователя.",
-      "monetization_comment": "Как заработать интегратору: ассистент для family office — отчёты и подготовка к встречам; пилот на запросах по портфелю и транзакциям.",
-      "access": "Для клиентов с активированной Masttro API, без дополнительной платы Masttro на старте. Данные передаются внешнему AI-провайдеру и подпадают под его правила обработки.",
+      "id": "openai-gpt-6-2-background-completions-2026-11-17",
+      "published_at": "2026-11-17",
+      "source_confirmed_at": "2026-11-17T15:22:00-03:00",
+      "time_precision": "OpenAI указывает дату 17 ноября без времени; публикация UOL с описанием запуска вышла в 15:22 BRT.",
+      "title": "GPT-6.2 Astra/Sol и скидки на долгие фоновые задачи",
+      "text": "GPT-6.2 Astra и Sol доступны через Responses API и Chat Completions; вызов инструментов требует Responses API. В публичной бете фоновые задачи с окном 2 или 8 часов получают скидку 30% или 40% к стандартной ставке.",
+      "monetization_comment": "Как заработать интегратору: асинхронный разбор договоров, тендеров и больших пакетов документов с оплатой за готовый результат.",
+      "access": "Astra: $8/$40 за 1 млн входных/выходных токенов, cached input $0.40; Sol: $2/$10, cached input $0.10. Background completion — public beta.",
       "links": [
         {
-          "label": "Анонс и документация",
-          "url": "https://masttro.com/insights/masttro-mcp-server"
+          "label": "Анонс OpenAI",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
         },
         {
-          "label": "MCP endpoint и сценарии",
-          "url": "https://masttro.com/masttro-mcp"
-        }
-      ]
-    },
-    {
-      "id": "elevenlabs-python-sdk-2-79-agent-tools-as-code-2026-11-16",
-      "published_at": "2026-11-16",
-      "source_event_at": "2026-11-16T13:24:14Z",
-      "time_precision": "Коммит SDK датирован 16 ноября, 13:24 UTC; PyPI указывает дату публикации без времени.",
-      "title": "ElevenLabs добавила конструктор инструментов для voice agents",
-      "text": "В Python SDK 2.79.0 появился agent_tools: webhook-, client- и system-инструменты описываются цепочками методов вместо ручного JSON. build() проверяет схему, а конфигурации можно сохранять в Git и переиспользовать.",
-      "monetization_comment": "Как заработать интегратору: библиотека типовых CRM-, ERP- и booking-инструментов для голосовых агентов; пилот — запись клиента или проверка статуса заказа.",
-      "access": "MIT; Python от 3.8. Установка: pip install -U elevenlabs.",
-      "links": [
-        {
-          "label": "ElevenLabs SDK 2.79.0",
-          "url": "https://pypi.org/project/elevenlabs/2.79.0/"
-        },
-        {
-          "label": "Коммит версии 2.79.0",
-          "url": "https://github.com/elevenlabs/elevenlabs-python/commit/bc814005e4319298b3c9ae5c301c7d326f630dbd"
-        }
-      ]
-    },
-    {
-      "id": "openai-csam-image-classifier-2026-11-16",
-      "published_at": "2026-11-16",
-      "time_precision": "В changelog указана дата 16 ноября; точное время не опубликовано.",
-      "title": "OpenAI открыла отдельный API-классификатор CSAM",
-      "text": "Модель omni-moderation-csam-latest в /v1/moderations возвращает отдельные сигналы потенциального CSAM и AI-generated CSAM для одного изображения. Это приоритизация материалов для ручной проверки, а не автоматический вердикт или отправка жалобы.",
-      "monetization_comment": "Как заработать интегратору: фильтр пользовательских изображений и очередь эскалации для UGC-платформ и маркетплейсов; пилот с обязательной ручной проверкой флагов.",
-      "access": "Без платы для одобренных OpenAI организаций, доступ по заявке; одно изображение до 20 MB, без текстовой классификации и Batch API.",
-      "links": [
-        {
-          "label": "Changelog OpenAI",
+          "label": "API changelog",
           "url": "https://developers.openai.com/api/docs/changelog"
         },
         {
-          "label": "Документация классификатора",
-          "url": "https://developers.openai.com/api/docs/guides/csam-classifier"
+          "label": "Модели и цены",
+          "url": "https://developers.openai.com/api/docs/models/compare"
         }
       ]
     },
     {
-      "id": "cognition-mckinsey-ai-coding-roi-alliance-2026-11-16",
-      "published_at": "2026-11-16T12:00:00-05:00",
-      "time_precision": "Business Wire: 16 ноября, 12:00 EST.",
-      "title": "Cognition и McKinsey объединяются для внедрения Devin",
-      "text": "McKinsey будет помогать компаниям выбирать инженерные проекты и перестраивать процессы, Cognition предоставит Devin; результат планируют измерять по стоимости, срокам и качеству. В опросе 334 руководителей верхний квартиль компаний сообщил о росте продуктивности более чем вдвое, но 30% — о снижении.",
-      "monetization_comment": "Как заработать интегратору: аудит AI-разработки и пилот на миграции, тестах или техническом долге с замером baseline до и после.",
+      "id": "microsoft-mai-realtime-1-2026-11-17",
+      "published_at": "2026-11-17",
+      "source_confirmed_at": "2026-11-17T18:16:00Z",
+      "time_precision": "Microsoft датирует анонс 17 ноября; Reuters подтвердил публикацию о запуске в 18:16 UTC.",
+      "title": "MAI Realtime 1: голосовой агент за $0.01 в минуту",
+      "text": "Microsoft выпустила speech-to-speech модель для естественных диалогов, перебиваний и подключения к корпоративным инструментам. Она совместима с OpenAI Realtime API, поэтому существующие voice-проекты можно адаптировать без полной смены интеграции.",
+      "monetization_comment": "Как заработать интегратору: голосовой приём заявок и запись для клиник, автосервисов и сервисных компаний; пилот на одном телефонном сценарии.",
+      "access": "Базовая цена — $0.01 за минуту аудио; reasoning оплачивается отдельно. Microsoft Foundry — limited-access preview, во время preview плата не взимается.",
       "links": [
         {
-          "label": "Анонс Cognition / Business Wire",
-          "url": "https://www.businesswire.com/news/home/20261112399186/en"
+          "label": "Анонс и условия",
+          "url": "https://microsoft.ai/news/introducing-mai-realtime-1/"
         },
         {
-          "label": "Публикация с временной меткой",
-          "url": "https://finance.yahoo.com/technology/ai/articles/cognition-mckinsey-form-alliance-help-170000493.html"
+          "label": "Microsoft Ignite",
+          "url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-mai-image-2-7-2026-11-17",
+      "published_at": "2026-11-17",
+      "source_confirmed_at": "2026-11-17T18:16:00Z",
+      "time_precision": "Microsoft датирует анонс 17 ноября; точное время на странице модели не указано.",
+      "title": "MAI Image 2.7 удешевляет массовое редактирование изображений",
+      "text": "Модель сохраняет согласованность между последовательными правками и поддерживает прозрачный фон; Flash рассчитана на массовую генерацию. Microsoft заявляет первое место MAI Image 2.7 в Artificial Analysis image editing по состоянию на 16 ноября.",
+      "monetization_comment": "Как заработать интегратору: пакетное создание и редактирование карточек товаров и рекламных креативов; пилот на 20 SKU в едином стиле.",
+      "access": "Public preview в Microsoft Foundry и через fal, Genspark, OpenRouter и Vercel. Заявленная цена: около $35 за 1 000 изображений для 2.7 и $10 за 1 000 для Flash.",
+      "links": [
+        {
+          "label": "Анонс, цены и доступ",
+          "url": "https://microsoft.ai/news/introducing-mai-image-2-7/"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-mai-code-2-2026-11-17",
+      "published_at": "2026-11-17",
+      "source_confirmed_at": "2026-11-17T18:16:00Z",
+      "time_precision": "Microsoft датирует анонс 17 ноября; Reuters подтвердил запуск линейки на Ignite в тот же день.",
+      "title": "MAI Code 2 и Flash пришли в GitHub Copilot",
+      "text": "Code 2 рассчитана на сложную отладку и многофайловые изменения, Flash — на рутинные правки и быстрые итерации. По тестам Microsoft, Code 2 даёт 98% результата GPT-6.1 Sol при 40% стоимости, но сравнение включает промоцену и не охватывает длинные агентные задачи.",
+      "monetization_comment": "Как заработать интегратору: ускорить разработку клиентских интеграций и MVP, проверив Flash на рутинных задачах, а Code 2 — на отладке и изменениях нескольких файлов.",
+      "access": "Обе модели доступны в GitHub Copilot; Code 2 Flash также в limited-access preview Microsoft Foundry. Отдельная публичная API-цена в анонсе не указана.",
+      "links": [
+        {
+          "label": "Microsoft AI — модели и сравнения",
+          "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/"
+        },
+        {
+          "label": "Доступ в GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot/"
+        }
+      ]
+    },
+    {
+      "id": "kling-image-4-0-2026-11-17",
+      "published_at": "2026-11-17",
+      "time_precision": "Официальный блог Kling опубликован 18 ноября без времени; запуск анонсирован 17 ноября, точное попадание в 24-часовой cutoff не подтверждено.",
+      "title": "Kling Image 4.0 генерирует серии до 10 изображений в нативном 8K",
+      "text": "Модель создаёт согласованные серии до 10 изображений и длинные визуальные страницы для e-commerce и веб-дизайна, поддерживая до 2 000 символов текста в изображении. Встроенный текст поддерживается на китайском, английском, японском, корейском, испанском и португальском — русского в списке нет.",
+      "monetization_comment": "Как заработать интегратору: выпускать согласованные товарные серии и визуальные лонгриды для магазинов; русский текст накладывать отдельным HTML/SVG-слоем.",
+      "access": "Доступна в Kling Creative Studio и через API для разработчиков и предприятий. Цена API в официальном анонсе не указана; веса модели не опубликованы.",
+      "links": [
+        {
+          "label": "Официальный анонс Kling",
+          "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
+        },
+        {
+          "label": "Спецификация релиза",
+          "url": "https://kling.ai/release-note/release-notes/Kling_Image_4"
+        }
+      ]
+    },
+    {
+      "id": "github-copilot-evals-2026-11-17",
+      "published_at": "2026-11-17",
+      "time_precision": "GitHub указывает дату 17 ноября, точное время публикации не опубликовано.",
+      "title": "GitHub Copilot Evals тестирует skills, агентов и MCP",
+      "text": "Evals позволяет задавать повторяемые сценарии, критерии результата и сравнивать прогоны до и после изменения skill, агента или MCP-инструмента. Это даёт регрессионную проверку поведения агента вместо оценки по одному удачному ответу.",
+      "monetization_comment": "Как заработать интегратору: продавать настройку eval-наборов и контроль качества корпоративных агентов; пилот на 10 реальных задачах клиента.",
+      "access": "Public preview для Copilot Individual, Business и Enterprise; запуск через VS Code, Copilot CLI или Copilot app.",
+      "links": [
+        {
+          "label": "GitHub Changelog",
+          "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview/"
+        },
+        {
+          "label": "Документация",
+          "url": "https://aka.ms/copilot-evals"
+        }
+      ]
+    },
+    {
+      "id": "github-event-streams-2026-11-17",
+      "published_at": "2026-11-17",
+      "time_precision": "GitHub указывает дату 17 ноября, точное время публикации не опубликовано.",
+      "title": "GitHub Event Streams будит агентов по событиям pull request",
+      "text": "Event Streams передаёт агенту события review, новых коммитов, конфликтов, checks и merge без постоянного polling. Подключение может работать с локального компьютера без публичного webhook endpoint.",
+      "monetization_comment": "Как заработать интегратору: агент, который по событию PR запускает проверки, собирает замечания и предлагает исправления; пилот на одном репозитории.",
+      "access": "Preview по заявке в waitlist; после одобрения доступен на всех GitHub plans.",
+      "links": [
+        {
+          "label": "Анонс",
+          "url": "https://github.blog/changelog/2026-11-17-github-event-streams-is-now-in-preview/"
+        },
+        {
+          "label": "Документация",
+          "url": "https://docs.github.com/en/webhooks/about-webhooks"
         }
       ]
     }
   ],
   "takeaways": [
-    "Самый понятный MCP-пилот — read-only аналитика для family office; заранее согласуй передачу данных внешнему AI.",
-    "ElevenLabs tool builder позволяет превращать интеграции CRM и booking в повторно используемые модули voice agents.",
-    "AI-кодинг продавай через измеримый результат на конкретном backlog, а не через число токенов или строк кода."
+    "Для длинных задач проверь OpenAI background completions: окно 8 часов снижает token rates на 40% в public beta.",
+    "MAI Realtime 1 — кандидат для дешёвого голосового MVP, но Foundry пока ограничен preview-доступом.",
+    "Evals для MCP и агентов можно продавать как отдельную услугу контроля качества перед внедрением."
   ]
 }
