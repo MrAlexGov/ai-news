@@ -1,149 +1,213 @@
 {
-  "date": "2026-11-18",
-  "window": "2026-11-17T08:10:01+03:00 — 2026-11-18T08:10:01+03:00 (МСК)",
+  "date": "2026-11-19",
+  "window": "2026-11-18T08:56:31+03:00 — 2026-11-19T08:56:31+03:00 (МСК)",
   "show_date_window": false,
+  "window_precision_note": "Для публикаций 18 ноября первоисточники указывают дату, но не точное время; строгое попадание в 24-часовое окно подтвердить нельзя.",
   "news": [
     {
-      "id": "openai-gpt-6-2-background-completions-2026-11-17",
-      "published_at": "2026-11-17",
-      "source_confirmed_at": "2026-11-17T15:22:00-03:00",
-      "time_precision": "OpenAI указывает дату 17 ноября без времени; публикация UOL с описанием запуска вышла в 15:22 BRT.",
-      "title": "GPT-6.2 Astra/Sol и скидки на долгие фоновые задачи",
-      "text": "GPT-6.2 Astra и Sol доступны через Responses API и Chat Completions; вызов инструментов требует Responses API. В публичной бете фоновые задачи с окном 2 или 8 часов получают скидку 30% или 40% к стандартной ставке.",
-      "monetization_comment": "Как заработать интегратору: асинхронный разбор договоров, тендеров и больших пакетов документов с оплатой за готовый результат.",
-      "access": "Astra: $8/$40 за 1 млн входных/выходных токенов, cached input $0.40; Sol: $2/$10, cached input $0.10. Background completion — public beta.",
+      "id": "google-gemini-4-neon-api-2026-11-18",
+      "published_at": "2026-11-18",
+      "time_precision": "Официальный анонс датирован 18 ноября, время публикации не указано.",
+      "title": "Gemini 4 Neon: миллион токенов для сложной аналитики",
+      "text": "Google выпустила Gemini 4 Neon для сложной разработки и анализа: модель работает с PDF, таблицами, графиками, аудио и видео в контексте до 1 млн токенов. Стандартный тариф API — $3/$15 за 1 млн входных/выходных токенов; бесплатного уровня нет, Batch/Flex — $1.50/$7.50.",
+      "monetization_comment": "Как заработать интегратору: ассистент для анализа договоров, отчётов и счетов; пилот — сравнение пакета документов и подготовка структурированного отчёта.",
+      "access": "Gemini API paid tier; модель gemini-4-neon. Cached input — $0.15/1 млн токенов; explicit caching не поддерживается.",
       "links": [
         {
-          "label": "Анонс OpenAI",
-          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+          "label": "Анонс Google",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
         },
         {
-          "label": "API changelog",
-          "url": "https://developers.openai.com/api/docs/changelog"
-        },
-        {
-          "label": "Модели и цены",
-          "url": "https://developers.openai.com/api/docs/models/compare"
+          "label": "Официальные цены API",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
         }
       ]
     },
     {
-      "id": "microsoft-mai-realtime-1-2026-11-17",
-      "published_at": "2026-11-17",
-      "source_confirmed_at": "2026-11-17T18:16:00Z",
-      "time_precision": "Microsoft датирует анонс 17 ноября; Reuters подтвердил публикацию о запуске в 18:16 UTC.",
-      "title": "MAI Realtime 1: голосовой агент за $0.01 в минуту",
-      "text": "Microsoft выпустила speech-to-speech модель для естественных диалогов, перебиваний и подключения к корпоративным инструментам. Она совместима с OpenAI Realtime API, поэтому существующие voice-проекты можно адаптировать без полной смены интеграции.",
-      "monetization_comment": "Как заработать интегратору: голосовой приём заявок и запись для клиник, автосервисов и сервисных компаний; пилот на одном телефонном сценарии.",
-      "access": "Базовая цена — $0.01 за минуту аудио; reasoning оплачивается отдельно. Microsoft Foundry — limited-access preview, во время preview плата не взимается.",
+      "id": "github-copilot-mcp-connectors-team-plugins-2026-11-18",
+      "published_at": "2026-11-18",
+      "time_precision": "Официальные записи GitHub Changelog датированы 18 ноября, время публикации не указано.",
+      "title": "GitHub Copilot получил восемь MCP-коннекторов и общие плагины команд",
+      "text": "GitHub добавила в Copilot восемь MCP-коннекторов: Box, Buildkite, Calendly, ClickUp, Mixpanel, Supabase, Webflow и Wix; отдельно стала GA настройка общих Agent Plugins на уровне команд. Команды могут закреплять нужные источники данных и инструменты вместо ручной настройки каждого разработчика.",
+      "monetization_comment": "Как заработать интегратору: стандартизировать Copilot для команды разработки и подключить её Supabase, Buildkite и ClickUp; пилот — один репозиторий и одна рабочая группа.",
+      "access": "MCP-коннекторы — public preview для всех планов; Business/Enterprise требуют включения preview policy. Team-level plugin defaults — GA для Copilot Business и Enterprise.",
       "links": [
         {
-          "label": "Анонс и условия",
-          "url": "https://microsoft.ai/news/introducing-mai-realtime-1/"
+          "label": "Новые MCP-коннекторы",
+          "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot/"
         },
         {
-          "label": "Microsoft Ignite",
-          "url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+          "label": "Плагины для команд",
+          "url": "https://github.blog/changelog/2026-11-18-customize-github-copilot-for-your-team/"
         }
       ]
     },
     {
-      "id": "microsoft-mai-image-2-7-2026-11-17",
-      "published_at": "2026-11-17",
-      "source_confirmed_at": "2026-11-17T18:16:00Z",
-      "time_precision": "Microsoft датирует анонс 17 ноября; точное время на странице модели не указано.",
-      "title": "MAI Image 2.7 удешевляет массовое редактирование изображений",
-      "text": "Модель сохраняет согласованность между последовательными правками и поддерживает прозрачный фон; Flash рассчитана на массовую генерацию. Microsoft заявляет первое место MAI Image 2.7 в Artificial Analysis image editing по состоянию на 16 ноября.",
-      "monetization_comment": "Как заработать интегратору: пакетное создание и редактирование карточек товаров и рекламных креативов; пилот на 20 SKU в едином стиле.",
-      "access": "Public preview в Microsoft Foundry и через fal, Genspark, OpenRouter и Vercel. Заявленная цена: около $35 за 1 000 изображений для 2.7 и $10 за 1 000 для Flash.",
+      "id": "aws-elasticache-distributed-kv-cache-2026-11-18",
+      "published_at": "2026-11-18",
+      "time_precision": "AWS датирует анонс 18 ноября, время публикации не указано.",
+      "title": "AWS добавила распределённый KV-кэш для self-hosted LLM",
+      "text": "ElastiCache for Valkey теперь предоставляет общий KV-кэш для vLLM, SGLang и TensorRT-LLM через open-source LMCache. AWS сообщает о снижении стоимости инференса до 40% и времени до первого токена до 80%, но эффект зависит от нагрузки и cache-hit rate.",
+      "monetization_comment": "Как заработать интегратору: аудит затрат компаний с собственными GPU и длинными контекстами; сначала прогнать KVTrace на реальном трафике, затем внедрить кэш при подтверждённой окупаемости.",
+      "access": "Доступно в 13 AWS Regions; требуется ElastiCache for Valkey 9.1+ и узел cache.i8ge.48xlarge, оплата почасовая. KVTrace для оценки эффекта бесплатен.",
       "links": [
         {
-          "label": "Анонс, цены и доступ",
-          "url": "https://microsoft.ai/news/introducing-mai-image-2-7/"
+          "label": "Анонс AWS",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/announcing-distributed-kv-caching-for-self-hosted-llms-with-amazon-elasticache/"
+        },
+        {
+          "label": "Технический разбор и бенчмарки",
+          "url": "https://aws.amazon.com/blogs/database/announcing-distributed-kv-caching-for-self-hosted-llms-with-amazon-elasticache/"
+        },
+        {
+          "label": "Документация и ограничения",
+          "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/distributed-kv-caching.html"
+        },
+        {
+          "label": "KVTrace",
+          "url": "https://github.com/LMCache/KVTrace"
         }
       ]
     },
     {
-      "id": "microsoft-mai-code-2-2026-11-17",
-      "published_at": "2026-11-17",
-      "source_confirmed_at": "2026-11-17T18:16:00Z",
-      "time_precision": "Microsoft датирует анонс 17 ноября; Reuters подтвердил запуск линейки на Ignite в тот же день.",
-      "title": "MAI Code 2 и Flash пришли в GitHub Copilot",
-      "text": "Code 2 рассчитана на сложную отладку и многофайловые изменения, Flash — на рутинные правки и быстрые итерации. По тестам Microsoft, Code 2 даёт 98% результата GPT-6.1 Sol при 40% стоимости, но сравнение включает промоцену и не охватывает длинные агентные задачи.",
-      "monetization_comment": "Как заработать интегратору: ускорить разработку клиентских интеграций и MVP, проверив Flash на рутинных задачах, а Code 2 — на отладке и изменениях нескольких файлов.",
-      "access": "Обе модели доступны в GitHub Copilot; Code 2 Flash также в limited-access preview Microsoft Foundry. Отдельная публичная API-цена в анонсе не указана.",
+      "id": "aws-sagemaker-cross-region-inference-router-ga-2026-11-18",
+      "published_at": "2026-11-18",
+      "time_precision": "AWS датирует анонс 18 ноября, время публикации не указано.",
+      "title": "SageMaker AI выпустила маршрутизатор межрегионального инференса",
+      "text": "Amazon SageMaker AI перевела cross-Region inference router в GA: один вызов распределяет запросы между endpoints в разных регионах и аккаунтах с учётом их здоровья и доступной мощности. Запросы с требованиями data residency можно закрепить за регионом, но сами модели и endpoints нужно заранее развернуть в каждой целевой локации.",
+      "monetization_comment": "Как заработать интегратору: проектировать отказоустойчивость AI-сервисов на AWS; пилот — настроить failover между двумя регионами и проверить его под нагрузкой.",
+      "access": "GA с 18 ноября в коммерческих AWS Regions, где поддерживаются real-time endpoints SageMaker AI. Маршрутизатор не создаёт дополнительную GPU-мощность.",
       "links": [
         {
-          "label": "Microsoft AI — модели и сравнения",
-          "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/"
+          "label": "Анонс и пример Salesforce",
+          "url": "https://aws.amazon.com/blogs/machine-learning/how-salesforce-is-advancing-global-scale-model-serving-with-cross-region-inference-routing-in-amazon-sagemaker-ai/"
         },
         {
-          "label": "Доступ в GitHub Copilot",
-          "url": "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot/"
-        }
-      ]
-    },
-    {
-      "id": "kling-image-4-0-2026-11-17",
-      "published_at": "2026-11-17",
-      "time_precision": "Официальный блог Kling опубликован 18 ноября без времени; запуск анонсирован 17 ноября, точное попадание в 24-часовой cutoff не подтверждено.",
-      "title": "Kling Image 4.0 генерирует серии до 10 изображений в нативном 8K",
-      "text": "Модель создаёт согласованные серии до 10 изображений и длинные визуальные страницы для e-commerce и веб-дизайна, поддерживая до 2 000 символов текста в изображении. Встроенный текст поддерживается на китайском, английском, японском, корейском, испанском и португальском — русского в списке нет.",
-      "monetization_comment": "Как заработать интегратору: выпускать согласованные товарные серии и визуальные лонгриды для магазинов; русский текст накладывать отдельным HTML/SVG-слоем.",
-      "access": "Доступна в Kling Creative Studio и через API для разработчиков и предприятий. Цена API в официальном анонсе не указана; веса модели не опубликованы.",
-      "links": [
-        {
-          "label": "Официальный анонс Kling",
-          "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
+          "label": "Документация Inference Router",
+          "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router.html"
         },
         {
-          "label": "Спецификация релиза",
-          "url": "https://kling.ai/release-note/release-notes/Kling_Image_4"
-        }
-      ]
-    },
-    {
-      "id": "github-copilot-evals-2026-11-17",
-      "published_at": "2026-11-17",
-      "time_precision": "GitHub указывает дату 17 ноября, точное время публикации не опубликовано.",
-      "title": "GitHub Copilot Evals тестирует skills, агентов и MCP",
-      "text": "Evals позволяет задавать повторяемые сценарии, критерии результата и сравнивать прогоны до и после изменения skill, агента или MCP-инструмента. Это даёт регрессионную проверку поведения агента вместо оценки по одному удачному ответу.",
-      "monetization_comment": "Как заработать интегратору: продавать настройку eval-наборов и контроль качества корпоративных агентов; пилот на 10 реальных задачах клиента.",
-      "access": "Public preview для Copilot Individual, Business и Enterprise; запуск через VS Code, Copilot CLI или Copilot app.",
-      "links": [
-        {
-          "label": "GitHub Changelog",
-          "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview/"
-        },
-        {
-          "label": "Документация",
-          "url": "https://aka.ms/copilot-evals"
-        }
-      ]
-    },
-    {
-      "id": "github-event-streams-2026-11-17",
-      "published_at": "2026-11-17",
-      "time_precision": "GitHub указывает дату 17 ноября, точное время публикации не опубликовано.",
-      "title": "GitHub Event Streams будит агентов по событиям pull request",
-      "text": "Event Streams передаёт агенту события review, новых коммитов, конфликтов, checks и merge без постоянного polling. Подключение может работать с локального компьютера без публичного webhook endpoint.",
-      "monetization_comment": "Как заработать интегратору: агент, который по событию PR запускает проверки, собирает замечания и предлагает исправления; пилот на одном репозитории.",
-      "access": "Preview по заявке в waitlist; после одобрения доступен на всех GitHub plans.",
-      "links": [
-        {
-          "label": "Анонс",
-          "url": "https://github.blog/changelog/2026-11-17-github-event-streams-is-now-in-preview/"
-        },
-        {
-          "label": "Документация",
-          "url": "https://docs.github.com/en/webhooks/about-webhooks"
+          "label": "CreateInferenceRouter API",
+          "url": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRouter.html"
         }
       ]
     }
   ],
   "takeaways": [
-    "Для длинных задач проверь OpenAI background completions: окно 8 часов снижает token rates на 40% в public beta.",
-    "MAI Realtime 1 — кандидат для дешёвого голосового MVP, но Foundry пока ограничен preview-доступом.",
-    "Evals для MCP и агентов можно продавать как отдельную услугу контроля качества перед внедрением."
-  ]
+    "Gemini 4 Neon стоит тестировать на пакетном анализе больших документов, но бесплатного API-тарифа нет.",
+    "Для self-hosted LLM сначала измеряй cache-hit rate через KVTrace — только затем считай экономику ElastiCache.",
+    "MCP-коннекторы Copilot и SageMaker router дают две продаваемые услуги: интеграцию рабочих инструментов и отказоустойчивость AI-инференса."
+  ],
+  "research_state": {
+    "openrouter_snapshot": {
+      "as_of": "2026-11-18",
+      "text_method": "Tokens processed; usage data through Nov 18, 2026",
+      "text_top10": [
+        [
+          "DeepSeek V4.1 Flash 1017",
+          "deepseek",
+          "62.1T"
+        ],
+        [
+          "Hy4 flash",
+          "tencent",
+          "46.6T"
+        ],
+        [
+          "DeepSeek V4.1 Flash",
+          "deepseek",
+          "16T"
+        ],
+        [
+          "Hy4",
+          "tencent",
+          "13T"
+        ],
+        [
+          "GLM 5.3 Flash",
+          "z-ai",
+          "10.9T"
+        ],
+        [
+          "GPT-6 Luna",
+          "openai",
+          "8.62T"
+        ],
+        [
+          "Claude Opus 5.5",
+          "anthropic",
+          "7.63T"
+        ],
+        [
+          "Step 5 Preview",
+          "stepfun",
+          "6.39T"
+        ],
+        [
+          "MiMo-V2.6-Flash",
+          "xiaomi",
+          "4.05T"
+        ],
+        [
+          "MiniMax M3.1 Flash",
+          "minimax",
+          "3.67T"
+        ]
+      ],
+      "image_method": "Requests; usage data through Nov 18, 2026",
+      "image_top10": [
+        [
+          "Nano Banana 2 (Gemini 3.1 Flash Image)",
+          "google",
+          "2.43M"
+        ],
+        [
+          "Nano Banana 2.1",
+          "google",
+          "1.28M"
+        ],
+        [
+          "GPT Image 2.5 Sunburst",
+          "openai",
+          "1.16M"
+        ],
+        [
+          "GPT Image 2.5 Flare",
+          "openai",
+          "882K"
+        ],
+        [
+          "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+          "google",
+          "661K"
+        ],
+        [
+          "Muse Image",
+          "meta",
+          "647K"
+        ],
+        [
+          "GPT Image 2",
+          "openai",
+          "462K"
+        ],
+        [
+          "Seedream 5.0 Flash",
+          "bytedance-seed",
+          "419K"
+        ],
+        [
+          "Nano Banana (Gemini 2.5 Flash Image)",
+          "google",
+          "412K"
+        ],
+        [
+          "GPT Image 2.6 Sunburst",
+          "openai",
+          "404K"
+        ]
+      ],
+      "comparison_status": "baseline_initialized; previous digest had no saved OpenRouter snapshot, so no ranking change was published"
+    }
+  }
 }
