@@ -1,117 +1,232 @@
 {
-  "date": "2026-11-19",
-  "window": "2026-11-18T08:56:31+03:00 — 2026-11-19T08:56:31+03:00 (МСК)",
+  "date": "2026-11-20",
+  "window": "2026-11-19T08:27:02+03:00 — 2026-11-20T08:27:02+03:00 (МСК)",
   "show_date_window": false,
-  "window_precision_note": "Для публикаций 18 ноября первоисточники указывают дату, но не точное время; строгое попадание в 24-часовое окно подтвердить нельзя.",
+  "window_precision_note": "Большинство первоисточников датированы 19 ноября без точного времени; строго подтвердить попадание каждой публикации в 24-часовое окно нельзя. Для Eclipse Enclave страница показывает 06:00 с брюссельской датировкой, но часовой пояс явно не указан.",
   "news": [
     {
-      "id": "google-gemini-4-neon-api-2026-11-18",
-      "published_at": "2026-11-18",
-      "time_precision": "Официальный анонс датирован 18 ноября, время публикации не указано.",
-      "title": "Gemini 4 Neon: миллион токенов для сложной аналитики",
-      "text": "Google выпустила Gemini 4 Neon для сложной разработки и анализа: модель работает с PDF, таблицами, графиками, аудио и видео в контексте до 1 млн токенов. Стандартный тариф API — $3/$15 за 1 млн входных/выходных токенов; бесплатного уровня нет, Batch/Flex — $1.50/$7.50.",
-      "monetization_comment": "Как заработать интегратору: ассистент для анализа договоров, отчётов и счетов; пилот — сравнение пакета документов и подготовка структурированного отчёта.",
-      "access": "Gemini API paid tier; модель gemini-4-neon. Cached input — $0.15/1 млн токенов; explicit caching не поддерживается.",
+      "id": "google-gemini-tool-retrieval-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Официальный анонс Google датирован 19 ноября; время публикации не указано.",
+      "title": "Gemini API загружает схемы MCP-инструментов по требованию",
+      "text": "Tool Retrieval в preview Interactions API подгружает полные схемы функций и remote MCP только при необходимости, вместо отправки всей библиотеки в каждом запросе. Это сокращает расход входных токенов и задержку у агентов с десятками или сотнями инструментов.",
+      "monetization_comment": "Как заработать интегратору: оптимизировать MCP-агента с 30–50 инструментами; пилот — сравнить расход токенов и задержку до и после.",
+      "access": "Preview, API v1beta; Gemini 3.6+ и Gemini 4; только Interactions API, не generateContent. Отдельной платы нет, загруженные схемы тарифицируются как input tokens.",
       "links": [
         {
           "label": "Анонс Google",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
         },
         {
-          "label": "Официальные цены API",
-          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+          "label": "Документация",
+          "url": "https://aistudio.google.com/docs/tool-retrieval"
         }
       ]
     },
     {
-      "id": "github-copilot-mcp-connectors-team-plugins-2026-11-18",
-      "published_at": "2026-11-18",
-      "time_precision": "Официальные записи GitHub Changelog датированы 18 ноября, время публикации не указано.",
-      "title": "GitHub Copilot получил восемь MCP-коннекторов и общие плагины команд",
-      "text": "GitHub добавила в Copilot восемь MCP-коннекторов: Box, Buildkite, Calendly, ClickUp, Mixpanel, Supabase, Webflow и Wix; отдельно стала GA настройка общих Agent Plugins на уровне команд. Команды могут закреплять нужные источники данных и инструменты вместо ручной настройки каждого разработчика.",
-      "monetization_comment": "Как заработать интегратору: стандартизировать Copilot для команды разработки и подключить её Supabase, Buildkite и ClickUp; пилот — один репозиторий и одна рабочая группа.",
-      "access": "MCP-коннекторы — public preview для всех планов; Business/Enterprise требуют включения preview policy. Team-level plugin defaults — GA для Copilot Business и Enterprise.",
+      "id": "google-cloud-storage-object-enrichments-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Анонс Google Cloud датирован 19 ноября; точное время не опубликовано.",
+      "title": "Google Cloud Storage автоматически размечает изображения и PDF",
+      "text": "Object Enrichments добавляет к объектам метаданные: распознавание объектов и лиц, labels, explicit-content и классификацию PDF. Метаданные можно использовать в BigQuery и поиске, не строя собственный batch-конвейер обработки архива.",
+      "monetization_comment": "Как заработать интегратору: каталогизация фотоархивов и PDF для ритейла, логистики и страховых; пилот — 100 тыс. объектов с поиском по метаданным.",
+      "access": "Public Preview; каждый image-enrichment model стоит $0.25/1 000 объектов до 1 млн в месяц и $0.05/1 000 выше. PDF Classification бесплатна в preview до 100 млн объектов на клиента; хранение и операции оплачиваются отдельно.",
       "links": [
         {
-          "label": "Новые MCP-коннекторы",
-          "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot/"
+          "label": "Анонс Google Cloud",
+          "url": "https://cloud.google.com/blog/products/storage-data-transfer/introducing-cloud-storage-object-enrichments"
         },
         {
-          "label": "Плагины для команд",
-          "url": "https://github.blog/changelog/2026-11-18-customize-github-copilot-for-your-team/"
+          "label": "Официальные цены",
+          "url": "https://cloud.google.com/storage/pricing#object-enrichments"
         }
       ]
     },
     {
-      "id": "aws-elasticache-distributed-kv-cache-2026-11-18",
-      "published_at": "2026-11-18",
-      "time_precision": "AWS датирует анонс 18 ноября, время публикации не указано.",
-      "title": "AWS добавила распределённый KV-кэш для self-hosted LLM",
-      "text": "ElastiCache for Valkey теперь предоставляет общий KV-кэш для vLLM, SGLang и TensorRT-LLM через open-source LMCache. AWS сообщает о снижении стоимости инференса до 40% и времени до первого токена до 80%, но эффект зависит от нагрузки и cache-hit rate.",
-      "monetization_comment": "Как заработать интегратору: аудит затрат компаний с собственными GPU и длинными контекстами; сначала прогнать KVTrace на реальном трафике, затем внедрить кэш при подтверждённой окупаемости.",
-      "access": "Доступно в 13 AWS Regions; требуется ElastiCache for Valkey 9.1+ и узел cache.i8ge.48xlarge, оплата почасовая. KVTrace для оценки эффекта бесплатен.",
+      "id": "aws-agentcore-marketplace-x402-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Анонс AWS датирован 19 ноября; точное время публикации не указано.",
+      "title": "AWS Marketplace открывает оплату API агентами за каждый запрос",
+      "text": "AgentCore Gateway получил MCP-коннектор AWS Marketplace: агент ищет x402-продукты, получает endpoint и условия оплаты, затем платит через AgentCore payments со счёта AWS. Поставщики теперь могут продавать API, данные и инструменты агентам поштучно, без отдельной подписки покупателя.",
+      "monetization_comment": "Как заработать интегратору: адаптировать API клиента под x402 и разместить в AWS Marketplace; пилот — один endpoint с оплатой за запрос.",
+      "access": "Продавцу нужен отдельный Agentic Commerce listing и HTTPS endpoint с подписанным x402 quote. Ограничения: us-east-1, USD, только публичная usage-based offer; нет free pricing, trials и private offers.",
       "links": [
         {
           "label": "Анонс AWS",
-          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/announcing-distributed-kv-caching-for-self-hosted-llms-with-amazon-elasticache/"
+          "url": "https://aws.amazon.com/blogs/machine-learning/enable-ai-agents-to-pay-for-aws-marketplace-x402-products-with-amazon-bedrock-agentcore-payments/"
         },
         {
-          "label": "Технический разбор и бенчмарки",
-          "url": "https://aws.amazon.com/blogs/database/announcing-distributed-kv-caching-for-self-hosted-llms-with-amazon-elasticache/"
+          "label": "Требования для продавцов",
+          "url": "https://docs.aws.amazon.com/marketplace/latest/userguide/agentic-commerce-products.html"
         },
         {
-          "label": "Документация и ограничения",
-          "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/distributed-kv-caching.html"
-        },
-        {
-          "label": "KVTrace",
-          "url": "https://github.com/LMCache/KVTrace"
+          "label": "MCP-коннектор AgentCore",
+          "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-aws-marketplace.html"
         }
       ]
     },
     {
-      "id": "aws-sagemaker-cross-region-inference-router-ga-2026-11-18",
-      "published_at": "2026-11-18",
-      "time_precision": "AWS датирует анонс 18 ноября, время публикации не указано.",
-      "title": "SageMaker AI выпустила маршрутизатор межрегионального инференса",
-      "text": "Amazon SageMaker AI перевела cross-Region inference router в GA: один вызов распределяет запросы между endpoints в разных регионах и аккаунтах с учётом их здоровья и доступной мощности. Запросы с требованиями data residency можно закрепить за регионом, но сами модели и endpoints нужно заранее развернуть в каждой целевой локации.",
-      "monetization_comment": "Как заработать интегратору: проектировать отказоустойчивость AI-сервисов на AWS; пилот — настроить failover между двумя регионами и проверить его под нагрузкой.",
-      "access": "GA с 18 ноября в коммерческих AWS Regions, где поддерживаются real-time endpoints SageMaker AI. Маршрутизатор не создаёт дополнительную GPU-мощность.",
+      "id": "skyflow-agentcore-pii-interceptor-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Публикация AWS датирована 19 ноября; точное время не указано.",
+      "title": "Skyflow обезличивает данные на уровне MCP-шлюза",
+      "text": "MIT-интерсептор для Bedrock AgentCore Gateway удаляет PII из запросов к инструментам и ответов до передачи агенту, а разрешённым получателям возвращает исходные значения. Это защищает CRM, веб-поиск и документы без изменения кода агента и самих инструментов.",
+      "monetization_comment": "Как заработать интегратору: privacy gateway для банков, страховых и маркетплейсов; пилот — один агент, один MCP-сервер и политика PII.",
+      "access": "Код интерсептора MIT; строковая деидентификация GA, обработка документов через Skyflow Detect v2 пока Preview. Сам Skyflow оплачивается отдельно.",
       "links": [
         {
-          "label": "Анонс и пример Salesforce",
-          "url": "https://aws.amazon.com/blogs/machine-learning/how-salesforce-is-advancing-global-scale-model-serving-with-cross-region-inference-routing-in-amazon-sagemaker-ai/"
+          "label": "Технический разбор AWS",
+          "url": "https://aws.amazon.com/blogs/machine-learning/protect-agent-tool-calls-with-skyflow-and-amazon-bedrock-agentcore-gateway/"
+        }
+      ]
+    },
+    {
+      "id": "aws-sagemaker-inference-continuous-monitoring-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Анонс AWS датирован 19 ноября; точное время публикации не указано.",
+      "title": "SageMaker AI ищет лишние расходы и деградацию LLM-инференса",
+      "text": "Мониторинг по умолчанию отслеживает latency, TTFT, загрузку GPU и конфигурацию vLLM-endpoints, выявляя рост задержки, простаивающие GPU и пропущенные оптимизации. Он не читает prompts и ответы и не меняет production автоматически.",
+      "monetization_comment": "Как заработать интегратору: FinOps-аудит self-hosted LLM на AWS; пилот — benchmark одного vLLM endpoint и план оптимизации.",
+      "access": "Мониторинг не добавляет GPU-расходов и доступен для SageMaker vLLM endpoints на GPU. Бенчмарки выполняются на отдельном compute и оплачиваются по обычным тарифам.",
+      "links": [
+        {
+          "label": "Анонс и инструкция AWS",
+          "url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-now-detects-latency-drift-idle-gpus-and-missed-optimizations-on-your-inference-endpoints/"
+        }
+      ]
+    },
+    {
+      "id": "amazon-polly-voice-cloning-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Анонс AWS датирован 19 ноября; точное время публикации не указано.",
+      "title": "Amazon Polly клонирует голос бренда из нескольких минут аудио",
+      "text": "Voice Cloning создаёт генеративный TTS-голос по 1–10 записям одного согласившегося диктора и подключается через API Polly. Поддерживаются английский, испанский, немецкий, французский, итальянский, португальский и хинди.",
+      "monetization_comment": "Как заработать интегратору: брендированный французский IVR и голосовые уведомления для сервисных компаний; пилот — приветствие и пять типовых сценариев.",
+      "access": "Доступ включается отдельно для AWS-аккаунта; создание голоса бесплатно, синтез pay-as-you-go. Нужно согласие диктора; аудио содержит watermark, русский не поддерживается.",
+      "links": [
+        {
+          "label": "Анонс и API-пример AWS",
+          "url": "https://aws.amazon.com/blogs/machine-learning/amazon-polly-launches-voice-cloning-a-unique-voice-for-your-brand/"
+        }
+      ]
+    },
+    {
+      "id": "kimi-code-cli-bedrock-provider-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Инструкция AWS датирована 19 ноября; точное время публикации не указано.",
+      "title": "Kimi Code CLI 2.7.0 подключается к Bedrock через AWS SSO",
+      "text": "Нативный bedrock provider использует стандартную AWS credential chain, включая профили и IAM Identity Center SSO, вместо отдельного Bedrock API key. Это упрощает внедрение coding agent в командах, где доступы уже управляются через AWS.",
+      "monetization_comment": "Как заработать интегратору: настроить coding agent для AWS-команды с SSO и least-privilege IAM; пилот — один репозиторий.",
+      "access": "Open-source CLI; inference оплачивается по токенам Bedrock. Provider настраивается через config.toml; desktop/web UI пока не покрывает все поля конфигурации.",
+      "links": [
+        {
+          "label": "Инструкция AWS",
+          "url": "https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock/"
         },
         {
-          "label": "Документация Inference Router",
-          "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router.html"
+          "label": "Документация Kimi Code",
+          "url": "https://moonshotai.github.io/kimi-code/en/configuration/providers.html"
+        }
+      ]
+    },
+    {
+      "id": "eclipse-enclave-v1-2026-11-19",
+      "published_at": "2026-11-19T06:00:00",
+      "time_precision": "Страница Eclipse указывает 19 ноября, 06:00 и брюссельскую датировку; часовой пояс явно не указан.",
+      "title": "Eclipse Enclave изолирует coding agents в контейнерах",
+      "text": "Каждая сессия Claude Code, Codex или OpenCode получает отдельную файловую систему и сетевой gateway с allowlist и логированием. Это позволяет запускать автономных агентов, не открывая им весь хост и сеть разработчика.",
+      "monetization_comment": "Как заработать интегратору: внедрять безопасную среду для coding agents; пилот — один проект, два параллельных агента и сетевой allowlist.",
+      "access": "MIT, Docker-based; Linux, macOS и Windows через WSL2. HomeShell UI пока в preview.",
+      "links": [
+        {
+          "label": "Анонс Eclipse",
+          "url": "https://newsroom.eclipse.org/news/announcements/eclipse-enclave-secure-sandboxing-ai-coding-agents"
         },
         {
-          "label": "CreateInferenceRouter API",
-          "url": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRouter.html"
+          "label": "Документация и установка",
+          "url": "https://enclave.eclipse.dev/"
+        }
+      ]
+    },
+    {
+      "id": "ovhcloud-olala-v1-mini-open-weights-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "OVHcloud AI Summit датирован 19 ноября; модельная карточка Hugging Face также датирована 19 ноября, точное время не указано.",
+      "title": "OVHcloud открыла веса модели Olala 1.0 mini 7A1B",
+      "text": "Модель Apache 2.0 имеет 6.8B параметров, около 1B активных и контекст 32K; она поддерживает reasoning и tool-calling. Есть OpenAI-compatible API в Европе через OVHcloud AI Endpoints, а качество русского нужно проверять отдельно.",
+      "monetization_comment": "Как заработать интегратору: приватный франко- или англоязычный ассистент по документам; пилот — сравнить hosted API и self-hosted, отдельно протестировать русский.",
+      "access": "Open weights Apache 2.0; локальный запуск пока требует форков OVH для inference-движков, стандартные Ollama и upstream llama.cpp не поддерживаются. Русский язык в карточке явно не подтверждён.",
+      "links": [
+        {
+          "label": "Модель и техническая карточка",
+          "url": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B"
+        },
+        {
+          "label": "Анонс OVHcloud AI Summit",
+          "url": "https://blog.ovhcloud.com/en/posts/ai-summit-2026-announcements/"
+        }
+      ]
+    },
+    {
+      "id": "ovhcloud-ai-agents-ai-routers-announcement-2026-11-19",
+      "published_at": "2026-11-19",
+      "time_precision": "Анонс OVHcloud AI Summit датирован 19 ноября; время публикации блога не указано.",
+      "title": "OVHcloud готовит managed AI Agents и AI Routers для Европы",
+      "text": "AI Agents обещает persistent memory, MCP-доступ к 29 000+ инструментам, расписания, делегирование и подтверждение чувствительных действий; AI Routers будет выбирать модель по правилам и переключаться при сбоях. Alpha обоих сервисов запланирована на декабрь, AI Search с API и MCP — на январь 2027.",
+      "monetization_comment": "Как заработать интегратору: готовить EU-hosted агентский MVP с MCP и маршрутизацией моделей; пилот — один бизнес-процесс и два инструмента после открытия alpha.",
+      "access": "AI Agents и AI Routers бесплатны во время Alpha, оплачиваются только AI Endpoints tokens; sandbox заявлен для Beta, не для первой Alpha.",
+      "links": [
+        {
+          "label": "Анонс OVHcloud",
+          "url": "https://blog.ovhcloud.com/en/posts/ai-summit-2026-announcements/"
+        },
+        {
+          "label": "Статус и сроки в OVHcloud Labs",
+          "url": "https://labs.ovhcloud.com/en/"
         }
       ]
     }
   ],
+  "openrouter": {
+    "changes": [
+      "Hy4 flash поднялась с #2 на #1, а объём обработанных токенов вырос с 46.6T до 69.3T (+48,7%) между срезами 18–19 ноября; это метрика использования OpenRouter, не число пользователей и не оценка качества."
+    ],
+    "links": [
+      {
+        "label": "Рейтинг моделей",
+        "url": "https://openrouter.ai/rankings"
+      }
+    ]
+  },
   "takeaways": [
-    "Gemini 4 Neon стоит тестировать на пакетном анализе больших документов, но бесплатного API-тарифа нет.",
-    "Для self-hosted LLM сначала измеряй cache-hit rate через KVTrace — только затем считай экономику ElastiCache.",
-    "MCP-коннекторы Copilot и SageMaker router дают две продаваемые услуги: интеграцию рабочих инструментов и отказоустойчивость AI-инференса."
+    "Самые быстрые B2B-пилоты: оптимизация MCP, PII-защита агентов и FinOps-аудит LLM-инференса.",
+    "x402 открывает новый канал монетизации API, но пока с ограничениями AWS Marketplace по региону и типу оффера.",
+    "Для европейских клиентов проверить Olala и готовить MVP под OVHcloud AI Agents/AI Routers в декабре."
   ],
   "research_state": {
+    "previous_digest_date": "2026-11-19",
+    "deduplication": {
+      "previous_news_ids": [
+        "google-gemini-4-neon-api-2026-11-18",
+        "github-copilot-mcp-connectors-team-plugins-2026-11-18",
+        "aws-elasticache-distributed-kv-cache-2026-11-18",
+        "aws-sagemaker-cross-region-inference-router-ga-2026-11-18"
+      ],
+      "repeated_ids": []
+    },
     "openrouter_snapshot": {
-      "as_of": "2026-11-18",
-      "text_method": "Tokens processed; usage data through Nov 18, 2026",
+      "as_of": "2026-11-19",
+      "text_method": "Tokens processed; main/default model rankings; usage data through Nov 19, 2026",
       "text_top10": [
-        [
-          "DeepSeek V4.1 Flash 1017",
-          "deepseek",
-          "62.1T"
-        ],
         [
           "Hy4 flash",
           "tencent",
-          "46.6T"
+          "69.3T"
+        ],
+        [
+          "DeepSeek V4.1 Flash 1017",
+          "deepseek",
+          "62.2T"
         ],
         [
           "DeepSeek V4.1 Flash",
@@ -121,93 +236,93 @@
         [
           "Hy4",
           "tencent",
-          "13T"
+          "11.7T"
         ],
         [
           "GLM 5.3 Flash",
           "z-ai",
-          "10.9T"
+          "10.7T"
         ],
         [
           "GPT-6 Luna",
           "openai",
-          "8.62T"
+          "8.86T"
         ],
         [
           "Claude Opus 5.5",
           "anthropic",
-          "7.63T"
+          "7.53T"
         ],
         [
           "Step 5 Preview",
           "stepfun",
-          "6.39T"
+          "5.75T"
         ],
         [
           "MiMo-V2.6-Flash",
           "xiaomi",
-          "4.05T"
+          "4.01T"
         ],
         [
           "MiniMax M3.1 Flash",
           "minimax",
-          "3.67T"
+          "3.92T"
         ]
       ],
-      "image_method": "Requests; usage data through Nov 18, 2026",
+      "image_method": "Requests; image ranking; usage data through Nov 19, 2026",
       "image_top10": [
         [
           "Nano Banana 2 (Gemini 3.1 Flash Image)",
           "google",
-          "2.43M"
+          "2.44M"
         ],
         [
           "Nano Banana 2.1",
           "google",
-          "1.28M"
+          "1.32M"
         ],
         [
           "GPT Image 2.5 Sunburst",
           "openai",
-          "1.16M"
+          "1.13M"
         ],
         [
           "GPT Image 2.5 Flare",
           "openai",
-          "882K"
-        ],
-        [
-          "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
-          "google",
-          "661K"
+          "1.06M"
         ],
         [
           "Muse Image",
           "meta",
-          "647K"
+          "658K"
+        ],
+        [
+          "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+          "google",
+          "636K"
         ],
         [
           "GPT Image 2",
           "openai",
-          "462K"
-        ],
-        [
-          "Seedream 5.0 Flash",
-          "bytedance-seed",
-          "419K"
+          "467K"
         ],
         [
           "Nano Banana (Gemini 2.5 Flash Image)",
           "google",
-          "412K"
+          "410K"
         ],
         [
           "GPT Image 2.6 Sunburst",
           "openai",
-          "404K"
+          "406K"
+        ],
+        [
+          "Seedream 5.0 Flash",
+          "bytedance-seed",
+          "369K"
         ]
       ],
-      "comparison_status": "baseline_initialized; previous digest had no saved OpenRouter snapshot, so no ranking change was published"
+      "comparison_status": "Hy4 flash moved from rank 2 to rank 1; tokens processed rose from 46.6T to 69.3T (+48.7%) between saved snapshots Nov 18 and Nov 19. Image ranking changes were not considered material."
     }
   }
 }
