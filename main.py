@@ -45,13 +45,8 @@ def load_digest() -> dict[str, Any]:
 
 
 def format_digest(digest: dict[str, Any]) -> str:
-    date = esc(digest.get("date", ""))
-    window = esc(digest.get("window", ""))
-    parts = [f"🧠 <b>AI НОВОСТИ — {date}</b>"]
-    if window:
-        parts.append("<i>" + window + "</i>")
-
-    parts.append("<b>Топ событий за сутки</b>")
+    # Start directly with the editor-selected stories; date/window remain metadata in JSON.
+    parts: list[str] = []
 
     for index, item in enumerate(digest["news"], 1):
         if not isinstance(item, dict):
@@ -97,21 +92,17 @@ def format_digest(digest: dict[str, Any]) -> str:
 
     openrouter = digest.get("openrouter")
     if isinstance(openrouter, dict):
-        ranking_block = ["📊 <b>OpenRouter — заметные изменения</b>"]
-        period = openrouter.get("period")
-        if period:
-            ranking_block.append("<i>" + esc(period) + "</i>")
-        for change in openrouter.get("changes", []):
-            ranking_block.append("• " + esc(change))
-        methodology = openrouter.get("methodology")
-        if methodology:
-            ranking_block.append("Методология: " + esc(methodology))
-        for link in openrouter.get("links", []):
-            if isinstance(link, dict) and link.get("url"):
-                label = esc(link.get("label", "Рейтинг"))
-                url = esc(link["url"])
-                ranking_block.append(f'🔗 <a href="{url}">{label}</a>')
-        parts.append("\n".join(ranking_block))
+        changes = [esc(change) for change in openrouter.get("changes", []) if change]
+        links = openrouter.get("links", [])
+        if changes:
+            line = "📊 OpenRouter: " + " ".join(changes)
+            for link in links:
+                if isinstance(link, dict) and link.get("url"):
+                    label = esc(link.get("label", "Рейтинг"))
+                    url = esc(link["url"])
+                    line += f' <a href="{url}">{label}</a>'
+                    break
+            parts.append(line)
 
     takeaways = digest.get("takeaways") or digest.get("conclusions")
     if isinstance(takeaways, list) and takeaways:
