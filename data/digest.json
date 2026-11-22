@@ -1,66 +1,36 @@
 {
-  "date": "2026-11-21",
-  "window": "2026-11-20T08:05:11+03:00 — 2026-11-21T08:05:11+03:00 (МСК)",
+  "date": "2026-11-22",
+  "window": "2026-11-21T08:16:04+03:00 — 2026-11-22T08:16:04+03:00 (МСК)",
   "show_date_window": false,
-  "window_precision_note": "Первоисточники AWS датируют новые публикации 20 ноября, но не указывают время; строго подтвердить попадание в 24-часовое окно нельзя.",
+  "window_precision_note": "Официальные публикации OpenRouter и Together AI датированы 22 и 21 ноября соответственно, но точное время не указано; попадание обеих публикаций в строгие последние 24 часа подтвердить нельзя.",
   "news": [
     {
-      "id": "amazon-textract-insights-ga-2026-11-20",
-      "published_at": "2026-11-20",
-      "time_precision": "Официальный анонс AWS датирован 20 ноября; время публикации не указано.",
-      "title": "Amazon Textract Insights извлекает данные из смешанных пакетов документов",
-      "text": "Новый GA API принимает PDF-пакеты до 3 000 страниц, разделяет их на документы и извлекает поля по JSON Schema blueprint. Каждое значение сопровождается confidence score и ссылкой на страницу и координаты источника.",
-      "monetization_comment": "Как заработать интегратору: автоматизация обработки страховых, медицинских и финансовых пакетов; пилот — извлечение 10–15 полей из типового комплекта документов с маршрутизацией низкой уверенности на ручную проверку.",
-      "access": "GA; PDF, PNG, JPEG и TIFF; английский, французский, немецкий, итальянский, португальский и испанский. Пока только us-east-1 и us-west-2; тарификация постраничная, без минимального обязательства. Русский не поддерживается.",
+      "id": "openrouter-provider-data-processing-incidents-2026-11-22",
+      "published_at": "2026-11-22",
+      "time_precision": "Официальная публикация OpenRouter датирована 22 ноября; время не указано.",
+      "title": "OpenRouter отключил трёх inference-провайдеров после инцидентов с данными",
+      "text": "22 ноября OpenRouter сообщил, что отключил трёх провайдеров, исключил 125 endpoints из Zero Data Retention (ZDR) и уведомил потенциально затронутых клиентов; признаков взлома собственной платформы компания не обнаружила. Среди публичных раскрытий — Novita (часть MiniMax-запросов с 28 мая по 11 ноября могла пересылаться в официальный API MiniMax) и Together AI (сохранённые prompt samples скачали после того, как coding agent закоммитил credential в публичный репозиторий). Для интегратора это повод проверять фактический маршрут и хранение данных у каждого endpoint, а не полагаться только на метку ZDR.",
+      "monetization_comment": "Как заработать интегратору: аудит LLM-цепочки клиента — провайдеры, маршрутизация, ZDR, логи и секреты в prompt; пилот на одном production-агенте с планом ротации ключей.",
+      "access": "Если запросы MiniMax шли через Novita в период 2026-05-28—2026-11-11, Novita рекомендует считать их содержимое потенциально доступным третьей стороне и ротировать секреты из prompt. Together AI продолжает проверку затронутых prompt samples и рекомендует включить ZDR для чувствительных данных.",
       "links": [
         {
-          "label": "Анонс AWS",
-          "url": "https://aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents/"
+          "label": "Анонс OpenRouter",
+          "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
         },
         {
-          "label": "Документация и регионы",
-          "url": "https://docs.aws.amazon.com/textract/latest/dg/insights-prerequisites.html"
-        }
-      ]
-    },
-    {
-      "id": "aws-quick-flows-multiagent-connectors-2026-11-20",
-      "published_at": "2026-11-20",
-      "time_precision": "Официальный анонс AWS датирован 20 ноября; время публикации не указано.",
-      "title": "AWS Quick собирает бизнес-процессы из чата и координирует агентов",
-      "text": "Quick теперь строит длинные процессы с детерминированными шагами и несколькими специализированными агентами по описанию в чате. Добавлены MCP-коннекторы Meta Ads и Amplitude; любые изменения рекламного аккаунта требуют подтверждения пользователя.",
-      "monetization_comment": "Как заработать интегратору: внедрять маркетинговую аналитику для агентств и ритейла; пилот — сводный отчёт Meta Ads + Amplitude и подготовка изменений кампаний с ручным подтверждением.",
-      "access": "Новые возможности доступны во всех регионах AWS Quick. Промо: 3 месяца бесплатно и до 10 участников без оплаты; для корпоративного управления доступами нужны Professional или Enterprise.",
-      "links": [
-        {
-          "label": "Анонс AWS",
-          "url": "https://aws.amazon.com/blogs/machine-learning/new-in-aws-quick-more-capable-flows-an-updated-web-experience-and-agents-that-work-together/"
-        }
-      ]
-    },
-    {
-      "id": "sagemaker-hyperpod-global-inference-gateway-2026-11-20",
-      "published_at": "2026-11-20",
-      "time_precision": "Официальный анонс AWS датирован 20 ноября; время публикации не указано.",
-      "title": "SageMaker HyperPod объединил inference-кластеры одним глобальным endpoint",
-      "text": "Global Inference Gateway распределяет запросы между HyperPod-кластерами по свободной KV/GPU-памяти, очереди, близости региона и частоте ошибок, автоматически переключаясь при сбоях. Клиенты используют один OpenAI-compatible endpoint с SigV4/IAM и приватным соединением AWS PrivateLink.",
-      "monetization_comment": "Как заработать интегратору: аудит и настройка отказоустойчивого inference для компаний с собственными GPU-кластерами; пилот — объединить два HyperPod-кластера и проверить балансировку и failover под нагрузкой.",
-      "access": "Доступен в 13 AWS Regions, включая Frankfurt, Ireland, London и Stockholm. Требует Amazon SageMaker HyperPod и Inference Gateway; это не универсальный маршрутизатор для произвольных API.",
-      "links": [
-        {
-          "label": "Технический анонс AWS",
-          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-global-inference-gateway-one-endpoint-across-regions-and-clusters/"
+          "label": "Уведомление Novita",
+          "url": "https://novita.ai/blog/minimax-requests-privacy-notice/"
         },
         {
-          "label": "Документация и регионы",
-          "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-model-deployment-global-inference-gateway.html"
+          "label": "Уведомление Together AI",
+          "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
         }
       ]
     }
   ],
   "openrouter": {
     "changes": [
-      "В рейтинге по обработанным токенам DeepSeek V4.1 Flash 1017 поднялась с #2 на #1, Hy4 flash выбыла из топ-10, а в топ вошли Nemotron 3 Ultra и Kimi K3.1 Pro (данные до 20 ноября; метрика OpenRouter, не число пользователей и не оценка качества)."
+      "В срезе на 21 ноября Hy4 flash вернулась в топ-10 на #6, Nemotron 3 Ultra выбыла, Kimi K3.1 Pro поднялась с #10 на #8, Step 5 Preview опустилась с #6 на #9; сравнение позиций по числу обработанных токенов."
     ],
     "links": [
       {
@@ -74,83 +44,75 @@
     ]
   },
   "takeaways": [
-    "Самый прикладной пилот — извлечение данных из документов, но Textract Insights пока не работает с русским языком и доступен только в двух регионах США.",
-    "AWS Quick подходит для автоматизации маркетинговых процессов, если клиент уже работает в экосистеме AWS.",
-    "Global Inference Gateway интересен операторам собственных GPU-кластеров, а не обычным пользователям LLM API."
+    "Проверяй не только провайдера API, но и фактический маршрут запросов, subprocessors и правила хранения prompt.",
+    "Для клиентов с чувствительными данными можно продавать аудит LLM-провайдеров, ZDR и секретов в agent workflow."
   ],
   "research_state": {
-    "previous_digest_date": "2026-11-20",
+    "previous_digest_date": "2026-11-21",
     "deduplication": {
       "previous_news_ids": [
-        "google-gemini-tool-retrieval-2026-11-19",
-        "google-cloud-storage-object-enrichments-2026-11-19",
-        "aws-agentcore-marketplace-x402-2026-11-19",
-        "skyflow-agentcore-pii-interceptor-2026-11-19",
-        "aws-sagemaker-inference-continuous-monitoring-2026-11-19",
-        "amazon-polly-voice-cloning-2026-11-19",
-        "kimi-code-cli-bedrock-provider-2026-11-19",
-        "eclipse-enclave-v1-2026-11-19",
-        "ovhcloud-olala-v1-mini-open-weights-2026-11-19",
-        "ovhcloud-ai-agents-ai-routers-announcement-2026-11-19"
+        "amazon-textract-insights-ga-2026-11-20",
+        "aws-quick-flows-multiagent-connectors-2026-11-20",
+        "sagemaker-hyperpod-global-inference-gateway-2026-11-20"
       ],
       "repeated_ids": []
     },
     "openrouter_snapshot": {
-      "as_of": "2026-11-20",
-      "text_method": "Место в основном рейтинге OpenRouter по числу токенов, обработанных через API; данные до 20 ноября 2026.",
+      "as_of": "2026-11-21",
+      "text_method": "Позиции по числу токенов, обработанных через OpenRouter API; текущие данные до 21 ноября 2026.",
       "text_top10": [
         [
           "DeepSeek V4.1 Flash 1017",
           "deepseek",
-          "62.4T"
+          "63.3T"
         ],
         [
           "DeepSeek V4.1 Flash",
           "deepseek",
-          "15.6T"
+          "15.3T"
         ],
         [
           "GLM 5.3 Flash",
           "z-ai",
-          "10.8T"
+          "11.6T"
         ],
         [
           "GPT-6 Luna",
           "openai",
-          "8.74T"
+          "8.51T"
         ],
         [
           "Claude Opus 5.5",
           "anthropic",
-          "7.25T"
+          "7.06T"
         ],
         [
-          "Step 5 Preview",
-          "stepfun",
-          "4.8T"
+          "Hy4 flash",
+          "tencent",
+          "6.51T"
         ],
         [
           "MiniMax M3.1 Flash",
           "minimax",
-          "4.11T"
-        ],
-        [
-          "MiMo-V2.6-Flash",
-          "xiaomi",
-          "3.91T"
-        ],
-        [
-          "Nemotron 3 Ultra (free)",
-          "nvidia",
-          "3.56T"
+          "4.2T"
         ],
         [
           "Kimi K3.1 Pro",
           "moonshotai",
-          "3.54T"
+          "3.88T"
+        ],
+        [
+          "Step 5 Preview",
+          "stepfun",
+          "3.84T"
+        ],
+        [
+          "MiMo-V2.6-Flash",
+          "xiaomi",
+          "3.83T"
         ]
       ],
-      "image_method": "Место в рейтинге OpenRouter по числу запросов к image-моделям; данные до 20 ноября 2026.",
+      "image_method": "Позиции по числу запросов к image-моделям; текущие данные до 20 ноября 2026.",
       "image_top10": [
         [
           "Nano Banana 2 (Gemini 3.1 Flash Image)",
@@ -203,7 +165,7 @@
           "360K"
         ]
       ],
-      "comparison_status": "В текстовом рейтинге сменился лидер: DeepSeek V4.1 Flash 1017 поднялась с #2 на #1, Hy4 flash выпала из топ-10; появились Nemotron 3 Ultra и Kimi K3.1 Pro. В рейтинге изображений заметных изменений относительно среза 19 ноября нет."
+      "comparison_status": "В текстовом топ-10 Hy4 flash вернулась на #6, Nemotron 3 Ultra выбыла, Kimi K3.1 Pro поднялась с #10 на #8, Step 5 Preview опустилась с #6 на #9. В рейтинге изображений значимых изменений относительно среза 20 ноября нет."
     }
   }
 }
