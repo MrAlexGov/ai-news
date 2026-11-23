@@ -1,36 +1,36 @@
 {
-  "date": "2026-11-22",
-  "window": "2026-11-21T08:16:04+03:00 — 2026-11-22T08:16:04+03:00 (МСК)",
+  "date": "2026-11-23",
+  "window": "2026-11-22T08:42:26+03:00 — 2026-11-23T08:42:26+03:00 (МСК)",
   "show_date_window": false,
-  "window_precision_note": "Официальные публикации OpenRouter и Together AI датированы 22 и 21 ноября соответственно, но точное время не указано; попадание обеих публикаций в строгие последние 24 часа подтвердить нельзя.",
+  "window_precision_note": "Сообщение руководителя Z.ai Zixuan Li в X датировано 23 ноября. Время исходного поста не удалось независимо подтвердить; IT之家 опубликовала подтверждение 23 ноября в 12:49:30 CST (07:49:30 МСК), внутри окна.",
   "news": [
     {
-      "id": "openrouter-provider-data-processing-incidents-2026-11-22",
-      "published_at": "2026-11-22",
-      "time_precision": "Официальная публикация OpenRouter датирована 22 ноября; время не указано.",
-      "title": "OpenRouter отключил трёх inference-провайдеров после инцидентов с данными",
-      "text": "22 ноября OpenRouter сообщил, что отключил трёх провайдеров, исключил 125 endpoints из Zero Data Retention (ZDR) и уведомил потенциально затронутых клиентов; признаков взлома собственной платформы компания не обнаружила. Среди публичных раскрытий — Novita (часть MiniMax-запросов с 28 мая по 11 ноября могла пересылаться в официальный API MiniMax) и Together AI (сохранённые prompt samples скачали после того, как coding agent закоммитил credential в публичный репозиторий). Для интегратора это повод проверять фактический маршрут и хранение данных у каждого endpoint, а не полагаться только на метку ZDR.",
-      "monetization_comment": "Как заработать интегратору: аудит LLM-цепочки клиента — провайдеры, маршрутизация, ZDR, логи и секреты в prompt; пилот на одном production-агенте с планом ротации ключей.",
-      "access": "Если запросы MiniMax шли через Novita в период 2026-05-28—2026-11-11, Novita рекомендует считать их содержимое потенциально доступным третьей стороне и ротировать секреты из prompt. Together AI продолжает проверку затронутых prompt samples и рекомендует включить ZDR для чувствительных данных.",
+      "id": "zai-glm-54-coding-plan-vision-quota-2026-11-23",
+      "published_at": "2026-11-23",
+      "time_precision": "Исходный пост Zixuan Li в X датирован 23 ноября; подтверждающая публикация IT之家 вышла в 12:49:30 CST (07:49:30 МСК), внутри окна.",
+      "title": "GLM-5.4 добавили в Coding Plan: vision и +50% недельной квоты",
+      "text": "Руководитель Z.ai сообщил, что GLM-5.4 доступна пользователям GLM Coding Plan, добавляет vision и даёт на 50% больше недельной квоты по сравнению с GLM-5.3. Модель выбирается по ID `glm-5.4` в поддерживаемом coding harness, что открывает сценарии визуального разбора интерфейсов и отладки по скриншотам.",
+      "monetization_comment": "Как заработать интегратору: настроить coding-agent для агентства или внутренней dev-команды; пилот на одном репозитории — исправление UI по скриншотам и сравнение качества и расхода квоты GLM-5.4 с GLM-5.3.",
+      "access": "Заявлена доступность для пользователей Coding Plan; подписка начинается от $18/мес. Документация Z.ai пока перечисляет только GLM-5.3 и GLM-5.3-Flash; отдельная API-цена, веса и публичные бенчмарки GLM-5.4 не опубликованы. Не переводить production-нагрузку до проверки реального расхода квоты и качества на своих задачах.",
       "links": [
         {
-          "label": "Анонс OpenRouter",
-          "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+          "label": "Zixuan Li в X — первичное объявление",
+          "url": "https://x.com/ZixuanLi_"
         },
         {
-          "label": "Уведомление Novita",
-          "url": "https://novita.ai/blog/minimax-requests-privacy-notice/"
+          "label": "Документация GLM Coding Plan",
+          "url": "https://docs.z.ai/devpack/overview"
         },
         {
-          "label": "Уведомление Together AI",
-          "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+          "label": "Подтверждение и время публикации IT之家",
+          "url": "https://www.ithome.com/1/030/809.htm"
         }
       ]
     }
   ],
   "openrouter": {
     "changes": [
-      "В срезе на 21 ноября Hy4 flash вернулась в топ-10 на #6, Nemotron 3 Ultra выбыла, Kimi K3.1 Pro поднялась с #10 на #8, Step 5 Preview опустилась с #6 на #9; сравнение позиций по числу обработанных токенов."
+      "Hy4 flash поднялась с #6 на #4, а обработанный объём вырос с 6.51T до 10.2T токенов (+56.7%); NVIDIA Nemotron 3 Ultra (free) впервые вошла в топ-10 на #9. Методология: ранжирование по токенам, обработанным через OpenRouter API; это метрика использования платформы, не уникальные пользователи и не качество модели."
     ],
     "links": [
       {
@@ -40,84 +40,86 @@
       {
         "label": "Рейтинг изображений",
         "url": "https://openrouter.ai/rankings/image"
+      },
+      {
+        "label": "Nemotron 3 Ultra (free): цена, контекст и ограничения",
+        "url": "https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free"
       }
     ]
   },
   "takeaways": [
-    "Проверяй не только провайдера API, но и фактический маршрут запросов, subprocessors и правила хранения prompt.",
-    "Для клиентов с чувствительными данными можно продавать аудит LLM-провайдеров, ZDR и секретов в agent workflow."
+    "GLM-5.4 стоит проверить на задачах UI и визуальной отладки, но сначала сравнить качество и расход квоты с GLM-5.3.",
+    "Hy4 быстро набирает использование в OpenRouter; Nemotron 3 Ultra (free) можно тестировать без оплаты, но бесплатный endpoint ограничен по частоте и не предназначен для конфиденциальных данных."
   ],
   "research_state": {
-    "previous_digest_date": "2026-11-21",
+    "previous_digest_date": "2026-11-22",
     "deduplication": {
       "previous_news_ids": [
-        "amazon-textract-insights-ga-2026-11-20",
-        "aws-quick-flows-multiagent-connectors-2026-11-20",
-        "sagemaker-hyperpod-global-inference-gateway-2026-11-20"
+        "openrouter-provider-data-processing-incidents-2026-11-22"
       ],
       "repeated_ids": []
     },
     "openrouter_snapshot": {
-      "as_of": "2026-11-21",
-      "text_method": "Позиции по числу токенов, обработанных через OpenRouter API; текущие данные до 21 ноября 2026.",
+      "as_of": "2026-11-22",
+      "text_method": "Позиции по числу токенов, обработанных через OpenRouter API; данные по 22 ноября 2026.",
       "text_top10": [
         [
           "DeepSeek V4.1 Flash 1017",
           "deepseek",
-          "63.3T"
+          "65T"
         ],
         [
           "DeepSeek V4.1 Flash",
           "deepseek",
-          "15.3T"
+          "15.4T"
         ],
         [
           "GLM 5.3 Flash",
           "z-ai",
-          "11.6T"
-        ],
-        [
-          "GPT-6 Luna",
-          "openai",
-          "8.51T"
-        ],
-        [
-          "Claude Opus 5.5",
-          "anthropic",
-          "7.06T"
+          "12.2T"
         ],
         [
           "Hy4 flash",
           "tencent",
-          "6.51T"
+          "10.2T"
+        ],
+        [
+          "GPT-6 Luna",
+          "openai",
+          "8.31T"
+        ],
+        [
+          "Claude Opus 5.5",
+          "anthropic",
+          "6.97T"
         ],
         [
           "MiniMax M3.1 Flash",
           "minimax",
-          "4.2T"
+          "4.29T"
         ],
         [
           "Kimi K3.1 Pro",
           "moonshotai",
-          "3.88T"
+          "4.07T"
         ],
         [
-          "Step 5 Preview",
-          "stepfun",
-          "3.84T"
+          "Nemotron 3 Ultra (free)",
+          "nvidia",
+          "3.93T"
         ],
         [
           "MiMo-V2.6-Flash",
           "xiaomi",
-          "3.83T"
+          "3.7T"
         ]
       ],
-      "image_method": "Позиции по числу запросов к image-моделям; текущие данные до 20 ноября 2026.",
+      "image_method": "Позиции по числу запросов к image-моделям; данные по 22 ноября 2026.",
       "image_top10": [
         [
           "Nano Banana 2 (Gemini 3.1 Flash Image)",
           "google",
-          "2.42M"
+          "2.4M"
         ],
         [
           "Nano Banana 2.1",
@@ -127,45 +129,87 @@
         [
           "GPT Image 2.5 Sunburst",
           "openai",
-          "1.12M"
+          "1.15M"
         ],
         [
           "GPT Image 2.5 Flare",
           "openai",
-          "1.02M"
+          "969K"
         ],
         [
           "Muse Image",
           "meta",
-          "652K"
+          "630K"
         ],
         [
           "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
           "google",
-          "646K"
-        ],
-        [
-          "GPT Image 2",
-          "openai",
-          "466K"
+          "630K"
         ],
         [
           "GPT Image 2.6 Sunburst",
           "openai",
-          "413K"
+          "459K"
+        ],
+        [
+          "GPT Image 2",
+          "openai",
+          "445K"
         ],
         [
           "Nano Banana (Gemini 2.5 Flash Image)",
           "google",
-          "404K"
+          "393K"
         ],
         [
           "Nano Banana Pro (Gemini 3 Pro Image)",
           "google",
-          "360K"
+          "346K"
         ]
       ],
-      "comparison_status": "В текстовом топ-10 Hy4 flash вернулась на #6, Nemotron 3 Ultra выбыла, Kimi K3.1 Pro поднялась с #10 на #8, Step 5 Preview опустилась с #6 на #9. В рейтинге изображений значимых изменений относительно среза 20 ноября нет."
+      "image_author_share": [
+        [
+          "Google",
+          "47.3%"
+        ],
+        [
+          "OpenAI",
+          "31.1%"
+        ],
+        [
+          "Meta",
+          "5.4%"
+        ],
+        [
+          "Bytedance Seed",
+          "5.1%"
+        ],
+        [
+          "Recraft",
+          "3.6%"
+        ],
+        [
+          "Black Forest Labs",
+          "3.2%"
+        ],
+        [
+          "Microsoft",
+          "1.2%"
+        ],
+        [
+          "Tencent",
+          "1.0%"
+        ],
+        [
+          "SpaceXSI",
+          "0.9%"
+        ],
+        [
+          "Others",
+          "1.2%"
+        ]
+      ],
+      "comparison_status": "Hy4 flash: #6 → #4 и 6.51T → 10.2T (+56.7%); Nemotron 3 Ultra (free) вошла в топ-10 на #9. В рейтинге изображений существенных изменений позиций относительно среза 20 ноября нет."
     }
   }
 }
