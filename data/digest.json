@@ -1,102 +1,219 @@
 {
-  "date": "2026-11-23",
-  "window": "2026-11-22T08:42:26+03:00 — 2026-11-23T08:42:26+03:00 (МСК)",
+  "date": "2026-11-24",
+  "window": "2026-11-23T08:16:26+03:00 — 2026-11-24T08:16:26+03:00 (МСК)",
   "show_date_window": false,
-  "window_precision_note": "Сообщение руководителя Z.ai Zixuan Li в X датировано 23 ноября. Время исходного поста не удалось независимо подтвердить; IT之家 опубликовала подтверждение 23 ноября в 12:49:30 CST (07:49:30 МСК), внутри окна.",
+  "window_precision_note": "У релизов OpenAI/Cisco и Vercel указана календарная дата 23 ноября 2026 года, но не точное время публикации. Поэтому нельзя независимо подтвердить, что каждый из них попадает именно в скользящее 24-часовое окно; в выпуск включены только наиболее полезные находки этой даты с явной оговоркой.",
   "news": [
     {
-      "id": "zai-glm-54-coding-plan-vision-quota-2026-11-23",
+      "id": "vercel-ai-gateway-extraction-models-2026-11-23",
       "published_at": "2026-11-23",
-      "time_precision": "Исходный пост Zixuan Li в X датирован 23 ноября; подтверждающая публикация IT之家 вышла в 12:49:30 CST (07:49:30 МСК), внутри окна.",
-      "title": "GLM-5.4 добавили в Coding Plan: vision и +50% недельной квоты",
-      "text": "Руководитель Z.ai сообщил, что GLM-5.4 доступна пользователям GLM Coding Plan, добавляет vision и даёт на 50% больше недельной квоты по сравнению с GLM-5.3. Модель выбирается по ID `glm-5.4` в поддерживаемом coding harness, что открывает сценарии визуального разбора интерфейсов и отладки по скриншотам.",
-      "monetization_comment": "Как заработать интегратору: настроить coding-agent для агентства или внутренней dev-команды; пилот на одном репозитории — исправление UI по скриншотам и сравнение качества и расхода квоты GLM-5.4 с GLM-5.3.",
-      "access": "Заявлена доступность для пользователей Coding Plan; подписка начинается от $18/мес. Документация Z.ai пока перечисляет только GLM-5.3 и GLM-5.3-Flash; отдельная API-цена, веса и публичные бенчмарки GLM-5.4 не опубликованы. Не переводить production-нагрузку до проверки реального расхода квоты и качества на своих задачах.",
+      "time_precision": "На официальной странице указан день, точное время публикации не указано.",
+      "title": "Vercel AI Gateway добавил Extract-1 для извлечения данных из документов",
+      "text": "AI Gateway добавил ScaleDown Extract-1: модель извлекает поля и списки из текста, изображений и PDF по заданной схеме, возвращая confidence scores и offsets. На старте извлечение доступно через AI SDK (`experimental_extract`, версия `ai@7.0.176+`), поэтому можно собирать обработку документов без собственного парсера.",
+      "monetization_comment": "Как заработать интегратору: внедрить разбор счетов и договоров для бухгалтерий, логистики или страховых; быстрый пилот — 100–500 PDF, извлечение реквизитов и позиций с отправкой полей с низкой уверенностью на ручную проверку.",
+      "access": "Цена Extract-1 на странице Vercel — $0.05 за 1 млн входных токенов. Для пользователей AI Gateway, ещё не совершавших оплату, указано $5 кредитов каждые 30 дней. Для нового extraction-вызова требуется AI SDK ai@7.0.176+.",
       "links": [
         {
-          "label": "Zixuan Li в X — первичное объявление",
-          "url": "https://x.com/ZixuanLi_"
+          "label": "Vercel — анонс",
+          "url": "https://vercel.com/changelog/ai-gateway-now-supports-extraction-models"
         },
         {
-          "label": "Документация GLM Coding Plan",
-          "url": "https://docs.z.ai/devpack/overview"
+          "label": "Extract-1 — цена и API",
+          "url": "https://vercel.com/ai-gateway/models/scaledown/scaledown-extract-1"
         },
         {
-          "label": "Подтверждение и время публикации IT之家",
-          "url": "https://www.ithome.com/1/030/809.htm"
+          "label": "Extraction quickstart",
+          "url": "https://vercel.com/docs/ai-gateway/getting-started/extraction"
+        }
+      ]
+    },
+    {
+      "id": "vercel-ai-gateway-provider-location-zdr-canary-2026-11-23",
+      "published_at": "2026-11-23",
+      "time_precision": "Обе официальные страницы Vercel датированы 23 ноября; точное время не опубликовано.",
+      "title": "Vercel AI Gateway добавил геофильтр провайдеров и canary-аудиты ZDR",
+      "text": "AI Gateway позволяет ограничивать маршрутизацию по стране головной компании провайдера через allowlist/denylist и запускает canary-аудиты, выявляющие чтение prompt вне inference-пути. Это даёт интеграторам более проверяемый контур управления поставщиками и приватностью корпоративных AI-запросов.",
+      "monetization_comment": "Как заработать интегратору: провести аудит LLM-маршрутов для финтеха, страхования или медицины — проверить страны провайдеров, ZDR, fallback и региональную обработку; пилот — один endpoint и политика допустимых стран.",
+      "access": "Фильтр страны на уровне отдельного запроса доступен на любом плане; командная политика — Pro и Enterprise. Страна штаб-квартиры сама по себе не определяет место обработки данных: для data residency её нужно сочетать с regional hosting/inference. Canary-аудиты дополняют, но не заменяют договор ZDR и независимую проверку.",
+      "links": [
+        {
+          "label": "Vercel — canary ZDR audits",
+          "url": "https://vercel.com/changelog/ai-gateway-now-runs-canary-zdr-audits"
+        },
+        {
+          "label": "Vercel — provider headquarters",
+          "url": "https://vercel.com/changelog/choose-ai-gateway-providers-by-headquarters-country"
+        },
+        {
+          "label": "AI Gateway — security and compliance",
+          "url": "https://vercel.com/docs/ai-gateway/security-and-compliance"
+        }
+      ]
+    },
+    {
+      "id": "openai-cisco-shirudo-ebpf-runtime-2026-11-23",
+      "published_at": "2026-11-23",
+      "time_precision": "Официальные анонсы OpenAI и Cisco датированы 23 ноября; точное время публикации не указано.",
+      "title": "OpenAI и Cisco открыли Shirudo — временная защита Linux через eBPF",
+      "text": "Shirudo — open-source runtime для подписанных eBPF- и application-shields, которые блокируют уязвимые пути на работающей Linux-системе без перезапуска, пока готовится постоянный патч. В контролируемом тесте щит, созданный с помощью Codex, заблокировал Java4Shell-эксплойт против Elasticsearch; установку защиты подтверждает оператор.",
+      "monetization_comment": "Как заработать интегратору: предложить временную защиту Linux/Kubernetes-парка во время patch rollout; быстрый пилот — лабораторная VM, один воспроизводимый CVE, тест совместимости и отчёт о влиянии на workload.",
+      "access": "BSD-2-Clause; BPF-программы также доступны под GPL. Проект в pre-release: production-узлам нужны ядро с signed-loader ABI и патчами Shirudo, а также TPM 2.0. Это временная mitigation, не замена постоянному исправлению.",
+      "links": [
+        {
+          "label": "OpenAI — анонс",
+          "url": "https://openai.com/index/introducing-shirudo/"
+        },
+        {
+          "label": "Cisco Isovalent — технический разбор",
+          "url": "https://isovalent.com/blog/post/cisco-openai-shirudo/"
+        },
+        {
+          "label": "GitHub — код Shirudo",
+          "url": "https://github.com/shirudo-dev/shirudo"
+        },
+        {
+          "label": "Quickstart",
+          "url": "https://docs.shirudo.dev/start/quickstart.html"
+        }
+      ]
+    },
+    {
+      "id": "vercel-drives-cli-sdk-persistent-agent-workspaces-2026-11-23",
+      "published_at": "2026-11-23",
+      "time_precision": "На официальной странице указан день, точное время публикации не указано.",
+      "title": "Vercel Drives получили SDK и CLI для постоянных рабочих пространств агентов",
+      "text": "Vercel добавила TypeScript- и Python-SDK, CLI и REST API для создания, перечисления, форка и удаления Drives. Подключённый к Sandbox диск сохраняет код, логи и рабочие файлы между сессиями, а fork позволяет выдавать независимую копию под параллельную задачу.",
+      "monetization_comment": "Как заработать интегратору: собрать агента для долгих задач с сохранением артефактов и отдельным workspace на клиента; быстрый пилот — агент, который продолжает обработку проекта после завершения первой сессии.",
+      "access": "Доступно на Vercel Hobby, Pro и Enterprise. SDK: `@vercel/drives` для TypeScript и `vercel-drives` для Python; тарифы и лимиты зависят от региона и ёмкости.",
+      "links": [
+        {
+          "label": "Vercel — анонс",
+          "url": "https://vercel.com/changelog/vercel-drives-adds-cli-commands-and-standalone-sdks"
+        },
+        {
+          "label": "Документация Vercel Drives",
+          "url": "https://vercel.com/docs/drives"
         }
       ]
     }
   ],
   "openrouter": {
     "changes": [
-      "Hy4 flash поднялась с #6 на #4, а обработанный объём вырос с 6.51T до 10.2T токенов (+56.7%); NVIDIA Nemotron 3 Ultra (free) впервые вошла в топ-10 на #9. Методология: ранжирование по токенам, обработанным через OpenRouter API; это метрика использования платформы, не уникальные пользователи и не качество модели."
+      "Текстовый рейтинг, срез 22→23 ноября: Hy4 flash поднялась с #4 на #2, а объём обработанных токенов вырос с 10.2T до 23.5T (+130%). GLM 5.3 вошла в топ-10 на #10 вместо MiMo-V2.6-Flash. Методология: число токенов, обработанных через OpenRouter API; это метрика использования платформы, не уникальные пользователи, выручка или качество модели."
     ],
     "links": [
       {
-        "label": "Рейтинг текстовых моделей",
+        "label": "OpenRouter — рейтинг текстовых моделей",
         "url": "https://openrouter.ai/rankings"
       },
       {
-        "label": "Рейтинг изображений",
+        "label": "OpenRouter — рейтинг изображений",
         "url": "https://openrouter.ai/rankings/image"
-      },
-      {
-        "label": "Nemotron 3 Ultra (free): цена, контекст и ограничения",
-        "url": "https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free"
       }
     ]
   },
+  "sources": [
+    {
+      "label": "Vercel AI Gateway — extraction models",
+      "url": "https://vercel.com/changelog/ai-gateway-now-supports-extraction-models",
+      "published_at": "2026-11-23",
+      "type": "primary"
+    },
+    {
+      "label": "Vercel AI Gateway — canary ZDR audits",
+      "url": "https://vercel.com/changelog/ai-gateway-now-runs-canary-zdr-audits",
+      "published_at": "2026-11-23",
+      "type": "primary"
+    },
+    {
+      "label": "Vercel AI Gateway — provider headquarters",
+      "url": "https://vercel.com/changelog/choose-ai-gateway-providers-by-headquarters-country",
+      "published_at": "2026-11-23",
+      "type": "primary"
+    },
+    {
+      "label": "OpenAI — Shirudo",
+      "url": "https://openai.com/index/introducing-shirudo/",
+      "published_at": "2026-11-23",
+      "type": "primary"
+    },
+    {
+      "label": "Cisco Isovalent — Shirudo",
+      "url": "https://isovalent.com/blog/post/cisco-openai-shirudo/",
+      "published_at": "2026-11-23",
+      "type": "primary"
+    },
+    {
+      "label": "Vercel Drives — SDK, CLI and REST API",
+      "url": "https://vercel.com/changelog/vercel-drives-adds-cli-commands-and-standalone-sdks",
+      "published_at": "2026-11-23",
+      "type": "primary"
+    },
+    {
+      "label": "OpenRouter — rankings",
+      "url": "https://openrouter.ai/rankings",
+      "published_at": "2026-11-23",
+      "type": "usage-data"
+    },
+    {
+      "label": "OpenRouter — image rankings",
+      "url": "https://openrouter.ai/rankings/image",
+      "published_at": "2026-11-22",
+      "type": "usage-data"
+    }
+  ],
   "takeaways": [
-    "GLM-5.4 стоит проверить на задачах UI и визуальной отладки, но сначала сравнить качество и расход квоты с GLM-5.3.",
-    "Hy4 быстро набирает использование в OpenRouter; Nemotron 3 Ultra (free) можно тестировать без оплаты, но бесплатный endpoint ограничен по частоте и не предназначен для конфиденциальных данных."
+    "Extract-1 — быстрый MVP для счетов и договоров; уверенность модели позволяет отправлять сомнительные поля на ручную проверку.",
+    "Для корпоративных клиентов можно продавать аудит AI-маршрутов, географии провайдеров и ZDR; одной страны головного офиса недостаточно для подтверждения места обработки.",
+    "Shirudo пока годится для лабораторного пилота, а Vercel Drives упрощает создание агентов с долговременными рабочими файлами."
   ],
   "research_state": {
-    "previous_digest_date": "2026-11-22",
+    "previous_digest_date": "2026-11-23",
     "deduplication": {
       "previous_news_ids": [
+        "zai-glm-54-coding-plan-vision-quota-2026-11-23",
         "openrouter-provider-data-processing-incidents-2026-11-22"
       ],
       "repeated_ids": []
     },
     "openrouter_snapshot": {
-      "as_of": "2026-11-22",
-      "text_method": "Позиции по числу токенов, обработанных через OpenRouter API; данные по 22 ноября 2026.",
+      "as_of": "2026-11-23",
+      "text_method": "Позиции по числу токенов, обработанных через OpenRouter API; данные по 23 ноября 2026.",
       "text_top10": [
         [
           "DeepSeek V4.1 Flash 1017",
           "deepseek",
-          "65T"
-        ],
-        [
-          "DeepSeek V4.1 Flash",
-          "deepseek",
-          "15.4T"
-        ],
-        [
-          "GLM 5.3 Flash",
-          "z-ai",
-          "12.2T"
+          "66.8T"
         ],
         [
           "Hy4 flash",
           "tencent",
-          "10.2T"
+          "23.5T"
+        ],
+        [
+          "DeepSeek V4.1 Flash",
+          "deepseek",
+          "15.5T"
+        ],
+        [
+          "GLM 5.3 Flash",
+          "z-ai",
+          "12.9T"
         ],
         [
           "GPT-6 Luna",
           "openai",
-          "8.31T"
+          "8.34T"
         ],
         [
           "Claude Opus 5.5",
           "anthropic",
-          "6.97T"
+          "6.61T"
         ],
         [
           "MiniMax M3.1 Flash",
           "minimax",
-          "4.29T"
+          "4.45T"
         ],
         [
           "Kimi K3.1 Pro",
@@ -106,15 +223,15 @@
         [
           "Nemotron 3 Ultra (free)",
           "nvidia",
-          "3.93T"
+          "4T"
         ],
         [
-          "MiMo-V2.6-Flash",
-          "xiaomi",
-          "3.7T"
+          "GLM 5.3",
+          "z-ai",
+          "3.59T"
         ]
       ],
-      "image_method": "Позиции по числу запросов к image-моделям; данные по 22 ноября 2026.",
+      "image_method": "Позиции по числу запросов к image-моделям; последний доступный срез по 22 ноября 2026.",
       "image_top10": [
         [
           "Nano Banana 2 (Gemini 3.1 Flash Image)",
@@ -209,7 +326,7 @@
           "1.2%"
         ]
       ],
-      "comparison_status": "Hy4 flash: #6 → #4 и 6.51T → 10.2T (+56.7%); Nemotron 3 Ultra (free) вошла в топ-10 на #9. В рейтинге изображений существенных изменений позиций относительно среза 20 ноября нет."
+      "comparison_status": "Hy4 flash: #4 → #2 и 10.2T → 23.5T токенов (+130%) по сравнению с сохранённым срезом 22 ноября; GLM 5.3 вошла в топ-10 вместо MiMo-V2.6-Flash. Срез изображений не обновился: на странице по-прежнему данные по 22 ноября, поэтому новый вывод по image rankings не публикуется."
     }
   }
 }
